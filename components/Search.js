@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import Scroll from './Scroll';
 import searchListOfPets from './searchListOfPets';
-
+import styles from '../styles/Search.module.scss'
 function Search({ details }) {
-
   const [searchField, setSearchField] = useState("");
   const filteredpets = details.filter(
     pet => {
@@ -19,29 +17,32 @@ function Search({ details }) {
 
   function searchListOfPets() {
     return (
-      <Scroll>
         <searchListOfPets filteredpets={filteredpets} />
-      </Scroll>
     );
   }
 
   return (
-    <>
-    <section >
-      <div >
-        <h2 style={{margin: 'auto'}} >Buscador de mascotas</h2>
+      <div className={styles.search}>
+          <div>
+            <h2>Encuentralo!</h2>
+          </div>
+          <div className={styles.searchBox}>
+                        <label htmlFor="search-form">
+                            <input
+                                type="search"
+                                name="search-form"
+                                id="search-form"
+                                className="search-input"
+                                placeholder="Busque su Mascota"
+                                value={'test'}
+                                onChange={(e) => setQ(e.target.value)}
+                            />
+                            <span className="sr-only">Buscador de Mascotas</span>
+                        </label>
+                    </div>
+          {searchListOfPets()}
+          
       </div>
-      <div >
-        <input 
-          className=""
-          type = "search" 
-          placeholder = "Busque su mascota" 
-          onChange = {Searchpet}
-        />
-      </div>
-      {searchListOfPets()}
-    </section>
-    </>
   );
 }
 

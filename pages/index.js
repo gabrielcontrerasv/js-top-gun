@@ -8,21 +8,32 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   const mascotas = ['Cocot','Thort',' Maxt',' Leot','ockyt','Tobyt','imbat','runot']
   return (
-    <div >
-      <Head>
+
+    <div className={styles.container}>
+      <div className={styles.Header}><Head>
         <title>Tienda Veterinaria</title>
         <meta name="description" /> 
-      </Head>
+        </Head>
+        <Header/>
+      </div>
 
-      <main>
-       <Header/>
-       <Search details={mascotas}/>
-          <h3>Tu peludo Mascota es invitado de honor</h3>
-       <Card mascotas={mascotas}/>
-      </main>
-      <footer className={styles.footer}>
-        <h5> Copyright 2022</h5>
-      </footer>
-    </div>
+       <div className={styles.SearchContainer}>
+          <Search  details={mascotas}/>
+        </div>
+
+        <main className={styles.Main}>
+           <Card mascotas={mascotas}/>
+        </main>
+
+        <div className={styles.SideBar}>
+           sidebar 
+        </div>
+
+      <div className={styles.Footer}>
+         <footer>
+            <h5> Copyright 2022</h5>
+        </footer>
+        </div>
+    </div> 
   )
 }

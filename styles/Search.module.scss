@@ -1,0 +1,13 @@
+@import url('https://rsms.me/inter/inter.css');
+.CustomSearch {
+  border-radius: 3px;
+  width: 40vw;
+}
+
+.Search{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  justify-content: center;
+  align-self: center;
+}

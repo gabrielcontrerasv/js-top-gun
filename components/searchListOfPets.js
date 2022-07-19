@@ -1,6 +1,6 @@
 import Card from './Card';
 
-function searchListOfPets({ filteredPets }) {
+function SearchListOfPets({ filteredPets }) {
   const filtered = filteredPets.map((filteredpet)=>  
   <Card mascotas = {filteredpet} />); 
   return (
@@ -10,4 +10,4 @@ function searchListOfPets({ filteredPets }) {
   );
 }
 
-export default searchListOfPets;
+export default SearchListOfPets;
