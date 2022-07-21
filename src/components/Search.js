@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import searchListOfPets from './searchListOfPets';
-import styles from '../styles/Search.module.scss'
+import searchListOfPets from './SearchListOfPets';
+import styles from '../styles/Home.module.css'
 function Search({ details }) {
   const [searchField, setSearchField] = useState("");
   const filteredpets = details.filter(
@@ -22,13 +22,13 @@ function Search({ details }) {
   }
 
   return (
-      <div className={styles.search}>
-          <div>
-            <h2>Encuentralo!</h2>
+      <div className={styles.search} style={{justifyContent:'center'}}>
+          <div style={{justifyContent:'center'}}>
+            <h2>Lo que tu mascota necesita esta aqui, Encuentralo!</h2>
           </div>
           <div className={styles.searchBox}>
                         <label htmlFor="search-form">
-                            <input
+                            <input style={{marginBottom:'25px', marginRight : '20px' }}
                                 type="search"
                                 name="search-form"
                                 id="search-form"
@@ -37,7 +37,7 @@ function Search({ details }) {
                                 value={'test'}
                                 onChange={(e) => setQ(e.target.value)}
                             />
-                            <span className="sr-only">Buscador de Mascotas</span>
+                           <button>Buscar</button>
                         </label>
                     </div>
           {searchListOfPets()}

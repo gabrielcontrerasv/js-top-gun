@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Card from '../components/Card'
 import Header from '../components/Header'
 import Search from '../components/Search'
+import SideBar from '../components/SideBar'
 import styles from '../styles/Home.module.css'
 
 
@@ -18,7 +19,7 @@ export default function Home() {
       </div>
 
        <div className={styles.SearchContainer}>
-          <Search  details={mascotas}/>
+          <Search  className={styles.Search} details={mascotas}/>
         </div>
 
         <main className={styles.Main}>
@@ -26,7 +27,7 @@ export default function Home() {
         </main>
 
         <div className={styles.SideBar}>
-           sidebar 
+           <SideBar/>
         </div>
 
       <div className={styles.Footer}>
