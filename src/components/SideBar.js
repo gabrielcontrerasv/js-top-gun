@@ -16,7 +16,6 @@ function SideBar() {
             Downloads
           </button>
     </div>
-
   );
 }
 

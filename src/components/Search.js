@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
 import styles from '../styles/Home.module.css'
 function Search({ details,setMascotas }) {
-  const [searchField, setSearchField] = useState("");
   const filteredpets = (value)=> details.filter(
     pet => pet.toLowerCase().includes(value.toLowerCase())
   );
 
-
   function Searchpet(value) {
-      console.log(value)
       setMascotas([...filteredpets(value)])  
   }
 
