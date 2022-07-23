@@ -1,24 +1,15 @@
 import React, { useState } from 'react';
-import searchListOfPets from './SearchListOfPets';
 import styles from '../styles/Home.module.css'
-function Search({ details }) {
+function Search({ details,setMascotas }) {
   const [searchField, setSearchField] = useState("");
-  const filteredpets = details.filter(
-    pet => {
-      return (
-        pet.toLowerCase().includes(searchField.toLowerCase())
-      );
-    }
+  const filteredpets = (value)=> details.filter(
+    pet => pet.toLowerCase().includes(value.toLowerCase())
   );
 
-  const Searchpet = e => {
-    setSearchField(e.target.value);
-  };
 
-  function searchListOfPets() {
-    return (
-        <searchListOfPets filteredpets={filteredpets} />
-    );
+  function Searchpet(value) {
+      console.log(value)
+      setMascotas([...filteredpets(value)])  
   }
 
   return (
@@ -34,14 +25,12 @@ function Search({ details }) {
                                 id="search-form"
                                 className="search-input"
                                 placeholder="Busque su Mascota"
-                                value={'test'}
-                                onChange={(e) => setQ(e.target.value)}
+              
+                                onChange={(e) => Searchpet(e.target.value)}
                             />
                            <button>Buscar</button>
                         </label>
                     </div>
-          {searchListOfPets()}
-          
       </div>
   );
 }

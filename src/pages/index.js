@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useState } from 'react'
 import Card from '../components/Card'
 import Header from '../components/Header'
 import Search from '../components/Search'
@@ -6,10 +7,12 @@ import SideBar from '../components/SideBar'
 import styles from '../styles/Home.module.css'
 
 
-export default function Home() {
-  const mascotas = ['Cocot','Thort',' Maxt',' Leot','ockyt','Tobyt','imbat','runot']
-  return (
 
+const data = ['Cocot','Thort',' Maxt',' Leot','ockyt','Tobyt','imbat','runot']
+
+export default function Home() {
+  const [mascotas,setMascotas] = useState([...data])
+  return (
     <div className={styles.container}>
       <div className={styles.Header}><Head>
         <title>Tienda Veterinaria</title>
@@ -19,7 +22,7 @@ export default function Home() {
       </div>
 
        <div className={styles.SearchContainer}>
-          <Search  className={styles.Search} details={mascotas}/>
+          <Search  className={styles.Search} details={data} setMascotas={setMascotas}/>
         </div>
 
         <main className={styles.Main}>

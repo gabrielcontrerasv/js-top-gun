@@ -1,12 +1,7 @@
-.root{
-  margin: 0;
-}
-
 .container {
   display: grid; 
   grid-template-columns: 1fr 1fr 0.9fr 0.1fr; 
   grid-template-rows: 0.2fr 0.2fr 1fr 1fr 1fr 0.5fr; 
-  /* Created with https://www.css-gradient.com */
   background: #BBF6C0;
   background: -webkit-linear-gradient(top left, #BBF6C0, #2852DD);
   background: -moz-linear-gradient(top left, #BBF6C0, #2852DD);
@@ -24,13 +19,11 @@
 }
 .Header { 
   grid-area: Header; 
-  background-color: red; 
   width: 100vw;
 }
 
 .Main { 
   grid-area: Main; 
-  background-color: aqua; 
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -38,17 +31,15 @@
   grid-area: Search; 
   display: flex;
   justify-content:center;
-  align-items: center;
-   background-color: gold; 
+  align-items: center; 
   margin-bottom: 15px;
 
 }
 .SideBar { 
   grid-area: SideBar;
-  background-color: teal;
+  display: flex;
   justify-content: center;
   align-items: center;
-  align-self: center;
 }
 
 .Footer { 
@@ -56,9 +47,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
-  width: 100vw;
-  background-color: blueviolet; 
+  width: 100vw; 
 }
 
 .search {
