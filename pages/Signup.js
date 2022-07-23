@@ -2,7 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout/Layout';
 import SignupForm from '../components/signup/SignupForm';
-import PetsBanner from '../assets/images/pets-banner.jpg';
+import PetsBanner from '../public/assets/images/pets-banner.jpg';
+import Image from 'next/image';
 /* import '../styles/signup/page-styles.css'
  */
 const Signup = () => {
@@ -17,7 +18,7 @@ const Signup = () => {
             <div style={{background: '#1F6B6B', minHeight: '200px'}}>
             <h1 className="text-4xl font-bold text-white">Welcome buddy!</h1>
             </div>
-            <img src={PetsBanner} alt='pets-banner' />
+            <Image src={PetsBanner} alt='pets-banner' />
           </div>
           <div>
             <SignupForm />
