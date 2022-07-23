@@ -21,7 +21,7 @@ const NotFoundPage = () => {
         </div>
         <h1 className="text-3xl text-center font-bold" style={{color: '#154D4D', maxWidth: '400px', margin: 'auto'}}>Oops... it looks like you’ve reached a bad path buddy :/ </h1>
         <div className="m-auto w-32">
-        <button className="bg-[#154D4D] hover:bg-[#FEDB54] text-white hover:text-black font-bold py-3 px-6 rounded-full my-4" style={{marginLeft: 'auto'}} onClick={goHome}>Go Home</button>
+        <button className="bg-[#154D4D] hover:bg-[#FEDB54] text-white hover:text-black font-bold py-3 px-6 rounded-full my-4" onClick={goHome}>Go Home</button>
         </div>
       </Layout>
     </>
