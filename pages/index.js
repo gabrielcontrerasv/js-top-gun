@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Container from '../components/Container';
+import Layout from '../components/Layout/Layout';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
       <Head>
         <title>TGL Pet - Home</title>
       </Head>
-    <Container>
+    <Layout>
       <div className={styles.container}>
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -51,7 +51,7 @@ export default function Home() {
         </div>
       </main>
     </div>
-    </Container>
+    </Layout>
     </div>
   )
 }

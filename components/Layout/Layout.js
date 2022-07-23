@@ -1,13 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
-import NavMenu from './general/NavMenu';
+import NavMenu from './NavMenu';
 
-const Container = (props) => {
+const Layout = (props) => {
     return (
         <div>
             <Head>
-            <link rel="icon" href="/favicon.ico" />
-                <script src="https://cdn.tailwindcss.com"></script>
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavMenu/>
             <section>
@@ -17,4 +16,4 @@ const Container = (props) => {
     );
 }
 
-export default Container;
+export default Layout;
