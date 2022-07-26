@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Services.module.css'
 function Search({ details,setMascotas }) {
   const filteredpets = (value)=> details.filter(
     pet => pet.toLowerCase().includes(value.toLowerCase())

@@ -1,9 +1,7 @@
 import Head from 'next/head'
 import { useState } from 'react'
-import Card from '../components/Card'
-import Header from '../components/Header'
-import Search from '../components/Search'
-import SideBar from '../components/SideBar'
+import Card from '../components/Layout/Card'
+import Search from '../components/Layout/Search'
 import styles from '../styles/Services.module.css'
 
 
@@ -18,7 +16,6 @@ export default function Services() {
         <title>Tienda Veterinaria</title>
         <meta name="description" /> 
         </Head>
-        <Header/>
       </div>
 
        <div className={styles.SearchContainer}>
@@ -28,10 +25,6 @@ export default function Services() {
         <main className={styles.Main}>
            <Card mascotas={mascotas}/>
         </main>
-
-        <div className={styles.SideBar}>
-           <SideBar/>
-        </div>
 
       <div className={styles.Footer}>
          <footer>
