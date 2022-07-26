@@ -2,7 +2,7 @@ import SigninForm from "components/signin/SigninForm";
 import Head from "next/head";
 import Layout from "components/Layout/Layout";
 import Image from "next/image";
-import PetsBanner from "public/assets/images/pets-banner.jpg";
+import PetsBanner from "public/assets/images/pets_banner.jpg";
 import classes from './signinPage.module.css';
 
 const SignIn = () => {
