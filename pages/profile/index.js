@@ -3,7 +3,7 @@ import UserPets from "../../components/profile/UserPets";
 import Head from "next/head";
 import Layout from "../../components/Layout/Layout";
 
-const ProfilePage = () => {
+const Profile = () => {
   return (
     <>
       <Head>
@@ -17,4 +17,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default Profile;

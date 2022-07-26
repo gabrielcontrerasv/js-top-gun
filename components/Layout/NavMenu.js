@@ -21,8 +21,8 @@ const NavMenu = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/signup">
-                        <a>Signup</a>
+                    <Link href="/signin">
+                        <a>SignIn</a>
                     </Link>
                 </li>
             </ul> 

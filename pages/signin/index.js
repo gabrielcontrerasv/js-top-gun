@@ -1,15 +1,15 @@
-import SignupForm from "components/signup/SignupForm";
+import SigninForm from "components/signin/SigninForm";
 import Head from "next/head";
 import Layout from "components/Layout/Layout";
 import Image from "next/image";
 import PetsBanner from "public/assets/images/pets-banner.jpg";
-import classes from './signupPage.module.css';
+import classes from './signinPage.module.css';
 
-const SignupPage = () => {
+const SignIn = () => {
   return (
     <>
       <Head>
-        <title>TGL Pet - Signup</title>
+        <title>TGL Pet - SignIn</title>
       </Head>
       <Layout>
         <div className={classes.banner}>
@@ -21,27 +21,27 @@ const SignupPage = () => {
           </div>
         </div>
         <div className={classes.container}>
-          <div className="w-2/6 mt-24 mx-12">
+          <div className="w-2/6 mt-8 mx-12">
             <p
-              className="text-2xl text-center font-bold m-auto color text-[#154D4D]">
-              Please signup to access to our products and services for
+              className="text-xl text-center font-bold m-auto color text-[#154D4D]">
+              Please sign in to access to our products and services for
               you and your best friend.
             </p>
-            <div className="m-auto mt-6">
+            <div className="m-auto mt-12">
               <p
-                className="text-2xl text-center font-bold text-[#154D4D]"
+                className="text-xl text-center font-bold text-[#154D4D]"
               >
                 Already registered?
               </p>
               <p
-                className="text-2xl text-center font-bold underline text-[#FC8B4C]"
+                className="text-xl text-center font-bold underline text-[#FC8B4C]"
               >
                 Login
               </p>
             </div>
           </div>
-          <div className="w-full mx-6">
-          <SignupForm/>
+          <div className="w-full mr-6 px-6">
+          <SigninForm/>
           </div>
         </div>
       </Layout>
@@ -49,4 +49,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default SignIn;
