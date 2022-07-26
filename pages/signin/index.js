@@ -1,8 +1,7 @@
-import SigninForm from "components/signin/SigninForm";
+import SigninForm from "../../components/signin/SigninForm";
 import Head from "next/head";
-import Layout from "components/Layout/Layout";
 import Image from "next/image";
-import PetsBanner from "public/assets/images/pets_banner.jpg";
+/*import PetsBanner from "../../public/assets/images/pets_banner.jpg";*/
 import classes from './signinPage.module.css';
 
 const SignIn = () => {
@@ -11,13 +10,12 @@ const SignIn = () => {
       <Head>
         <title>TGL Pet - SignIn</title>
       </Head>
-      <Layout>
         <div className={classes.banner}>
           <p className="text-3xl text-center font-bold text-white my-6">
             Welcome buddy!
           </p>
           <div className={classes.image}>
-          <Image src={PetsBanner} alt="pets-banner" height="250px" width="900px"/>
+          {/*<Image src={PetsBanner} alt="pets-banner" height="250px" width="900px"/>*/}
           </div>
         </div>
         <div className={classes.container}>
@@ -44,7 +42,6 @@ const SignIn = () => {
           <SigninForm/>
           </div>
         </div>
-      </Layout>
     </>
   );
 };

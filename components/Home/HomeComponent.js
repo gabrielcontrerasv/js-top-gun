@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 // Assets
-import Family from "../../public/assets/vet-day-message.jpg";
+/*import Family from "../../public/assets/vet-day-message.jpg";*/
 
 const HomeComponent = () => {
   return (
@@ -24,7 +24,7 @@ const HomeComponent = () => {
           </p>
         </div>
         <div className="w-[45%] h-full flex items-end">
-          <Image src={Family} />
+          <p>test</p>
         </div>
       </div>
 
