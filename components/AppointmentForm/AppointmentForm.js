@@ -16,14 +16,18 @@ const AppointmentForm = () => {
   // };
 
   return (
-    <section className="w-full grid grid-cols-3 overflow-hidden">
+    //
+    <section className="w-full grid grid-cols-1 md:grid-cols-3 grid-rows-[50vh_minmax(50vh,_1fr)]">
+      {/* FORM */}
+      <Form />
+
       {/* QUICK CONTACT  */}
-      <div className="h-screen bg-[#1F6B6B] col-start-1 col-end-2 flex flex-col justify-evenly items-center py-10">
-        <div className="w-[80%] flex flex-col items-center">
+      <div className=" bg-[#1F6B6B] flex flex-col justify-between items-center py-10 md:col-start-3 md:col-end-4 row-start-1 row-end-3 ">
+        <div className=" flex flex-col items-center mt-10 p-8">
           <h1 className="text-white text-3xl font-semibold mb-5">
             Quick Contact
           </h1>
-          <ul className="text-white">
+          <ul className="text-white ">
             <ContactItem>
               <BsTelephone size={20} />
               <p>+57 (000) 000-000</p>
@@ -42,13 +46,10 @@ const AppointmentForm = () => {
             </ContactItem>
           </ul>
         </div>
-        <div>
+        <div className="max-w-md">
           <Image src={Yorky} />
         </div>
       </div>
-
-      {/* FORM */}
-      <Form />
     </section>
   );
 };

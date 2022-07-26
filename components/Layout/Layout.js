@@ -1,12 +1,11 @@
 import React from "react";
 import Navigation from "./Navigation";
-import classes from "./Layout.module.css";
 
 function Layout(props) {
   return (
-    <div className="flex">
+    <div>
       <Navigation />
-      <main className={classes.main}>{props.children}</main>
+      <main className="ml-0 md:pl-[72px] h-full w-full">{props.children}</main>
     </div>
   );
 }

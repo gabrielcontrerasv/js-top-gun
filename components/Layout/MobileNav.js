@@ -1,10 +1,8 @@
+import Link from "react/link";
+
 import React from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
 
-const PathCategory = (props) => {
-  const router = useRouter();
-
+const MobileNav = () => {
   return (
     <Link href={props.path}>
       <div
@@ -15,9 +13,10 @@ const PathCategory = (props) => {
         }
       >
         {props.children}
+        <p>{}prop</p>
       </div>
     </Link>
   );
 };
 
-export default PathCategory;
+export default MobileNav;
