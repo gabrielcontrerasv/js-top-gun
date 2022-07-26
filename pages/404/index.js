@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Head from "next/head";
 import Logo404 from "../../public/assets/images/404.svg";
-import classes from "./notFound.module.css";
+/* import classes from "./notFound.module.css"; */
 import {useRouter} from 'next/router';
 
 const NotFoundPage = () => {
