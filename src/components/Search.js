@@ -24,7 +24,6 @@ function Search({ details,setMascotas }) {
               
                                 onChange={(e) => Searchpet(e.target.value)}
                             />
-                           <button>Buscar</button>
                         </label>
                     </div>
       </div>

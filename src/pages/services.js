@@ -4,13 +4,13 @@ import Card from '../components/Card'
 import Header from '../components/Header'
 import Search from '../components/Search'
 import SideBar from '../components/SideBar'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Services.module.css'
 
 
 
 const data = ['Cocot','Thort',' Maxt',' Leot','ockyt','Tobyt','imbat','runot']
 
-export default function Home() {
+export default function Services() {
   const [mascotas,setMascotas] = useState([...data])
   return (
     <div className={styles.container}>
