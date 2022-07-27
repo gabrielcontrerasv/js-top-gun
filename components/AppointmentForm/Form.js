@@ -14,7 +14,7 @@ const Form = () => {
   };
 
   return (
-    <div className="w-full col-span-2 mb-[5rem] mt-[100px] md:col-start-1 md:col-end-3 flex justify-center items-center row-start-1 row-end-3">
+    <div className="w-full col-span-2 mb-[5rem] mt-[100px] md:col-start-1 md:col-end-6 flex justify-center items-center row-start-1 row-end-3">
       <div className="w-[70%] flex flex-col gap-y-6 ">
         <h1 className="text-4xl text-[#1F6B6B] font-semibold text-center">
           Make an appointment
@@ -38,9 +38,9 @@ const Form = () => {
           <fieldset className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
             <div>
               <select
-                className="placeholder:text-[#1F6B6B] block bg-white w-full
-                border-2 border-[#1F6B6B] rounded-2xl py-2 pl-2 sm:pl-4 pr-3
-                focus:outline-none focus:border-[#1F6B6B] focus:ring-[#1F6B6B]
+                className="placeholder:text-mid-green block bg-white w-full
+                border-2 border-mid-green rounded-md py-2 pl-2 sm:pl-4 pr-3
+                focus:outline-none focus:border-mid-green focus:ring-mid-green
                 focus:ring-1 max-h-[45px]"
                 type="number"
                 placeholder="Phone"
@@ -52,7 +52,7 @@ const Form = () => {
             </div>
             <div>
               <input
-                className="placeholder:text-[#1F6B6B] block bg-white w-full border-2 border-[#1F6B6B] rounded-2xl py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-[#1F6B6B] focus:ring-[#1F6B6B] focus:ring-1"
+                className="placeholder:text-mid-green block bg-white w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
                 type="date"
                 placeholder="Date"
                 {...register("date", { required: true })}
@@ -61,7 +61,7 @@ const Form = () => {
           </fieldset>
 
           <textarea
-            className="placeholder:text-[#1F6B6B] block bg-white w-full border-2 border-[#1F6B6B] rounded-2xl py-2 pl-9 pr-3  focus:outline-none focus:border-[#1F6B6B] focus:ring-[#1F6B6B] focus:ring-1 mb-5"
+            className="placeholder:text-mid-green block bg-white w-full border-2 border-mid-green rounded-md py-2 pl-4 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 mb-5"
             cols={10}
             rows={6}
             placeholder="Some description"
@@ -69,7 +69,7 @@ const Form = () => {
           ></textarea>
 
           {/* prettier-ignore */}
-          <button type="submit" className="px-2 rounded-3xl h-[3rem] w-[8rem] bg-[#1F6B6B] text-white right-3 absolute tracking-wider">Submit</button>
+          <button type="submit" className="px-2 rounded-md h-[3rem] w-[8rem] bg-mid-green text-white right-3 absolute tracking-wider">Submit</button>
         </form>
       </div>
     </div>

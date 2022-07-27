@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 // 3rd party libraries
 import { IconContext } from "react-icons";
-import { FaHome, FaBars, FaTimes } from "react-icons/fa";
-import { AiOutlineSchedule, AiOutlinePoweroff } from "react-icons/ai";
+import { FaHome, FaBars, FaTimes, FaUser } from "react-icons/fa";
+import { AiFillSchedule, AiOutlinePoweroff } from "react-icons/ai";
 import { MdMedicalServices } from "react-icons/md";
-import { VscAccount } from "react-icons/vsc";
+import { IoMdArrowDroprightCircle } from "react-icons/io";
 import Logo from "../../public/assets/Logo_NoBg.png";
 // Components
 import PathCategory from "./PathCategory";
@@ -20,58 +20,78 @@ function Navigation() {
   const showSidebarHandler = () => setShowSidebar(!showSidebar);
   const showMobileMenuHandler = () => setShowMobileIcon(!showMobileIcon);
 
-  const width = showSidebar ? "sm:w-72" : "sm:w-20";
+  const width = showSidebar ? "sm:w-52" : "sm:w-16";
+  const navHeaderStyles = showSidebar ? "left-[3rem]" : "left-[0.2rem]";
 
   return (
     <div
-      className={`fixed flex justify-between h-[80px] items-center w-full top-0 bg-[#123f3fdb] text-white sm:block sm:flex-none sm:h-full ${width}  sm:h-screen sm:pt-8 z-50 sm:overflow-hidden duration-300`}
-      onMouseEnter={showSidebarHandler}
-      onMouseLeave={showSidebarHandler}
+      className={`w-full fixed flex justify-between items-center h-[80px] bg-dark-green text-white sm:block sm:flex-none sm:h-full ${width} sm:h-screen sm:pt-8  duration-500 z-50 absolute`}
     >
-      <IconContext.Provider value={{ size: 30 }}>
-        {/* Logo Header */}
-        <div className="flex items-center sm:block sm:relative sm:py-4 px-3">
-          <div>
-            <Image src={Logo} alt="Logo" width={60} height={60} />
-          </div>
-
-          <h1
-            className={`text-3xl sm:text-4xl sm:left-[5rem] sm:top-[-3.5rem] relative left-[13%]`}
-          >
-            Vet Teams
-          </h1>
+      {/* Logo Header */}
+      <IconContext.Provider value={{ size: 28 }}>
+        <div className="sm:block sm:relative sm:py-4 px-3">
+          <IoMdArrowDroprightCircle
+            size={40}
+            className={`hidden md:block border-2 border-dark-green rounded-full cursor-pointer absolute right-[-1.2rem] top-[1rem] z-50 bg-mid-green ${
+              showSidebar && "rotate-180 duration-1000"
+            }`}
+            onClick={showSidebarHandler}
+          />
         </div>
 
         {/* Desktop Sidebar Items  */}
-        <div className={`mt-[1rem] hidden sm:block`}>
-          <PathCategory path="/profile">
-            <VscAccount className="relative mt-1 ml-[0.1rem]" />
-            <h2 className={`text-2xl left-[4rem] top-[-2rem] relative`}>
-              Profile
-            </h2>
-          </PathCategory>
+        <div className={`mt-[5rem] hidden sm:block`}>
           <PathCategory path="/">
-            <FaHome className="relative mt-1" />
-            <h2 className={`text-2xl left-[4rem] top-[-2rem] relative`}>
+            <FaHome className="relative mt-1 ml-[-0.5rem]" />
+
+            <h2
+              className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
+                !showSidebar && "scale-0"
+              } `}
+            >
               Home
             </h2>
           </PathCategory>
+          <PathCategory path="/profile">
+            <FaUser className="relative mt-1 ml-[-0.5rem]" />
+            <h2
+              className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
+                !showSidebar && "scale-0"
+              } `}
+            >
+              Profile
+            </h2>
+          </PathCategory>
           <PathCategory path="/appointments">
-            <AiOutlineSchedule className="relative mt-1" />
-            <h2 className={`text-2xl left-[4rem] top-[-2rem] relative`}>
+            <AiFillSchedule className="relative mt-1 ml-[-0.5rem]" />
+
+            <h2
+              className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
+                !showSidebar && "scale-0"
+              } `}
+            >
               Appointments
             </h2>
           </PathCategory>
 
           <PathCategory path="/services">
-            <MdMedicalServices className="relative mt-1" />
-            <h2 className={`text-2xl left-[4rem] top-[-2rem] relative`}>
+            <MdMedicalServices className="relative mt-1 ml-[-0.5rem]" />
+
+            <h2
+              className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
+                !showSidebar && "scale-0"
+              } `}
+            >
               Services
             </h2>
           </PathCategory>
-          <PathCategory path="/logout" className="mt-[5rem]">
-            <AiOutlinePoweroff className="relative mt-1" />
-            <h2 className={`text-2xl left-[4rem] top-[-2rem] relative`}>
+          <PathCategory path="/logout">
+            <AiOutlinePoweroff className="relative mt-1 ml-[-0.5rem]" />
+            <h2
+              className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
+                !showSidebar && "scale-0"
+              } `}
+            >
               Logout
             </h2>
           </PathCategory>
@@ -90,7 +110,7 @@ function Navigation() {
           className={
             !showMobileIcon
               ? "hidden"
-              : "absolute top-0 left-0 w-full h-screen bg-[#123f3f]  "
+              : "absolute top-0 left-0 w-full h-screen bg-dark-green  "
           }
         >
           {/* Mobile Header */}
@@ -109,7 +129,7 @@ function Navigation() {
           {/* Mobile Items */}
           <div className="flex flex-col items-center justify-center mt-28">
             <div
-              className="w-full  text-center pt-4 hover:bg-[#7bdbdb9c] cursor-pointer duration-500 h-[4rem]"
+              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem]"
               onClick={showMobileMenuHandler}
             >
               <Link href="/">
@@ -117,7 +137,7 @@ function Navigation() {
               </Link>
             </div>
             <div
-              className="w-full  text-center pt-4 hover:bg-[#7bdbdb9c] cursor-pointer duration-500 h-[4rem]"
+              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem]"
               onClick={showMobileMenuHandler}
             >
               <Link href="/">
@@ -125,7 +145,7 @@ function Navigation() {
               </Link>
             </div>
             <div
-              className="w-full  text-center pt-4 hover:bg-[#7bdbdb9c] cursor-pointer duration-500 h-[4rem]"
+              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem]"
               onClick={showMobileMenuHandler}
             >
               <Link href="/appointments">
@@ -133,7 +153,7 @@ function Navigation() {
               </Link>
             </div>
             <div
-              className="w-full  text-center pt-4 hover:bg-[#7bdbdb9c] cursor-pointer duration-500 h-[4rem]"
+              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem]"
               onClick={showMobileMenuHandler}
             >
               <Link href="/">
@@ -141,7 +161,7 @@ function Navigation() {
               </Link>
             </div>
             <div
-              className="w-full  text-center pt-4 hover:bg-[#7bdbdb9c] cursor-pointer duration-500 h-[4rem]"
+              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem]"
               onClick={showMobileMenuHandler}
             >
               <Link href="/">

@@ -3,9 +3,11 @@ import Navigation from "./Navigation";
 
 function Layout(props) {
   return (
-    <div>
+    <div className=" h-full">
       <Navigation />
-      <main className="ml-0 md:pl-[72px] h-full w-full">{props.children}</main>
+      <main className="absolute h-full w-full grid grid-cols-8 grid-rows-[repeat(8,_50vh_minmax(50vh,_1fr))]">
+        {props.children}
+      </main>
     </div>
   );
 }

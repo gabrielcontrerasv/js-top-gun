@@ -17,12 +17,13 @@ const AppointmentForm = () => {
 
   return (
     //
-    <section className="w-full grid grid-cols-1 md:grid-cols-3 grid-rows-[50vh_minmax(50vh,_1fr)]">
+    <section className="w-full col-start-1 col-end-9 grid grid-cols-1 md:grid-cols-3 grid-rows-[50vh_minmax(50vh,_1fr)] ">
       {/* FORM */}
       <Form />
 
       {/* QUICK CONTACT  */}
-      <div className=" bg-[#1F6B6B] flex flex-col justify-between items-center py-10 md:col-start-3 md:col-end-4 row-start-1 row-end-3 ">
+      {/*  */}
+      <div className=" bg-[#1F6B6B] flex flex-col justify-between items-center py-10 md:col-start-6 md:col-end-9 row-start-1 row-end-3 ">
         <div className=" flex flex-col items-center mt-10 p-8">
           <h1 className="text-white text-3xl font-semibold mb-5">
             Quick Contact
