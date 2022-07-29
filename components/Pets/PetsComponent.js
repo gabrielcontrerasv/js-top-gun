@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PetsCard from "./PetsCard";
 import PetsFinder from "./PetsFinder";
 import PetsCardsPagination from "./PetsCardsPagination";
@@ -63,7 +63,6 @@ const DUMMY_DATA = [
 
 const PetsComponent = () => {
   const [pets, setPets] = useState(DUMMY_DATA);
-  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(8);
 
@@ -87,7 +86,7 @@ const PetsComponent = () => {
         </div>
         {/* grid grid-cols-3 grid-rows-3 grid-flow-row-dense gap-5 */}
         <div className="h-[35rem] flex-wrap gap-5 flex mt-5 justify-center">
-          <PetsCard pets={currentCards} loading={loading} />
+          <PetsCard pets={currentCards} />
         </div>
         <PetsCardsPagination
           cardsPerPage={cardsPerPage}

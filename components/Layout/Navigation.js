@@ -112,8 +112,13 @@ function Navigation() {
         {/* Mobile Hamburger */}
         <div
           onClick={showMobileMenuHandler}
-          className="relative mt-2 right-5 sm:hidden z-50"
+          className="relative mt-2 right-5 sm:hidden z-50 flex items-center"
         >
+          <h1
+            className={`text-3xl sm:text-4xl sm:left-[6rem] sm:top-[-3.5rem]`}
+          >
+            Vet Teams
+          </h1>
           {!showMobileIcon ? <FaBars /> : <FaTimes />}
         </div>
 
@@ -127,10 +132,6 @@ function Navigation() {
         >
           {/* Mobile Header */}
           <div className="flex justify-center items-center w-full p-5">
-            <div>
-              <Image src={Logo} alt="Logo" width={60} height={60} />
-            </div>
-
             <h1
               className={`text-3xl sm:text-4xl sm:left-[6rem] sm:top-[-3.5rem] relative left-[1rem]`}
             >

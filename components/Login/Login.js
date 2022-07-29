@@ -7,14 +7,14 @@ const Login = () => {
   return (
     <>
       <div className="col-start-1 col-end-6 row-span-2 flex justify-start items-center">
-        <div className="h-full absolute -z-10 ">
+        <div className="h-full">
           <div className="fixed top-0 left-0 w-full h-full z-10 bg-[#00000051] "></div>
-          <Image src={LoginBg} />
+          <Image src={LoginBg} layout="fill" objectFit="cover" />
         </div>
       </div>
 
       {/* --- Login ---  */}
-      <div className="col-start-6 col-end-9 row-span-2 bg-gradient-to-t from-dark-green to-[#0d5c5c] flex justify-center items-center">
+      <div className="col-start-6 col-end-9 row-span-2 bg-gradient-to-t from-dark-green to-[#0d5c5c] flex justify-center items-center z-20">
         <div className="w-[90%] h-[80%] flex justify-center ">
           <div className="p-10 h-full w-[80%] mt-12">
             <div className="mb-[2.5rem] flex flex-col items-center justify-between h-[7rem] ">

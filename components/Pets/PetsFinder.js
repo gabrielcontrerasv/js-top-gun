@@ -12,10 +12,10 @@ const PetsFinder = ({ details, setPets }) => {
 
   return (
     <div>
-      <div className="absolute w-[10rem] h-[3rem]">
+      <div className="absolute  h-[3rem]">
         <BiSearchAlt2
           size={30}
-          className="relative top-[0.8rem] left-[-0.1rem] text-dark-green border-r-1 border-r-[1px] border-dark-green mr-10 w-[5rem]"
+          className="relative top-[0.8rem] left-[-0.1rem] text-dark-green border-r-1 border-r-[1px] border-dark-green w-[5rem]"
         />
       </div>
       <input

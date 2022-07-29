@@ -7,11 +7,11 @@ const Register = () => {
   return (
     <>
       <div className="col-start-1 col-end-6 row-span-2 flex justify-start items-center">
-        <div className="h-full absolute -z-10 ">
+        <div className="h-full ">
           <div className="fixed top-0 left-0 w-full h-full z-10 bg-[#0000001e] "></div>
-          <Image src={RegisterBg} />
+          <Image src={RegisterBg} layout="fill" objectFit="cover" />
         </div>
-        <div className="w-[88%] h-[80%] flex flex-col justify-center pl-[10rem]">
+        <div className="w-[88%] h-[80%] flex flex-col justify-center pl-[10rem] z-20">
           <div className=" rounded-md bg-[#00000047] p-10 backdrop-blur-sm ">
             <div className="mb-[2.5rem] flex flex-col items-center justify-between ">
               <h1 className="text-4xl font-bold text-center text-white">
@@ -102,7 +102,7 @@ const Register = () => {
       </div>
 
       {/* --- Login ---  */}
-      <div className="col-start-6 col-end-9 row-span-2 bg-gradient-to-t from-dark-green to-mid-green flex  justify-center items-center">
+      <div className="col-start-6 col-end-9 row-span-2 bg-gradient-to-t from-dark-green to-mid-green flex  justify-center items-center z-30">
         <div className="w-[70%] h-[55%] flex flex-col justify-between items-center">
           <h1 className="text-5xl text-white font-bold text-center">
             ¡ Hello !

@@ -9,12 +9,16 @@ const HomeComponent = () => {
       {/* Bg */}
       <div className="h-full ">
         <div className="fixed top-0 left-0 w-full h-full z-10 bg-[#0000001e]"></div>
-        <Image src={LandingDog} />
+        <Image
+          src={LandingDog}
+          layout="fill"
+          alt="Happy Dog"
+          objectFit="cover"
+        />
       </div>
 
       <div className="flex justify-center gap-5 h-full relative top-[-15rem] sm:top-[-40rem] z-20 ">
         <div className=" h-[full] mt-[2rem] w-[75%] p-5 absolute ">
-          {/* <div className="before:block before:absolute before:-inset-4 before:-skew-y-3 before:bg-dark-green relative inline-block"> */}
           <h1 className="text-4xl text-center sm:text-left sm:text-4xl md:text-6xl sm:text-[#ffffff] font-bold tracking-wide relative">
             Welcome to Teams
             <br />
@@ -44,21 +48,6 @@ const HomeComponent = () => {
                 Login
               </button>
             </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Services */}
-      <div className="w-full h-[30%] flex justify-center py-5">
-        <div className="flex justify-evenly items-center h-full bg-[#bfbfbf] w-[80%] rounded-3xl">
-          <div className="w-[25%] h-[65%] rounded-3xl bg-white">
-            <h2>Consultation</h2>
-          </div>
-          <div className="w-[25%] h-[65%] rounded-3xl bg-white">
-            <h2>Grooming</h2>
-          </div>
-          <div className="w-[25%] h-[65%] rounded-3xl bg-white">
-            <h2>Online Shop</h2>
           </div>
         </div>
       </div>
