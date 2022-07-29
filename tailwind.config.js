@@ -11,6 +11,9 @@ module.exports = {
         "dark-green": "#123f3f",
         "hover-green": "#7bdbdb9c",
       },
+      backgroundImage: {
+        "register-bg": "url('/public/assets/images/RegisterBg.jpg')",
+      },
     },
   },
   plugins: [],

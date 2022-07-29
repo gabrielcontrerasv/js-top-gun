@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 // Assets
 import LandingDog from "../../public/assets/images/LandingDog.png";
 
@@ -33,12 +34,16 @@ const HomeComponent = () => {
             </p>
           </div>
           <div className="w-[18rem] flex  justify-between h-[4rem] mt-8 ">
-            <button className=" bg-dark-green text-white tracking-wider w-[8rem] h-[3rem] rounded-md hover:scale-110 duration-300">
-              Sign In
-            </button>
-            <button className=" bg-white text-dark-green font-medium tracking-wider w-[8rem] h-[3rem] rounded-md hover:scale-110 duration-300">
-              Login
-            </button>
+            <Link href="/register">
+              <button className=" bg-dark-green text-white tracking-wider w-[8rem] h-[3rem] rounded-md hover:scale-110 duration-300">
+                Sign in
+              </button>
+            </Link>
+            <Link href="/login">
+              <button className="bg-white text-dark-green font-medium tracking-wider w-[8rem] h-[3rem] rounded-md hover:scale-110 duration-300">
+                Login
+              </button>
+            </Link>
           </div>
         </div>
       </div>

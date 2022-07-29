@@ -5,7 +5,7 @@ import Link from "next/link";
 import { IconContext } from "react-icons";
 import { FaHome, FaBars, FaTimes, FaUser } from "react-icons/fa";
 import { AiFillSchedule, AiOutlinePoweroff } from "react-icons/ai";
-import { MdMedicalServices } from "react-icons/md";
+import { MdMedicalServices, MdPets } from "react-icons/md";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
 import Logo from "../../public/assets/Logo_NoBg.png";
 // Components
@@ -20,12 +20,11 @@ function Navigation() {
   const showSidebarHandler = () => setShowSidebar(!showSidebar);
   const showMobileMenuHandler = () => setShowMobileIcon(!showMobileIcon);
 
-  const width = showSidebar ? "sm:w-52" : "sm:w-16";
-  const navHeaderStyles = showSidebar ? "left-[3rem]" : "left-[0.2rem]";
+  const width = showSidebar ? "sm:w-40" : "sm:w-16";
 
   return (
     <div
-      className={`w-full fixed flex justify-between items-center h-[80px] bg-dark-green text-white sm:block sm:flex-none sm:h-full ${width} sm:h-screen sm:pt-8  duration-500 z-50 absolute`}
+      className={`w-full fixed flex justify-between items-center h-[80px] bg-dark-green text-white sm:block sm:flex-none sm:h-full ${width} sm:h-screen sm:pt-8  duration-500 z-50`}
     >
       {/* Logo Header */}
       <IconContext.Provider value={{ size: 28 }}>
@@ -52,6 +51,7 @@ function Navigation() {
               Home
             </h2>
           </PathCategory>
+
           <PathCategory path="/profile">
             <FaUser className="relative mt-1 ml-[-0.5rem]" />
             <h2
@@ -62,6 +62,18 @@ function Navigation() {
               Profile
             </h2>
           </PathCategory>
+
+          <PathCategory path="/pets">
+            <MdPets className="relative mt-1 ml-[-0.5rem]" />
+            <h2
+              className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
+                !showSidebar && "scale-0"
+              } `}
+            >
+              Pets
+            </h2>
+          </PathCategory>
+
           <PathCategory path="/appointments">
             <AiFillSchedule className="relative mt-1 ml-[-0.5rem]" />
 
@@ -70,7 +82,7 @@ function Navigation() {
                 !showSidebar && "scale-0"
               } `}
             >
-              Appointments
+              Schedule
             </h2>
           </PathCategory>
 

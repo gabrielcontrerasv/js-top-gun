@@ -16,5 +16,8 @@
   },
   "editor.tabSize": 2,
   "files.eol": "\n",
-  "cSpell.ignoreWords": ["Dropright"]
+  "cSpell.ignoreWords": [
+    "Dropright",
+    "signin"
+  ]
 }

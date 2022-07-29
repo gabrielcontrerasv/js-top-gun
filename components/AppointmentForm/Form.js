@@ -38,7 +38,7 @@ const Form = () => {
           <fieldset className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
             <div>
               <select
-                className="placeholder:text-mid-green block bg-white w-full
+                className="placeholder:text-mid-green block bg-transparent w-full
                 border-2 border-mid-green rounded-md py-2 pl-2 sm:pl-4 pr-3
                 focus:outline-none focus:border-mid-green focus:ring-mid-green
                 focus:ring-1 max-h-[45px]"
@@ -52,7 +52,7 @@ const Form = () => {
             </div>
             <div>
               <input
-                className="placeholder:text-mid-green block bg-white w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+                className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
                 type="date"
                 placeholder="Date"
                 {...register("date", { required: true })}
@@ -61,7 +61,7 @@ const Form = () => {
           </fieldset>
 
           <textarea
-            className="placeholder:text-mid-green block bg-white w-full border-2 border-mid-green rounded-md py-2 pl-4 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 mb-5"
+            className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-4 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 mb-5"
             cols={10}
             rows={6}
             placeholder="Some description"
