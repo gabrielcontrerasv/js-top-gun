@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should display the 404 Not found Page correctly 1`] = `
+<button
+  class="bg-[#154D4D] hover:bg-[#FEDB54] text-white hover:text-black font-bold py-3 px-6 rounded-full my-4"
+>
+  Go Home
+</button>
+`;
