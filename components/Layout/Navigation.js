@@ -7,7 +7,6 @@ import { FaHome, FaBars, FaTimes, FaUser } from "react-icons/fa";
 import { AiFillSchedule, AiOutlinePoweroff } from "react-icons/ai";
 import { MdMedicalServices, MdPets } from "react-icons/md";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
-import Logo from "../../public/assets/Logo_NoBg.png";
 // Components
 import PathCategory from "./PathCategory";
 

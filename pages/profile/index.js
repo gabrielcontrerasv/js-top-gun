@@ -1,17 +1,7 @@
-import UserInfo from "../../components/profile/UserInfo";
-import UserPets from "../../components/profile/UserPets";
-import Head from "next/head";
+import ProfileComponent from "../../components/Profile/ProfileComponent";
 
-const Profile = () => {
-  return (
-    <>
-      <Head>
-        <title>TGL Pet - Signup</title>
-      </Head>
-        <UserInfo />
-        <UserPets />
-    </>
-  );
+const index = () => {
+  return <ProfileComponent />;
 };
 
-export default Profile;
+export default index;
