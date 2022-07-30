@@ -9,7 +9,7 @@ const PetsForm = () => {
   };
   return (
     <div className="w-[40rem] h-[35rem] bg-white rounded-md ">
-      <div className="w-full border-black border-b-[1px] py-5 pl-5 text-xl font-semibold text-dark-green">
+      <div className="w-full border-black border-b-[1px] py-5 pl-5 text-2xl font-semibold text-dark-green">
         <h1> Create new pet - Nicolas Peña</h1>
       </div>
       <form className="grid grid-cols-2 p-5 gap-y-8 gap-x-5 mt-5">

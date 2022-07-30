@@ -87,14 +87,14 @@ const Userprofile = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-[40rem] h-[35rem] transform overflow-hidden rounded-md bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-[40rem] h-[35rem] transform overflow-hidden rounded-md bg-white p-10 text-left align-middle shadow-xl transition-all ">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-dark-green"
+                    className="text-2xl font-semibold  text-dark-green border-b-[1px] border-dark-green pb-5 "
                   >
                     Add new pet
                   </Dialog.Title>
-                  <form className="grid grid-cols-2 p-5 gap-y-8 gap-x-5 mt-5">
+                  <form className="grid grid-cols-2  gap-y-8 gap-x-5 mt-8">
                     <input
                       className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
                       type="text"
