@@ -30,7 +30,7 @@ function Navigation() {
         <div className="sm:block sm:relative sm:py-4 px-3">
           <IoMdArrowDroprightCircle
             size={40}
-            className={`hidden md:block border-2 border-dark-green rounded-full cursor-pointer absolute right-[-1.2rem] top-[1rem] z-50 bg-mid-green ${
+            className={`hidden sm:block border-2 border-dark-green rounded-full cursor-pointer absolute right-[-1.2rem] top-[1rem] z-50 bg-mid-green ${
               showSidebar && "rotate-180 duration-1000"
             }`}
             onClick={showSidebarHandler}
@@ -113,11 +113,6 @@ function Navigation() {
           onClick={showMobileMenuHandler}
           className="relative mt-2 right-5 sm:hidden z-50 flex items-center"
         >
-          <h1
-            className={`text-3xl sm:text-4xl sm:left-[6rem] sm:top-[-3.5rem]`}
-          >
-            Vet Teams
-          </h1>
           {!showMobileIcon ? <FaBars /> : <FaTimes />}
         </div>
 
@@ -130,26 +125,18 @@ function Navigation() {
           }
         >
           {/* Mobile Header */}
-          <div className="flex justify-center items-center w-full p-5">
+          <div className="flex justify-center items-center w-full p-5 bg-dark-green">
             <h1
-              className={`text-3xl sm:text-4xl sm:left-[6rem] sm:top-[-3.5rem] relative left-[1rem]`}
+              className={`text-3xl font-bold mt-2 sm:text-4xl sm:left-[6rem] sm:top-[-3.5rem] relative left-[0.5rem] tracking-wider`}
             >
               Vet Teams
             </h1>
           </div>
 
           {/* Mobile Items */}
-          <div className="flex flex-col items-center justify-center mt-28">
+          <div className="flex flex-col items-center justify-center mt-16 bg-">
             <div
-              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem]"
-              onClick={showMobileMenuHandler}
-            >
-              <Link href="/">
-                <h2 className="mx-auto text-2xl">Profile</h2>
-              </Link>
-            </div>
-            <div
-              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem]"
+              className="w-full text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem] tracking-wider font-semibold"
               onClick={showMobileMenuHandler}
             >
               <Link href="/">
@@ -157,7 +144,16 @@ function Navigation() {
               </Link>
             </div>
             <div
-              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem]"
+              className="w-full text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem] tracking-wider font-semibold"
+              onClick={showMobileMenuHandler}
+            >
+              <Link href="/profile">
+                <h2 className="mx-auto text-2xl">Profile</h2>
+              </Link>
+            </div>
+
+            <div
+              className="w-full text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem] tracking-wider font-semibold"
               onClick={showMobileMenuHandler}
             >
               <Link href="/appointments">
@@ -165,18 +161,18 @@ function Navigation() {
               </Link>
             </div>
             <div
-              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem]"
+              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem] tracking-wider font-semibold"
               onClick={showMobileMenuHandler}
             >
-              <Link href="/">
+              <Link href="/services">
                 <h2 className="text-2xl">Services</h2>
               </Link>
             </div>
             <div
-              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem]"
+              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem] tracking-wider font-semibold"
               onClick={showMobileMenuHandler}
             >
-              <Link href="/">
+              <Link href="/logout">
                 <h2 className="text-2xl">Logout</h2>
               </Link>
             </div>

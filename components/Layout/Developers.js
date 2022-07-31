@@ -21,7 +21,7 @@ const Developers = () => {
         )}
       </div>
 
-      <div className="relative w-[100px] cursor-pointer top-2 ">
+      <div className="relative w-[60px] right-[5rem] top-5 sm:w-[100px] cursor-pointer">
         <a href="https://jsteam.vercel.app/" target="_blank">
           <Image
             src={DeveloperLogo}
