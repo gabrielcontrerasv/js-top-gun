@@ -32,6 +32,7 @@ const Form = () => {
         </p>
 
         <form
+          data-testid="form-element"
           className="text-center relative "
           onSubmit={handleSubmit(submitHandler)}
         >
@@ -43,8 +44,8 @@ const Form = () => {
                 focus:outline-none focus:border-[#1F6B6B] focus:ring-[#1F6B6B]
                 focus:ring-1 max-h-[45px]"
                 type="number"
-                placeholder="Phone"
-                {...register("phone", { required: true })}
+                placeholder="Service"
+                {...register("service", { required: true })}
               >
                 <option>Medical Service</option>
                 <option>Grooming Service</option>
@@ -65,7 +66,7 @@ const Form = () => {
             cols={10}
             rows={6}
             placeholder="Some description"
-            {...register("text-area", { required: true })}
+            {...register("textarea", { required: true })}
           ></textarea>
 
           {/* prettier-ignore */}
