@@ -23,7 +23,7 @@ function Navigation() {
 
   return (
     <div
-      className={`w-full fixed flex justify-between items-center h-[80px] bg-dark-green text-white sm:block sm:flex-none sm:h-full ${width} sm:h-screen sm:pt-8  duration-500 z-50`}
+      className={`w-full fixed flex justify-between items-center h-[80px] bg-gradient-to-r from-dark-green to-[#0f5e5e] sm:bg-gradient-to-l sm:from-dark-green sm:to-[#0b4a4a] text-white sm:block sm:flex-none sm:h-full ${width} sm:h-screen sm:pt-8  duration-500 z-50`}
     >
       {/* Logo Header */}
       <IconContext.Provider value={{ size: 28 }}>
@@ -121,22 +121,22 @@ function Navigation() {
           className={
             !showMobileIcon
               ? "hidden"
-              : "absolute top-0 left-0 w-full h-screen bg-dark-green  "
+              : "absolute top-0 left-0 w-full h-[50rem] bg-gradient-to-t from-dark-green to-[#0d5c5c] flex flex-col py-7 items-center"
           }
         >
           {/* Mobile Header */}
-          <div className="flex justify-center items-center w-full p-5 bg-dark-green">
+          <div className="flex justify-center items-center w-[80%] p-9 border-b-[1px] border-white">
             <h1
-              className={`text-3xl font-bold mt-2 sm:text-4xl sm:left-[6rem] sm:top-[-3.5rem] relative left-[0.5rem] tracking-wider`}
+              className={`text-4xl font-bold sm:text-4xl sm:left-[6rem] sm:top-[-3.5rem] relative left-[0.5rem] tracking-widest text-center `}
             >
               Vet Teams
             </h1>
           </div>
 
           {/* Mobile Items */}
-          <div className="flex flex-col items-center justify-center mt-16 bg-">
+          <div className="py-8">
             <div
-              className="w-full text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem] tracking-wider font-semibold"
+              className="w-[18rem] text-center pt-4 hover:border-b-[1px] hover:border-white cursor-pointer  h-[4rem] tracking-wider font-semibold"
               onClick={showMobileMenuHandler}
             >
               <Link href="/">
@@ -144,7 +144,7 @@ function Navigation() {
               </Link>
             </div>
             <div
-              className="w-full text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem] tracking-wider font-semibold"
+              className="w-full text-center pt-4 hover:border-b-[1px] hover:border-white cursor-pointer  h-[4rem] tracking-wider font-semibold"
               onClick={showMobileMenuHandler}
             >
               <Link href="/profile">
@@ -153,15 +153,24 @@ function Navigation() {
             </div>
 
             <div
-              className="w-full text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem] tracking-wider font-semibold"
+              className="w-full text-center pt-4 hover:border-b-[1px] hover:border-white cursor-pointer  h-[4rem] tracking-wider font-semibold"
+              onClick={showMobileMenuHandler}
+            >
+              <Link href="/profile">
+                <h2 className="mx-auto text-2xl">Pets</h2>
+              </Link>
+            </div>
+
+            <div
+              className="w-full text-center pt-4 hover:border-b-[1px] hover:border-white cursor-pointer  h-[4rem] tracking-wider font-semibold"
               onClick={showMobileMenuHandler}
             >
               <Link href="/appointments">
-                <h2 className="text-2xl">Appointments</h2>
+                <h2 className="text-2xl">Schedule</h2>
               </Link>
             </div>
             <div
-              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem] tracking-wider font-semibold"
+              className="w-full  text-center pt-4 hover:border-b-[1px] hover:border-white cursor-pointer  h-[4rem] tracking-wider font-semibold"
               onClick={showMobileMenuHandler}
             >
               <Link href="/services">
@@ -169,7 +178,7 @@ function Navigation() {
               </Link>
             </div>
             <div
-              className="w-full  text-center pt-4 hover:bg-hover-green cursor-pointer duration-500 h-[4rem] tracking-wider font-semibold"
+              className="w-full  text-center pt-4 hover:border-b-[1px] hover:border-white cursor-pointer  h-[4rem] tracking-wider font-semibold"
               onClick={showMobileMenuHandler}
             >
               <Link href="/logout">

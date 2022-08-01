@@ -42,9 +42,9 @@ const Form = () => {
                 border-2 border-mid-green rounded-md py-2 pl-2 sm:pl-4 pr-3
                 focus:outline-none focus:border-mid-green focus:ring-mid-green
                 focus:ring-1 max-h-[45px]"
-                type="number"
-                placeholder="Phone"
-                {...register("phone", { required: true })}
+                type="text"
+                placeholder="Service"
+                {...register("service", { required: true })}
               >
                 <option>Medical Service</option>
                 <option>Grooming Service</option>

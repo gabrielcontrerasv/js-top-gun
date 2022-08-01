@@ -67,13 +67,13 @@ const getWindowSize = () => {
 };
 
 const PetsComponent = () => {
+  const [width, setWidth] = useState();
   const [pets, setPets] = useState(DUMMY_DATA);
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(6);
-  const [width, setWidth] = useState();
 
   useEffect(() => {
-    const bgSizeHandler = () => {
+    const getWidthHandler = () => {
       const { width } = getWindowSize();
       setWidth(width);
     };
@@ -90,13 +90,14 @@ const PetsComponent = () => {
       setCardsPerPage(8);
     }
 
-    if (width > 1200) {
+    if (width > 1300) {
       setCardsPerPage(12);
     }
 
     setWidth(window.innerWidth);
-    window.addEventListener("resize", bgSizeHandler);
-    return () => window.removeEventListener("resize", bgSizeHandler);
+    window.addEventListener("resize", getWidthHandler);
+
+    return () => window.removeEventListener("resize", getWidthHandler);
   }, [width]);
 
   const indexOfLastCard = currentPage * cardsPerPage;

@@ -13,7 +13,6 @@ const MobileNav = () => {
         }
       >
         {props.children}
-        <p>{}prop</p>
       </div>
     </Link>
   );
