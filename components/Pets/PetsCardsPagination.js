@@ -1,10 +1,8 @@
-const PetsCardsPagination = ({
-  cardsPerPage,
-  totalCards,
-  paginate,
-  currentPage,
-}) => {
+// prettier-ignore
+const PetsCardsPagination = ({ cardsPerPage, totalCards, paginate, currentPage, }) => {
   const pageNumbers = [];
+
+  
 
   for (let i = 1; i <= Math.ceil(totalCards / cardsPerPage); i++) {
     pageNumbers.push(i);

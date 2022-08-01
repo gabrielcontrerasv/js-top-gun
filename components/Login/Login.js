@@ -15,27 +15,27 @@ const Login = () => {
 
       {/* --- Login ---  */}
       <div className="col-start-6 col-end-9 row-span-2 bg-gradient-to-t from-dark-green to-[#0d5c5c] flex justify-center items-center z-20">
-        <div className="w-[90%] h-[80%] flex justify-center ">
-          <div className="p-10 h-full w-[80%] mt-12">
+        <div className=" h-[80%] flex justify-center ">
+          <div className="p-10 h-full mt-12">
             <div className="mb-[2.5rem] flex flex-col items-center justify-between h-[7rem] ">
               <h1 className="text-4xl font-bold text-center text-white">
                 ¡Welcome Back!
               </h1>
-              <p className="text-white tracking-widest self-start leading-8 text-lg">
+              <p className="text-white mt-5 tracking-widest self-start leading-8 text-lg">
                 Login into your account:
               </p>
             </div>
-            <form className="w-full h-[50%] flex flex-col justify-around ">
-              <div className="grid gap-x-6 ">
+            <form className="w-full h-[50%] flex flex-col justify-around  ">
+              <div className="grid gap-x-6 mt-14">
                 <input
-                  className="placeholder:text-white block bg-transparent border-b-[1px] w-full py-2 pl-4 focus:outline-none focus:border-b-mid-green text-white mb-5"
+                  className="placeholder:text-white block bg-transparent border-b-[1px] w-full py-2 pl-4 focus:outline-none focus:border-b-2 text-white mb-5"
                   id="grid-first-name"
                   type="text"
                   placeholder="Name"
                   // {...register("name", { required: true, pattern: /^[A-Za-z]+$/i })}
                 />
                 <input
-                  className="placeholder:text-white block bg-transparent border-b-[1px] w-full py-2 pl-4 focus:outline-none focus:border-b-mid-green text-white mb-5"
+                  className="placeholder:text-white block bg-transparent border-b-[1px] w-full py-2 pl-4 focus:outline-none focus:border-b-2 text-white mb-5"
                   id="grid-first-name"
                   type="password"
                   placeholder="Password"

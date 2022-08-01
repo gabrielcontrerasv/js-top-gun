@@ -14,9 +14,9 @@ const Form = () => {
   };
 
   return (
-    <div className="w-full col-span-2 mb-[5rem] mt-[100px] md:col-start-1 md:col-end-6 flex justify-center items-center row-start-1 row-end-3">
-      <div className="w-[70%] flex flex-col gap-y-6 ">
-        <h1 className="text-4xl text-[#1F6B6B] font-semibold text-center">
+    <div className="w-full pb-[5rem] mt-[80px] sm:mt-0 col-start-1 col-end-3 flex  md:justify-center items-center row-start-1 row-end-3 bg-[#edf4f4] ">
+      <div className="md:w-[100%] p-5 flex flex-col gap-y-6 sm:pl-[11rem] sm:pr-10 lg:mt-14">
+        <h1 className="text-[2rem] text-[#1F6B6B] font-bold text-center">
           Make an appointment
         </h1>
 
@@ -69,7 +69,7 @@ const Form = () => {
           ></textarea>
 
           {/* prettier-ignore */}
-          <button type="submit" className="px-2 rounded-md h-[3rem] w-[8rem] bg-mid-green text-white right-3 absolute tracking-wider">Submit</button>
+          <button type="submit" className="px-2 rounded-md h-[3rem] w-[8rem] bg-mid-green text-white tracking-wider">Submit</button>
         </form>
       </div>
     </div>

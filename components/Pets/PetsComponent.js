@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PetsCard from "./PetsCard";
 import PetsFinder from "./PetsFinder";
 import PetsCardsPagination from "./PetsCardsPagination";
@@ -61,10 +61,43 @@ const DUMMY_DATA = [
   { owner: "Ana", pet: "Simba" },
 ];
 
+const getWindowSize = () => {
+  const { innerWidth: width } = window;
+  return { width };
+};
+
 const PetsComponent = () => {
   const [pets, setPets] = useState(DUMMY_DATA);
   const [currentPage, setCurrentPage] = useState(1);
-  const [cardsPerPage, setCardsPerPage] = useState(8);
+  const [cardsPerPage, setCardsPerPage] = useState(6);
+  const [width, setWidth] = useState();
+
+  useEffect(() => {
+    const bgSizeHandler = () => {
+      const { width } = getWindowSize();
+      setWidth(width);
+    };
+
+    if (width < 900) {
+      setCardsPerPage(4);
+    }
+
+    if (width > 900) {
+      setCardsPerPage(6);
+    }
+
+    if (width > 1055) {
+      setCardsPerPage(8);
+    }
+
+    if (width > 1200) {
+      setCardsPerPage(12);
+    }
+
+    setWidth(window.innerWidth);
+    window.addEventListener("resize", bgSizeHandler);
+    return () => window.removeEventListener("resize", bgSizeHandler);
+  }, [width]);
 
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
@@ -80,12 +113,12 @@ const PetsComponent = () => {
         <title>Pets Finder || App</title>
         <meta name="description" />
       </Head>
-      <section className="col-start-2 col-end-8 p-8 h-[44rem]">
+      <section className="w-full h-full flex flex-col col-start-1 col-end-9 row-span-2 sm:pl-[10rem] sm:pr-[2rem] md:pr-[8rem] pl-0 justify-around">
         <div className="w-[100%]">
           <PetsFinder details={DUMMY_DATA} setPets={setPets} />
         </div>
-        {/* grid grid-cols-3 grid-rows-3 grid-flow-row-dense gap-5 */}
-        <div className="h-[35rem] flex-wrap gap-5 flex mt-5 justify-center">
+
+        <div className="flex justify-center h-[60%] flex-wrap gap-5  mt-4">
           <PetsCard pets={currentCards} />
         </div>
         <PetsCardsPagination

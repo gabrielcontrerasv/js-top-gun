@@ -5,31 +5,11 @@ import Link from "next/link";
 import LandingDog from "../../public/assets/images/LandingDog.png";
 import HomeBgSmall from "../../public/assets/images/HomeBg600.jpg";
 
-const getWindowSize = () => {
-  const { innerWidth: width, innerHeight: height } = window;
-  return { width, height };
-};
-
 const HomeComponent = () => {
-  const [width, setWidth] = useState();
-  const [height, setHeight] = useState();
-
-  useEffect(() => {
-    const bgSizeHandler = () => {
-      const { width, height } = getWindowSize();
-      setWidth(width);
-      setHeight(height);
-    };
-
-    window.addEventListener("resize", bgSizeHandler);
-    return () => window.removeEventListener("resize", bgSizeHandler);
-  }, []);
-
   return (
-    <section className="col-start-1 col-end-3 row-start-1 row-span-2 sm:pl-16 md:col-start-1 md:col-end-9 md:row-start-1 md:row-end-3 ">
+    <section className="col-start-1 col-end-3 row-start-1 row-span-2 sm:pl-16 md:col-start-1 md:col-end-9 md:row-start-1 md:row-end-3 overflow-hidden ">
       {/* Bg Image */}
       <div className="w-full h-full relative ">
-        <div className="fixed top-0 left-0 w-full h-full z-10 bg-[#0000001e]"></div>
         <div className="hidden md:block">
           <Image src={LandingDog} layout="fill" objectFit="cover" />
         </div>

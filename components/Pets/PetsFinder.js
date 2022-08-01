@@ -6,16 +6,16 @@ const PetsFinder = ({ details, setPets }) => {
       pet.pet.toLowerCase().includes(value.toLowerCase())
     );
 
-  function searchPetHandler(value) {
+  const searchPetHandler = (value) => {
     setPets(filteredPets(value));
-  }
+  };
 
   return (
-    <div>
-      <div className="absolute  h-[3rem]">
+    <div className=" h-[3rem] px-5 mt-[20px] sm:-mt-10">
+      <div className="relative h-[3rem] w-full  ">
         <BiSearchAlt2
           size={30}
-          className="relative top-[0.8rem] left-[-0.1rem] text-dark-green border-r-1 border-r-[1px] border-dark-green w-[5rem]"
+          className="relative top-[3.8rem] left-[-0.1rem] text-dark-green border-r-1 border-r-[1px] border-dark-green w-[5rem]"
         />
       </div>
       <input
