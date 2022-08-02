@@ -32,6 +32,7 @@ const Form = () => {
         </p>
 
         <form
+
           className="text-center relative "
           onSubmit={handleSubmit(submitHandler)}
         >
@@ -65,7 +66,7 @@ const Form = () => {
             cols={10}
             rows={6}
             placeholder="Some description"
-            {...register("text-area", { required: true })}
+            {...register("textarea", { required: true })}
           ></textarea>
 
           {/* prettier-ignore */}
