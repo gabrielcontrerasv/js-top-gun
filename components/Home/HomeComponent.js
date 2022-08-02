@@ -17,34 +17,34 @@ const HomeComponent = () => {
         </div>
       </div>
 
-      <div className="mt-[80px] h-full sm:relative sm:mt-0 sm:top-[-42rem] md:flex md:justify-center md:gap-5 z-20  ">
+      <div className="w-full h-full flex justify-center items-center z-20">
         <div className=" h-[full] mt-[3rem] sm:mt-[4rem] top-16 row-start-1 row-end-3 md:w-[75%] sm:pl-[8rem] md:pl-5 sm:pr-10 absolute">
-          <h1 className="text-[2rem] text-white text-center font-extrabold sm:text-left sm:text-4xl lg:text-6xl sm:relative md:py-5">
+          <h1 className="text-[2rem] text-white text-center font-extrabold sm:text-left sm:text-4xl xl:text-6xl 2xl:text-8xl sm:relative md:py-5">
             Welcome to Teams
             <br />
             Veterinary Clinic
           </h1>
           {/* </div> */}
-          <div className="sm:w-[90%] md:w-[70%] lg:w-[60%] px-4 sm:px-0 text-justify backdrop-blur-sm ">
-            <p className="font-semibold text-[#fbfbfb] tracking-wide mt-5 md:mt-[2rem] lg:text-lg ">
+          <div className="sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] px-4 sm:px-0 text-justify backdrop-blur-sm ">
+            <p className="font-semibold text-[#fbfbfb] tracking-wide mt-5 md:mt-[2rem] lg:text-lg xl:text-xl 2xl:text-4xl ">
               Teams Veterinary Clinic is a full-service animal hospital and
               welcomes both emergency treatment cases as well as pet patients in
               need of routine medical, surgical, and dental care.
             </p>
-            <p className="font-semibold text-white tracking-wide mt-[1rem] lg:text-lg ">
+            <p className="font-semibold text-white tracking-wide mt-[1rem] lg:text-lg xl:text-xl 2xl:text-4xl 2xl:font-normal xl:mt-10 ">
               Beyond first-rate pet care, we make our clinic comfortable,
               kid-friendly, and calm, so your pet can relax in the waiting room
               and look forward to meeting our veterinarian.
             </p>
           </div>
-          <div className="flex gap-5 pl-4 sm:pl-0 mt-5 sm:justify-start sm:mt-[10rem] md:mt-8  ">
+          <div className="flex gap-5 pl-4 sm:pl-0 mt-5 sm:justify-start sm:mt-[10rem] md:mt-8 2xl:mt-[4rem] ">
             <Link href="/register">
-              <button className=" bg-dark-green text-white tracking-wider w-[8rem] h-[3rem] rounded-md hover:scale-110 duration-300">
+              <button className=" bg-dark-green text-white tracking-wider w-[8rem] h-[3rem] rounded-md hover:scale-110 duration-300 2xl:h-[6rem] 2xl:w-[15rem] 2xl:text-4xl">
                 Sign in
               </button>
             </Link>
             <Link href="/login">
-              <button className="bg-white text-dark-green font-medium tracking-wider w-[8rem] h-[3rem] rounded-md hover:scale-110 duration-300">
+              <button className="bg-white text-dark-green font-medium tracking-wider w-[8rem] h-[3rem] rounded-md hover:scale-110 duration-300 2xl:h-[6rem] 2xl:w-[15rem] 2xl:text-4xl">
                 Login
               </button>
             </Link>

@@ -1,5 +1,5 @@
 import React from "react";
-// 3rd PArty Library
+// 3rd Party Library
 import { useForm } from "react-hook-form";
 // Component
 // import InputForm from "./InputForm";
@@ -32,7 +32,6 @@ const Form = () => {
         </p>
 
         <form
-
           className="text-center relative "
           onSubmit={handleSubmit(submitHandler)}
         >
