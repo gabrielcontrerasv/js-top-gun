@@ -5,12 +5,14 @@ import Link from "next/link";
 
 const NotFound = () => {
   return (
-    <div className="col-start-1 col-end-3 flex justify-center items-center row-span-2 w-full  relative">
-      <Image src={Grumpy404} layout="fill" objectFit="cover" />
+    <div className="col-start-1 col-end-3 md:col-start-2 md:col-end-8 flex justify-center items-center row-span-2 w-full relative ">
+      <div className="md:hidden">
+        <Image src={Grumpy404} layout="fill" objectFit="cover" />
+      </div>
 
-      <div className="flex flex-col justify-between items-center h-[90%] mt-10 z-10 ">
+      <div className="md:col-start-5 md:col-end-8 flex flex-col justify-between items-center h-[90%] mt-10 z-10 md:z-0">
         <div>
-          <p className="text-[7em] sm:text-[15rem] text-center text-[#565656] font-semibold">
+          <p className="text-[7em] md:text-[15rem] text-center text-[#565656] font-semibold">
             404
           </p>
         </div>
