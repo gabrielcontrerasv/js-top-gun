@@ -1,43 +1,23 @@
-import { useState, Fragment, useEffect } from "react";
+import { useState, Fragment, useEffect, useContext } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import ProfileUserData from "./ProfileUserData";
 import PetsForm from "../Profile/PetsForm";
 import api from "../../axiosApi/api";
-import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import { PetsContext } from "../../contexts/PetsContext";
+import ProfilePetsData from "./ProfilePetsData";
 
 const ProfileComponent = () => {
-  let [modal, setModal] = useState(false);
   const [user, setUser] = useState([]);
-  const [petsUser, setPetsUser] = useState([]);
+  const [modal, setModal] = useState(false);
+  const { userPets } = useContext(PetsContext);
 
   const toggleModal = () => setModal(!modal);
+  const closeModal = () => setModal(false);
 
   // GET-USER JSON-SERVER
 
-  const deleteHandler = (e) => {
-    console.log(e.target);
-  };
-
-  const petUserHandler = (data) => {
-    setPetsUser(data);
-  };
-
-  const removePetHandler = async (id) => {
-    await api.delete(`/myPets/${id}`);
-    const newPetsList = petsUser.filter((pet) => {
-      return pet.id !== id;
-    });
-
-    setPetsUser(newPetsList);
-  };
-
   const fetchUser = async () => {
     const response = await api.get("/users");
-    return response.data;
-  };
-
-  const fetchPets = async () => {
-    const response = await api.get("/myPets");
     return response.data;
   };
 
@@ -48,14 +28,13 @@ const ProfileComponent = () => {
         setUser(user);
       }
     };
-    const getPets = async () => {
-      const pets = await fetchPets();
-      if (pets) setPetsUser(pets);
-    };
 
     getUser();
-    getPets();
   }, []);
+
+  useEffect(() => {
+    closeModal();
+  }, [userPets]);
 
   return (
     <>
@@ -107,7 +86,7 @@ const ProfileComponent = () => {
           );
         })}
 
-        {/* ADD NEW PET FORM_MODAL */}
+        {/* ADD NEW_PET_FORM_MODAL */}
         <Transition appear show={modal} as={Fragment}>
           <Dialog as="div" className="relative z-10" onClose={toggleModal}>
             <Transition.Child
@@ -140,11 +119,7 @@ const ProfileComponent = () => {
                     >
                       Add new pet
                     </Dialog.Title>
-                    <PetsForm
-                      setPetsUser={petUserHandler}
-                      pets={petsUser}
-                      toggleModal={toggleModal}
-                    />
+                    <PetsForm />
                   </Dialog.Panel>
                 </Transition.Child>
               </div>
@@ -154,30 +129,7 @@ const ProfileComponent = () => {
       </div>
 
       {/* CARD_PROFILE_PET */}
-      <div className="col-start-6 col-end-9 p-8 flex flex-col gap-5">
-        {petsUser &&
-          petsUser.map((pet) => {
-            return (
-              <div
-                key={pet.id}
-                className="border-[1px] border-dark-green p-5 rounded-md max-w-[15rem]"
-              >
-                <h2 className="text-2xl font-semibold ">{pet.name}</h2>
-                <p>Species: {pet.species}</p>
-                <p>Gender: {pet.gender}</p>
-                <p>Breed: {pet.breed}</p>
-                <p>Birthday: {pet.birthday}</p>
-                <p>Weight: {pet.weight} kg</p>
-                <p>Microchip: {pet.microchip}</p>
-                <AiFillDelete
-                  className="cursor-pointer text-red-500"
-                  onClick={() => removePetHandler(pet.id)}
-                />
-                <AiFillEdit className="cursor-pointer text-yellow-500" />
-              </div>
-            );
-          })}
-      </div>
+      <ProfilePetsData />
     </>
   );
 };

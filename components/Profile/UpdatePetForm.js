@@ -1,25 +1,31 @@
-import React from "react";
+import { useEffect, useContext } from "react";
+import { PetsContext } from "../../contexts/PetsContext";
 import { useForm } from "react-hook-form";
 import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
-import api from "../../axiosApi/api";
 
-const PetsForm = ({ setPetsUser, pets, toggleModal }) => {
+const UpdatePetForm = ({ toUpdatePet, toggleModal }) => {
+  const { updatePet } = useContext(PetsContext);
+  const id = toUpdatePet.id;
   const {
     handleSubmit,
     register,
     formState: { errors },
+    setValue,
   } = useForm();
 
-  // POST REQ
-  const onSubmitHandler = async (values) => {
-    console.log(values);
-    const request = {
-      id: Math.random(),
-      ...values,
-    };
+  useEffect(() => {
+    setValue("name", toUpdatePet.name);
+    setValue("microchip", toUpdatePet.microchip);
+    setValue("species", toUpdatePet.species);
+    setValue("breed", toUpdatePet.breed);
+    setValue("birthday", toUpdatePet.birthday);
+    setValue("weight", toUpdatePet.weight);
+    setValue("status", toUpdatePet.status);
+    setValue("gender", toUpdatePet.gender);
+  }, []);
 
-    const response = await api.post("/myPets", request);
-    setPetsUser([...pets, response.data]);
+  const onSubmitHandler = async (values) => {
+    updatePet({ ...values, id });
   };
 
   return (
@@ -130,13 +136,13 @@ const PetsForm = ({ setPetsUser, pets, toggleModal }) => {
       </div>
       <button
         type="submit"
-        // onClick={toggleModal}
         className=" bg-dark-green text-white tracking-wider w-full col-span-2 h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e] mt-7"
+        onClick={toggleModal}
       >
-        Add
+        Update
       </button>
     </form>
   );
 };
 
-export default PetsForm;
+export default UpdatePetForm;

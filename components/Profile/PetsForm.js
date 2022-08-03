@@ -1,25 +1,27 @@
-import React from "react";
+import { useContext } from "react";
+import { PetsContext } from "../../contexts/PetsContext";
 import { useForm } from "react-hook-form";
 import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
 import api from "../../axiosApi/api";
+import { v4 as uuidv4 } from "uuid";
 
-const PetsForm = ({ setPetsUser, pets, toggleModal }) => {
+const PetsForm = () => {
+  const { addNewPet } = useContext(PetsContext);
+
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm();
 
-  // POST REQ
   const onSubmitHandler = async (values) => {
-    console.log(values);
     const request = {
-      id: Math.random(),
+      id: uuidv4(),
       ...values,
     };
-
+    console.log(request);
     const response = await api.post("/myPets", request);
-    setPetsUser([...pets, response.data]);
+    addNewPet(response.data);
   };
 
   return (
@@ -130,7 +132,6 @@ const PetsForm = ({ setPetsUser, pets, toggleModal }) => {
       </div>
       <button
         type="submit"
-        // onClick={toggleModal}
         className=" bg-dark-green text-white tracking-wider w-full col-span-2 h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e] mt-7"
       >
         Add
