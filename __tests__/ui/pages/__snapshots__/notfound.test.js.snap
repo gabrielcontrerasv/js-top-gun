@@ -6,93 +6,89 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        style="display: flex; justify-content: center;"
+        class="col-start-1 col-end-3 flex justify-center items-center row-span-2 w-full relative"
       >
         <span
-          style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+          style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"
         >
-          <span
-            style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
-          >
-            <img
-              alt=""
-              aria-hidden="true"
-              src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%2724%27/%3e"
-              style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
-            />
-          </span>
           <img
-            alt="404-logo"
-            class="object-center"
-            data-nimg="intrinsic"
+            data-nimg="fill"
             decoding="async"
             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+            style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
           />
           <noscript />
         </span>
-      </div>
-      <h1
-        class="text-3xl text-center font-bold"
-        style="color: rgb(21, 77, 77); max-width: 400px; margin: auto;"
-      >
-        Oops... it looks like you’ve reached a bad path buddy :/
-         
-      </h1>
-      <div
-        class="m-auto w-32"
-      >
-        <button
-          class="bg-[#154D4D] hover:bg-[#FEDB54] text-white hover:text-black font-bold py-3 px-6 rounded-full my-4"
+        <div
+          class="flex flex-col justify-between items-center h-[90%] mt-10 z-10 "
         >
-          Go Home
-        </button>
+          <div>
+            <p
+              class="text-[7em] sm:text-[15rem] text-center text-[#565656] font-semibold"
+            >
+              404
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-center items-center gap-2"
+          >
+            <h1
+              class="text-3xl md:text-4xl text-center font-bold text-[#565656]"
+            >
+              Uh oh we have a problem
+               
+            </h1>
+            <button
+              class="bg-[#154D4D] text-white py-3 px-6 rounded-md tracking-widest hover:bg-[#217a7a] w-[16rem] "
+            >
+              GO HOME
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      style="display: flex; justify-content: center;"
+      class="col-start-1 col-end-3 flex justify-center items-center row-span-2 w-full relative"
     >
       <span
-        style="box-sizing: border-box; display: inline-block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
+        style="box-sizing: border-box; display: block; overflow: hidden; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;"
       >
-        <span
-          style="box-sizing: border-box; display: block; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
-        >
-          <img
-            alt=""
-            aria-hidden="true"
-            src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%27500%27%20height=%2724%27/%3e"
-            style="display: block; max-width: 100%; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
-          />
-        </span>
         <img
-          alt="404-logo"
-          class="object-center"
-          data-nimg="intrinsic"
+          data-nimg="fill"
           decoding="async"
           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
         />
         <noscript />
       </span>
-    </div>
-    <h1
-      class="text-3xl text-center font-bold"
-      style="color: rgb(21, 77, 77); max-width: 400px; margin: auto;"
-    >
-      Oops... it looks like you’ve reached a bad path buddy :/
-       
-    </h1>
-    <div
-      class="m-auto w-32"
-    >
-      <button
-        class="bg-[#154D4D] hover:bg-[#FEDB54] text-white hover:text-black font-bold py-3 px-6 rounded-full my-4"
+      <div
+        class="flex flex-col justify-between items-center h-[90%] mt-10 z-10 "
       >
-        Go Home
-      </button>
+        <div>
+          <p
+            class="text-[7em] sm:text-[15rem] text-center text-[#565656] font-semibold"
+          >
+            404
+          </p>
+        </div>
+        <div
+          class="flex flex-col justify-center items-center gap-2"
+        >
+          <h1
+            class="text-3xl md:text-4xl text-center font-bold text-[#565656]"
+          >
+            Uh oh we have a problem
+             
+          </h1>
+          <button
+            class="bg-[#154D4D] text-white py-3 px-6 rounded-md tracking-widest hover:bg-[#217a7a] w-[16rem] "
+          >
+            GO HOME
+          </button>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],

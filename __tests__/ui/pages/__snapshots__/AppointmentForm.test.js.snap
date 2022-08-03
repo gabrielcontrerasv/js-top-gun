@@ -6,16 +6,16 @@ Object {
   "baseElement": <body>
     <div>
       <section
-        class="w-full grid grid-cols-1 md:grid-cols-3 grid-rows-[50vh_minmax(50vh,_1fr)]"
+        class="w-full col-start-1 col-end-9 lg:grid lg:grid-cols-3 lg:grid-rows-[50vh_minmax(50vh,_1fr)] flex-wrap "
       >
         <div
-          class="w-full col-span-2 mb-[5rem] mt-[100px] md:col-start-1 md:col-end-3 flex justify-center items-center row-start-1 row-end-3"
+          class="w-full pb-[5rem] mt-[80px] sm:mt-0 col-start-1 col-end-3 flex md:justify-center items-center row-start-1 row-end-3 bg-[#edf4f4] "
         >
           <div
-            class="w-[70%] flex flex-col gap-y-6 "
+            class="md:w-[100%] p-5 flex flex-col gap-y-6 sm:pl-[11rem] sm:pr-10 lg:mt-14"
           >
             <h1
-              class="text-4xl text-[#1F6B6B] font-semibold text-center"
+              class="text-[2rem] text-[#1F6B6B] font-bold text-center"
             >
               Make an appointment
             </h1>
@@ -29,17 +29,16 @@ Object {
             </p>
             <form
               class="text-center relative "
-              data-testid="form-element"
             >
               <fieldset
                 class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4"
               >
                 <div>
                   <select
-                    class="placeholder:text-[#1F6B6B] block bg-white w-full border-2 border-[#1F6B6B] rounded-2xl py-2 pl-2 sm:pl-4 pr-3 focus:outline-none focus:border-[#1F6B6B] focus:ring-[#1F6B6B] focus:ring-1 max-h-[45px]"
+                    class="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2 sm:pl-4 pr-3 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 max-h-[45px]"
                     name="service"
                     placeholder="Service"
-                    type="number"
+                    type="text"
                   >
                     <option>
                       Medical Service
@@ -51,7 +50,7 @@ Object {
                 </div>
                 <div>
                   <input
-                    class="placeholder:text-[#1F6B6B] block bg-white w-full border-2 border-[#1F6B6B] rounded-2xl py-2 pl-2 sm:pl-4 pr-3 focus:outline-none focus:border-[#1F6B6B] focus:ring-[#1F6B6B] focus:ring-1"
+                    class="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2 sm:pl-4 pr-3 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
                     name="date"
                     placeholder="Date"
                     type="date"
@@ -59,14 +58,14 @@ Object {
                 </div>
               </fieldset>
               <textarea
-                class="placeholder:text-[#1F6B6B] block bg-white w-full border-2 border-[#1F6B6B] rounded-2xl py-2 pl-9 pr-3 focus:outline-none focus:border-[#1F6B6B] focus:ring-[#1F6B6B] focus:ring-1 mb-5"
+                class="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-4 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 mb-5"
                 cols="10"
                 name="textarea"
                 placeholder="Some description"
                 rows="6"
               />
               <button
-                class="px-2 rounded-3xl h-[3rem] w-[8rem] bg-[#1F6B6B] text-white right-3 absolute tracking-wider"
+                class="px-2 rounded-md h-[3rem] w-[8rem] bg-mid-green text-white tracking-wider"
                 type="submit"
               >
                 Submit
@@ -75,7 +74,7 @@ Object {
           </div>
         </div>
         <div
-          class=" bg-[#1F6B6B] flex flex-col justify-between items-center py-10 md:col-start-3 md:col-end-4 row-start-1 row-end-3 "
+          class=" bg-[#1F6B6B] flex flex-col justify-between items-center py-10 col-start-3 col-span-1 row-span-2 sm:pl-[9rem] lg:pl-0 "
         >
           <div
             class=" flex flex-col items-center mt-10 p-8"
@@ -213,16 +212,16 @@ Object {
   </body>,
   "container": <div>
     <section
-      class="w-full grid grid-cols-1 md:grid-cols-3 grid-rows-[50vh_minmax(50vh,_1fr)]"
+      class="w-full col-start-1 col-end-9 lg:grid lg:grid-cols-3 lg:grid-rows-[50vh_minmax(50vh,_1fr)] flex-wrap "
     >
       <div
-        class="w-full col-span-2 mb-[5rem] mt-[100px] md:col-start-1 md:col-end-3 flex justify-center items-center row-start-1 row-end-3"
+        class="w-full pb-[5rem] mt-[80px] sm:mt-0 col-start-1 col-end-3 flex md:justify-center items-center row-start-1 row-end-3 bg-[#edf4f4] "
       >
         <div
-          class="w-[70%] flex flex-col gap-y-6 "
+          class="md:w-[100%] p-5 flex flex-col gap-y-6 sm:pl-[11rem] sm:pr-10 lg:mt-14"
         >
           <h1
-            class="text-4xl text-[#1F6B6B] font-semibold text-center"
+            class="text-[2rem] text-[#1F6B6B] font-bold text-center"
           >
             Make an appointment
           </h1>
@@ -236,17 +235,16 @@ Object {
           </p>
           <form
             class="text-center relative "
-            data-testid="form-element"
           >
             <fieldset
               class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4"
             >
               <div>
                 <select
-                  class="placeholder:text-[#1F6B6B] block bg-white w-full border-2 border-[#1F6B6B] rounded-2xl py-2 pl-2 sm:pl-4 pr-3 focus:outline-none focus:border-[#1F6B6B] focus:ring-[#1F6B6B] focus:ring-1 max-h-[45px]"
+                  class="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2 sm:pl-4 pr-3 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 max-h-[45px]"
                   name="service"
                   placeholder="Service"
-                  type="number"
+                  type="text"
                 >
                   <option>
                     Medical Service
@@ -258,7 +256,7 @@ Object {
               </div>
               <div>
                 <input
-                  class="placeholder:text-[#1F6B6B] block bg-white w-full border-2 border-[#1F6B6B] rounded-2xl py-2 pl-2 sm:pl-4 pr-3 focus:outline-none focus:border-[#1F6B6B] focus:ring-[#1F6B6B] focus:ring-1"
+                  class="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2 sm:pl-4 pr-3 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
                   name="date"
                   placeholder="Date"
                   type="date"
@@ -266,14 +264,14 @@ Object {
               </div>
             </fieldset>
             <textarea
-              class="placeholder:text-[#1F6B6B] block bg-white w-full border-2 border-[#1F6B6B] rounded-2xl py-2 pl-9 pr-3 focus:outline-none focus:border-[#1F6B6B] focus:ring-[#1F6B6B] focus:ring-1 mb-5"
+              class="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-4 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 mb-5"
               cols="10"
               name="textarea"
               placeholder="Some description"
               rows="6"
             />
             <button
-              class="px-2 rounded-3xl h-[3rem] w-[8rem] bg-[#1F6B6B] text-white right-3 absolute tracking-wider"
+              class="px-2 rounded-md h-[3rem] w-[8rem] bg-mid-green text-white tracking-wider"
               type="submit"
             >
               Submit
@@ -282,7 +280,7 @@ Object {
         </div>
       </div>
       <div
-        class=" bg-[#1F6B6B] flex flex-col justify-between items-center py-10 md:col-start-3 md:col-end-4 row-start-1 row-end-3 "
+        class=" bg-[#1F6B6B] flex flex-col justify-between items-center py-10 col-start-3 col-span-1 row-span-2 sm:pl-[9rem] lg:pl-0 "
       >
         <div
           class=" flex flex-col items-center mt-10 p-8"
