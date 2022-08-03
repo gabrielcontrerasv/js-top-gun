@@ -1,9 +1,9 @@
 import { BiSearchAlt2 } from "react-icons/bi";
 
-const PetsFinder = ({ details, setPets }) => {
+const PetsFinder = ({ petsData, setPets }) => {
   const filteredPets = (value) =>
-    details.filter((pet) =>
-      pet.pet.toLowerCase().includes(value.toLowerCase())
+    petsData.filter((pet) =>
+      pet.name.toLowerCase().includes(value.toLowerCase())
     );
 
   const searchPetHandler = (value) => {

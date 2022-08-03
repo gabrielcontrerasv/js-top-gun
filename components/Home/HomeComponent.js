@@ -25,7 +25,7 @@ const HomeComponent = () => {
             Veterinary Clinic
           </h1>
           {/* </div> */}
-          <div className="sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] px-4 sm:px-0 text-justify backdrop-blur-sm ">
+          <div className="sm:w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] px-4 sm:px-0 text-justify  ">
             <p className="font-semibold text-[#fbfbfb] tracking-wide mt-5 md:mt-[1rem] lg:text-lg xl:text-xl 2xl:text-2xl ">
               Teams Veterinary Clinic is a full-service animal hospital and
               welcomes both emergency treatment cases as well as pet patients in

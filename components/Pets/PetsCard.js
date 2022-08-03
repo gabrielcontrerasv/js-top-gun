@@ -1,11 +1,7 @@
 import Image from "next/image";
 import petPhoto from "../../public/assets/images/Grumpy404.png";
 
-const PetsCard = ({ pets, loading }) => {
-  loading && <h2>Loading . . .</h2>;
-  const urlImage =
-    "http://sorprendete.pe/wp-content/uploads/2021/03/mascota1.jpg";
-
+const PetsCard = ({ pets }) => {
   return (
     <>
       {pets.map((pet, key) => (
@@ -17,7 +13,7 @@ const PetsCard = ({ pets, loading }) => {
 
           <div className="z-10 w-full h-[60%] bg-gradient-to-b from-[#ffffff00] to-[#030909] justify-center sm:pt-10 px-5 flex flex-col ">
             <h2 className="font-bold text-white text-xl sm:text-2xl tracking-wider drop-shadow-8xl shadow-yellow">
-              {pet.pet}
+              {pet.name}
             </h2>
             <p className="mt-1 text-yellow-400 sm:text-xl font-bold tracking-wider">
               {pet.owner}

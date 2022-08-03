@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import PetsCard from "./PetsCard";
 import PetsFinder from "./PetsFinder";
 import PetsCardsPagination from "./PetsCardsPagination";
+import api from "../../axiosApi/api";
 
 const DUMMY_DATA = [
   { owner: "Nicolas", pet: "Thor" },
@@ -68,9 +69,23 @@ const getWindowSize = () => {
 
 const PetsComponent = () => {
   const [width, setWidth] = useState();
-  const [pets, setPets] = useState(DUMMY_DATA);
+  const [pets, setPets] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(6);
+
+  const fetchPets = async () => {
+    const response = await api.get("/pets");
+    return response.data;
+  };
+
+  useEffect(() => {
+    const getPets = async () => {
+      const pets = await fetchPets();
+      if (pets) setPets(pets);
+    };
+
+    getPets();
+  }, []);
 
   useEffect(() => {
     const getWidthHandler = () => {
@@ -116,7 +131,7 @@ const PetsComponent = () => {
       </Head>
       <section className="w-full h-full flex flex-col col-start-1 col-end-9 row-span-2 sm:pl-[10rem] sm:pr-[2rem] md:pr-[8rem] pl-0 justify-around">
         <div className="w-[100%]">
-          <PetsFinder details={DUMMY_DATA} setPets={setPets} />
+          <PetsFinder petsData={pets} setPets={setPets} />
         </div>
 
         <div className="flex justify-center h-[60%] flex-wrap gap-5  mt-4">
