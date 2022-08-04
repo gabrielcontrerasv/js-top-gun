@@ -7,9 +7,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "mid-green": "#1F6B6B",
+        "light-green": "#2D9B9B",
+        "mid-green": "#166060",
         "dark-green": "#123f3f",
         "hover-green": "#7bdbdb9c",
+        "primary-text": "#0E4242",
+        "secondary-text": "#607B79",
       },
       backgroundImage: {
         "register-bg": "url('/public/assets/images/RegisterBg.jpg')",

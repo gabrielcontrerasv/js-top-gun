@@ -5,6 +5,7 @@ import PetsForm from "../Profile/PetsForm";
 import api from "../../axiosApi/api";
 import { PetsContext } from "../../contexts/PetsContext";
 import ProfilePetsData from "./ProfilePetsData";
+import { FaUserCircle } from "react-icons/fa";
 
 const ProfileComponent = () => {
   const [user, setUser] = useState([]);
@@ -13,8 +14,6 @@ const ProfileComponent = () => {
 
   const toggleModal = () => setModal(!modal);
   const closeModal = () => setModal(false);
-
-  // GET-USER JSON-SERVER
 
   const fetchUser = async () => {
     const response = await api.get("/users");
@@ -38,39 +37,37 @@ const ProfileComponent = () => {
 
   return (
     <>
-      <div className="col-start-1 col-end-3 md:col-start-2 md:col-end-6 row-span-2 md:p-8">
+      <div className="col-start-1 col-end-3 md:col-start-2 md:col-end-4 md:p-8">
         {/* CARD_PROFILE_USER */}
         {user.map((data) => {
           return (
             <div
               key={data.id}
-              className=" border-[1px] border-dark-green h-full rounded-md flex flex-col items-center"
+              className=" border-[1px] border-dark-green h-full rounded-md bg-white p-8 flex"
             >
-              <div className="w-full h-[35%] flex justify-center items-center bg-gradient-to-t from-dark-green to-[#147e7e]">
-                <div className="border-b-2 border-dark-green w-[80%] h-full flex p-5">
-                  {/* User__ Header */}
-                  <div className="h-full flex flex-col justify-center pl-5 ">
-                    <h1 className="text-4xl font-bold mb-4 text-white">
-                      {`${data.name} ${data.lastName} `}
-                    </h1>
-                    <h3 className="text-2xl font-semibold mb-2 text-white">
-                      {data.rol}
-                    </h3>
-                    <h3 className="text-2xl font-semibold text-white">
-                      {data.address}
-                    </h3>
-                  </div>
+              {/* USER_NAME_&_IMAGE */}
+              <div className=" flex flex-col items-center h-full justify-around ">
+                <div>
+                  <FaUserCircle className="text-8xl text-[#beb9b9]" />
+                </div>
+                <div className="flex flex-col justify-end items-center">
+                  <h1 className="text-2xl font-bold">
+                    {`${data.name} ${data.lastName} `}
+                  </h1>
+                  <h3 className="text-xl font-semibold mb-2 text-[#868585]">
+                    {data.rol}
+                  </h3>
                 </div>
               </div>
               {/* User Data */}
-              <div className="w-[80%] text-2xl flex flex-col h-[40%] mt-10 ">
+              <div className="w-[80%] flex flex-col h-[40%] mt-10 ">
                 <ProfileUserData data1="Document" data2={data.document} />
                 <ProfileUserData data1="Age" data2={data.age} />
                 <ProfileUserData data1="Gender" data2={data.gender} />
                 <ProfileUserData data1="E-mail" data2={data.email} />
                 <ProfileUserData data1="Phone" data2={data.phone} />
               </div>
-              <div className="w-[80%] flex gap-5 mt-10">
+              {/* <div className="w-[80%] flex gap-5 mt-10">
                 <button className=" bg-dark-green  text-white tracking-wider w-[9rem] h-[3.5rem] rounded-md hover:scale-110 duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e] transition ease-linear ">
                   Edit profile
                 </button>
@@ -81,7 +78,7 @@ const ProfileComponent = () => {
                 >
                   New pet
                 </button>
-              </div>
+              </div> */}
             </div>
           );
         })}
@@ -129,7 +126,7 @@ const ProfileComponent = () => {
       </div>
 
       {/* CARD_PROFILE_PET */}
-      <ProfilePetsData />
+      {/* <ProfilePetsData /> */}
     </>
   );
 };
