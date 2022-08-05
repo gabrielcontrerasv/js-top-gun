@@ -62,7 +62,7 @@ const services = [
 
 const HomeServices = () => {
   return (
-    <div className="col-start-1 col-end-13 row-start-5 row-end-7 2xl:row-start-4 2xl:row-end-5 lg:col-start-2 lg:col-end-12 ">
+    <div className="col-start-1 col-end-13 row-start-5 row-end-7 2xl:row-start-5 2xl:row-end-7 lg:col-start-2 lg:col-end-12 ">
       <div className="">
         <Splide
           options={{
@@ -71,7 +71,6 @@ const HomeServices = () => {
             rewindSpeed: 2000,
             focus: "center",
             arrows: false,
-            paginationKeyboard: true,
           }}
           aria-label="My Favorite services"
         >
@@ -79,26 +78,26 @@ const HomeServices = () => {
             return (
               <SplideSlide
                 key={i}
-                className=" lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center lg:justify-center px-1"
+                className=" lg:grid lg:grid-cols-2 lg:gap-8  lg:justify-center px-1"
               >
-                <div className="text-center xl:pr-10 ">
-                  <h2 className="text-center text-primary-text text-2xl tracking-wider  font-bold border-b-[1px] border-b-secondary-text pb-4 sm:text-4xl lg:text-left 2xl:text-[3.5rem] 2xl:pb-12  ">
+                <div className="text-center xl:pr-10 xl:pt-10 ">
+                  <h2 className="text-center text-primary-text text-2xl tracking-wide  font-bold border-b-[1px] border-b-secondary-text pb-4 sm:text-4xl lg:text-left 2xl:text-[3.5rem] 2xl:pb-12  ">
                     Services: <br />
                     <span className="block xl:mt-2 2xl:mt-5 ">
                       <h2 className="leading-10">{service.title}</h2>
                     </span>
                   </h2>
 
-                  <p className=" mt-5  text-primary-text text-justify sm:text-lg xl:text-xl 2xl:text-3xl 2xl:font-light ">
+                  <p className="mt-5 text-secondary-text text-justify sm:text-lg sm:leading-8 xl:text-xl 2xl:text-3xl font-light xl:leading-relaxed 2xl:leading-relaxed tracking-wide">
                     {service.primDescription}
                   </p>
 
-                  <p className=" mt-5  text-primary-text text-justify sm:text-lg xl:text-xl 2xl:text-3xl 2xl:font-light ">
+                  <p className=" mt-5  text-secondary-text text-justify sm:text-lg sm:leading-8 xl:text-xl 2xl:text-3xl font-light xl:leading-relaxed 2xl:leading-relaxed tracking-wide ">
                     {service.secDescription}
                   </p>
                 </div>
 
-                <div className="relative mt-5 md:mt-10 h-[11rem] sm:h-[22rem] 2xl:h-[28rem] ">
+                <div className="relative mt-5 md:mt-10 h-[15rem] sm:h-[18rem] md:h-[25rem] lg:h-[25rem] 2xl:h-[35rem] ">
                   <div className="relative h-full bg-[#00000049] z-10"></div>
                   <Image
                     src={service.image}

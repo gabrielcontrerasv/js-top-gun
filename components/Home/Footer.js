@@ -1,5 +1,4 @@
 import React from "react";
-import { IconContext } from "react-icons";
 //prettier-ignore
 import { BsFillTelephoneFill, BsFillClockFill,  BsShieldFillCheck} from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
@@ -7,8 +6,8 @@ import { IoPawSharp, IoLocationSharp } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <footer className="col-start-1 col-end-13 mt-10 xl:mt-[5rem] ">
-      <div className="bg-mid-green flex flex-wrap md:grid md:grid-cols-11 text-white px-2 py-[3rem] ">
+    <footer className="relative bottom-[-6rem] col-start-1 col-end-13  md:mt-[15rem] lg:mt-10 row-start-7 row.end.9">
+      <div className="bg-mid-green flex flex-wrap md:grid md:grid-cols-11 text-white px-2 py-[3rem] gap-5 ">
         <div className="col-start-2 col-end-5 px-5 mt-2 ">
           <h3 className="text-xl font-semibold tracking-wider mb-3 2xl:text-4xl 2xl:my-10">
             Contact & Location

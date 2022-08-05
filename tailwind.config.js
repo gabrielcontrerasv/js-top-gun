@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateRows: {
-        mobile: "repeat(auto-fit, minmax(450px, 1fr))",
-        desktop: "repeat(auto-fit, minmax(200px, 500px))",
+        mobile: "repeat(8, minmax(250px, 350px))",
+        desktop: "repeat(8, minmax(200px, 300px))",
       },
       colors: {
         "light-green": "#2D9B9B",
@@ -16,7 +16,7 @@ module.exports = {
         "dark-green": "#123f3f",
         "hover-green": "#7bdbdb9c",
         "primary-text": "#0E4242",
-        "secondary-text": "#607B79",
+        "secondary-text": "#516C6A",
       },
     },
   },
