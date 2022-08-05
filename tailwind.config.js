@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      gridTemplateRows: {
+        mobile: "repeat(auto-fit, minmax(450px, 1fr))",
+        desktop: "repeat(auto-fit, minmax(200px, 500px))",
+      },
       colors: {
         "light-green": "#2D9B9B",
         "mid-green": "#166060",

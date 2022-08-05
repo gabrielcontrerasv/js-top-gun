@@ -19,7 +19,7 @@ const services = [
       "The general physical assessment is performed by veterinarians trained in identifying and guiding an appropriate clinical approach during a period of illness or for the practice of preventive medicine.",
   },
   {
-    title: "Specialized Consultation",
+    title: "Sp. Consultation",
     image: SpConsultation,
     primDescription:
       "We have veterinary doctors specialized in the following areas:",
@@ -62,35 +62,44 @@ const services = [
 
 const HomeServices = () => {
   return (
-    <div className="col-start-2 col-end-12 row-start-3 row-end-5 row-span-2 grid grid-cols-10 py-20 mr-2">
-      <div className=" col-start-2 col-end-10  flex ">
+    <div className="col-start-1 col-end-13 row-start-5 row-end-7 2xl:row-start-4 2xl:row-end-5 lg:col-start-2 lg:col-end-12 ">
+      <div className="">
         <Splide
           options={{
             speed: 500,
             rewind: true,
             rewindSpeed: 2000,
             focus: "center",
-
+            arrows: false,
             paginationKeyboard: true,
           }}
           aria-label="My Favorite services"
         >
           {services.map((service, i) => {
             return (
-              <SplideSlide key={i} className="grid grid-cols-2 pl-5 ">
-                <div className="pr-[2rem]">
-                  <h2 className="text-4xl font-bold text-primary-text py-3  border-b-[1px] border-b-secondary-text">
-                    Services: {service.title}
+              <SplideSlide
+                key={i}
+                className=" lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center lg:justify-center px-1"
+              >
+                <div className="text-center xl:pr-10 ">
+                  <h2 className="text-center text-primary-text text-2xl tracking-wider  font-bold border-b-[1px] border-b-secondary-text pb-4 sm:text-4xl lg:text-left 2xl:text-[3.5rem] 2xl:pb-12  ">
+                    Services: <br />
+                    <span className="block xl:mt-2 2xl:mt-5 ">
+                      <h2 className="leading-10">{service.title}</h2>
+                    </span>
                   </h2>
-                  <p className="mt-6 text-justify text-secondary-text text-xl">
+
+                  <p className=" mt-5  text-primary-text text-justify sm:text-lg xl:text-xl 2xl:text-3xl 2xl:font-light ">
                     {service.primDescription}
                   </p>
-                  <p className="mt-6 text-justify text-secondary-text text-xl">
+
+                  <p className=" mt-5  text-primary-text text-justify sm:text-lg xl:text-xl 2xl:text-3xl 2xl:font-light ">
                     {service.secDescription}
                   </p>
                 </div>
-                <div className="relative">
-                  <div className="w-full h-[25rem] relative bg-[#00000049] z-10 flex justify-center items-end pb-8 "></div>
+
+                <div className="relative mt-5 md:mt-10 h-[11rem] sm:h-[22rem] 2xl:h-[28rem] ">
+                  <div className="relative h-full bg-[#00000049] z-10"></div>
                   <Image
                     src={service.image}
                     alt="Image 1"
