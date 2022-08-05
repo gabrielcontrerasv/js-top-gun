@@ -59,6 +59,7 @@ const services = [
       "A preliminary report is delivered immediately after the samples are processed, later we deliver a final report within 2 hours.",
   },
 ];
+
 const HomeServices = () => {
   return (
     <div className="col-start-2 col-end-12 row-start-3 row-end-5 row-span-2 grid grid-cols-10 py-20 mr-2">
@@ -69,7 +70,7 @@ const HomeServices = () => {
             rewind: true,
             rewindSpeed: 2000,
             focus: "center",
-            arrows: false,
+
             paginationKeyboard: true,
           }}
           aria-label="My Favorite services"

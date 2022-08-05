@@ -13,7 +13,7 @@ const HomeComponent = () => {
       {/* Home_Page_Container */}
       <HeroSection />
       {/* About_Us_Section */}
-      {/* <AboutUs /> */}
+      <AboutUs />
 
       {/* Services_Section */}
       {/* <HomeServices /> */}
