@@ -4,9 +4,14 @@ import AboutUsImg from "../../public/assets/images/doctors-with-dog-in-lobby.web
 
 const AboutUs = () => {
   return (
-    <div className="col-start-2 col-end-12 row-start-3 row-end-5 row-span-2 grid grid-cols-10  py-20">
-      <div className=" col-start-2 col-end-6">
-        <Image src={AboutUsImg} alt="About us image" />
+    <div className="col-start-2 col-end-12 row-start-3 row-end-5 row-span-2 grid grid-cols-10 py-20">
+      <div className=" col-start-2 col-end-6 relative">
+        <Image
+          src={AboutUsImg}
+          alt="About us image"
+          layout="fill"
+          objectFit="cover"
+        />
       </div>
       <div className="col-start-6 col-end-10 p-8">
         <h2 className="text-4xl font-bold text-primary-text py-3  border-b-[1px] border-b-secondary-text">

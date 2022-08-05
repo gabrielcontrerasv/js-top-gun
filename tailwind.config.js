@@ -14,9 +14,6 @@ module.exports = {
         "primary-text": "#0E4242",
         "secondary-text": "#607B79",
       },
-      backgroundImage: {
-        "register-bg": "url('/public/assets/images/RegisterBg.jpg')",
-      },
     },
   },
   plugins: [],
