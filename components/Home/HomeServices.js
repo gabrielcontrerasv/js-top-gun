@@ -88,16 +88,16 @@ const HomeServices = () => {
                     </span>
                   </h2>
 
-                  <p className="mt-5 text-secondary-text text-justify sm:text-lg sm:leading-8 xl:text-xl 2xl:text-3xl font-light xl:leading-relaxed 2xl:leading-relaxed tracking-wide">
+                  <p className="mt-5 text-secondary-text text-justify sm:text-lg sm:leading-8 xl:text-xl 2xl:text-2xl font-light xl:leading-relaxed 2xl:leading-relaxed tracking-wide">
                     {service.primDescription}
                   </p>
 
-                  <p className=" mt-5  text-secondary-text text-justify sm:text-lg sm:leading-8 xl:text-xl 2xl:text-3xl font-light xl:leading-relaxed 2xl:leading-relaxed tracking-wide ">
+                  <p className=" mt-5  text-secondary-text text-justify sm:text-lg sm:leading-8 xl:text-xl 2xl:text-2xl font-light xl:leading-relaxed 2xl:leading-relaxed tracking-wide ">
                     {service.secDescription}
                   </p>
                 </div>
 
-                <div className="relative mt-5 md:mt-10 h-[15rem] sm:h-[18rem] md:h-[25rem] lg:h-[25rem] 2xl:h-[35rem] ">
+                <div className="relative mt-5 md:mt-10 h-[15rem] sm:h-[18rem] md:h-[25rem] lg:h-[25rem] 2xl:h-[30rem] mb-12 ">
                   <div className="relative h-full bg-[#00000049] z-10"></div>
                   <Image
                     src={service.image}

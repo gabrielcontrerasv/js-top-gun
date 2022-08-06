@@ -19,13 +19,13 @@ const AboutUs = () => {
           About us
         </h2>
 
-        <p className="px-3 text-justify text-secondary-text mt-5 sm:text-lg sm:leading-8 lg:p-0 xl:text-xl 2xl:text-3xl font-light xl:leading-relaxed 2xl:leading-relaxed">
+        <p className="px-3 text-justify text-secondary-text mt-5 sm:text-lg sm:leading-8 lg:p-0 xl:text-xl 2xl:text-2xl font-light xl:leading-relaxed 2xl:leading-relaxed">
           We are a full-service animal hospital and welcomes both emergency
           treatment cases as well as pet patients in need of routine medical,
           surgical, and dental care.
         </p>
 
-        <p className="px-3 text-justify text-secondary-text mt-5 sm:text-lg sm:leading-8 lg:p-0 xl:text-xl 2xl:text-3xl font-light xl:leading-relaxed 2xl:leading-relaxed">
+        <p className="px-3 text-justify text-secondary-text mt-5 sm:text-lg sm:leading-8 lg:p-0 xl:text-xl 2xl:text-2xl font-light xl:leading-relaxed 2xl:leading-relaxed">
           Beyond first-rate pet care, we make our clinic comfortable,
           kid-friendly, and calm, so your pet can relax in the waiting room and
           look forward to meeting our veterinarian.

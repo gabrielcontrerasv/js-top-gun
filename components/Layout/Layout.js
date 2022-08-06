@@ -7,7 +7,7 @@ function Layout(props) {
     <div className="">
       {/* <Navigation /> */}
       <PetsContextProvider>
-        <main className="grid-cols-12 grid-rows-7  bg-[#edf4f4] ">
+        <main className="grid-cols-12 grid-rows-7 bg-[#edf4f4] ">
           {props.children}
         </main>
       </PetsContextProvider>

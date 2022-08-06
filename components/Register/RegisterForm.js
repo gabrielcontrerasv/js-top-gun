@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
+import Link from "next/link";
 
 const RegisterForm = () => {
   const {
@@ -12,25 +13,15 @@ const RegisterForm = () => {
     console.log(values);
   };
 
-  const addMarginTop =
-    Object.keys(errors).length > 0 && errors.constructor === Object
-      ? "mt-2"
-      : "mt-16";
-
-  const addGap =
-    Object.keys(errors).length === 0 && errors.constructor === Object
-      ? "gap-4 sm:gap-7"
-      : "gap-3 sm:gap-5";
-
   return (
     <form
-      className="sm:h-[25rem] sm:mt-5 flex flex-col"
+      className=" flex flex-col h-[80%] justify-center md:justify-center 2xl:justify-center"
       onSubmit={handleSubmit(onSubmitHandler)}
     >
-      <div className={`grid grid-cols-2 ${addGap}`}>
+      <div className="grid grid-cols-2 gap-5 2xl:gap-y-[1.5rem] 2xl:mt-10  ">
         <div>
           <input
-            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "
             type="text"
             placeholder="Name"
             autoComplete="off"
@@ -42,7 +33,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <input
-            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 "
+            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4  "
             autoComplete="off"
             type="text"
             placeholder="Last Name"
@@ -56,7 +47,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <input
-            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "
             autoComplete="off"
             type="number"
             placeholder="ID"
@@ -68,7 +59,7 @@ const RegisterForm = () => {
         </div>
 
         <select
-          className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+          className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "
           autoComplete="off"
           type="text"
           {...register("gender")}
@@ -78,7 +69,7 @@ const RegisterForm = () => {
         </select>
         <div>
           <input
-            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "
             autoComplete="off"
             type="number"
             placeholder="Phone"
@@ -92,7 +83,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <input
-            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "
             autoComplete="off"
             type="email"
             placeholder="E-mail"
@@ -106,7 +97,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <input
-            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 "
+            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4  "
             autoComplete="off"
             type="number"
             placeholder="Age"
@@ -118,7 +109,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <input
-            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "
             autoComplete="off"
             type="text"
             placeholder="Address"
@@ -132,7 +123,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <input
-            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "
             autoComplete="off"
             type="password"
             placeholder="Password"
@@ -146,7 +137,7 @@ const RegisterForm = () => {
         </div>
         <div>
           <input
-            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "
             autoComplete="off"
             type="password"
             placeholder="Confirm Password"
@@ -159,9 +150,10 @@ const RegisterForm = () => {
           )}
         </div>
       </div>
-      <div className="flex flex-col justify-between items-center  ">
+
+      <div className="flex flex-col justify-between items-center   ">
         <button
-          className={`bg-[#166060e4] text-white tracking-widest w-[10rem] sm:w-[16rem] h-[3rem] rounded-md hover:bg-[#2b9d9d] sm:hover:w-[18rem] hover:w-[12rem] ${addMarginTop} h-[2.2rem] text-sm sm:h-[3rem] mb-8 sm:mb-0`}
+          className="bg-[#166060] text-white tracking-widest w-full h-[3rem]    text-sm sm:h-[3rem] absolute bottom-0 2xl:h-[3.5rem] 2xl:text-xl 2xl:tracking-[0.2rem] hover:bg-[#2b9d9d]"
           type="submit"
         >
           SIGN UP

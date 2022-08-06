@@ -10,6 +10,12 @@ module.exports = {
         mobile: "repeat(8, minmax(250px, 350px))",
         desktop: "repeat(8, minmax(200px, 300px))",
       },
+      gridRowEnd: {
+        8: "8",
+        9: "9",
+        10: "10",
+        11: "11",
+      },
       colors: {
         "light-green": "#2D9B9B",
         "mid-green": "#166060",

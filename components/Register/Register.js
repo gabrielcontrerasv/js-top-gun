@@ -1,52 +1,34 @@
-import { useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import RegisterForm from "./RegisterForm";
 import RegisterBg from "../../public/assets/images/RegisterBg.jpg";
+import AsideLogin from "./AsideLogin";
 
 const Register = () => {
   return (
-    <>
-      <div className="col-start-1 col-end-3 md:col-start-1 md:col-end-6 row-span-2 flex justify-center items-center mt-16 sm:my-5 sm:mt-5 sm:pl-[9rem]">
+    <section className="h-[100vh] w-[100vw] sm:overflow-hidden flex">
+      <button className="absolute right-5 top-5 sm:top-10 sm:right-10 text-white z-50 cursor-pointer text-2xl border-b-[1px] pb-2 ">
+        <Link href="/">
+          <p className="tracking-wider">Go back</p>
+        </Link>
+      </button>
+      <div className="z-10 relative w-[100%] md:w-[65%] h-full flex justify-center items-center min-h-[40rem]">
         {/* BgImage */}
-        <div className="fixed top-0 left-0 w-full h-full z-10 bg-[#0000001e] "></div>
+        <div className="relative top-0 left-0 w-full h-full z-10 bg-[#00000035] "></div>
         <Image src={RegisterBg} layout="fill" objectFit="cover" />
-
         {/* Form Container */}
-        <div className="z-20 w-[35rem] sm:mr-5">
-          <div className="rounded-md bg-[#00000047] backdrop-blur-sm px-5 sm:p-12 flex flex-col ">
-            <div className="mb-5 flex flex-col items-center justify-between">
-              <h1 className="text-3xl sm:text-4xl font-bold text-center text-white mt-8 sm:mt-0">
-                Create Your Account
-              </h1>
-            </div>
-            <RegisterForm />
-          </div>
+        <div className="w-full h-full absolute bg-[#00000047] backdrop-blur-sm flex flex-col justify-center px-1 z-50 pt-10 sm:w-[70%] sm:h-[80%] sm:rounded-md sm:px-[2rem] md:justify-start  ">
+          <h1 className="text-4xl sm:text-4xl tracking-wider font-bold text-center text-white">
+            Create Your Account
+          </h1>
+
+          <RegisterForm />
         </div>
       </div>
 
       {/* --- Login ---  */}
-      <div className="hidden col-start-6 col-end-9 row-span-2 bg-gradient-to-t from-dark-green to-mid-green md:flex  justify-center items-center z-30">
-        <div className="w-[70%] h-[55%] flex flex-col justify-between items-center gap-5">
-          <h1 className="text-4xl lg:text-5xl text-white font-bold text-center">
-            ¡ Hello !
-          </h1>
-          <p className="text-white tracking-widest text-center leading-8 lg:text-lg">
-            To access our site, you must first register and create an account
-            with us.
-          </p>
-          <p className="text-white tracking-widest font-light text-center leading-8 lg:text-lg">
-            If you already have a registered account, <br /> go to the access
-            page.
-          </p>
-          <Link href="/login">
-            <button className="text-sm tracking-[2px] bg-transparent text-white  w-[10rem] lg:w-[16rem] h-[3rem] rounded-md border-[1px] duration-200 hover:bg-[#2b9d9d] hover:w-[18rem] hover:border-none py-3">
-              LOGIN
-            </button>
-          </Link>
-        </div>
-      </div>
-    </>
+      <AsideLogin />
+    </section>
   );
 };
 
