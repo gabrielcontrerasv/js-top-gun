@@ -1,16 +1,14 @@
 import React from "react";
 import Navigation from "./Navigation";
-import PetsContextProvider from "../../contexts/PetsContext";
+import GeneralContextProvider from "../../contexts/GeneralContext";
 
 function Layout(props) {
   return (
     <div className="">
       {/* <Navigation /> */}
-      <PetsContextProvider>
-        <main className="grid-cols-12 grid-rows-7 bg-[#edf4f4] ">
-          {props.children}
-        </main>
-      </PetsContextProvider>
+      <GeneralContextProvider>
+        <main className="grid-cols-12 grid-rows-7  ">{props.children}</main>
+      </GeneralContextProvider>
     </div>
   );
 }

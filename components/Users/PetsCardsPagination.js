@@ -9,8 +9,8 @@ const PetsCardsPagination = ({ cardsPerPage, totalCards, paginate, currentPage, 
   }
 
   return (
-    <nav className="flex justify-center">
-      <ul className="w-[20rem] h-[2rem]-black flex justify-center gap">
+    <nav className="flex justify-center mt-10">
+      <ul className="h-[2rem]-black flex justify-center gap">
         {pageNumbers.map((number) => (
           <li
             key={number}

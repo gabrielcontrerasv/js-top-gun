@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 // Assets
-import Yorky from "../../public/assets/Yorkshire-Terrier-PNG-Image.png";
+import Yorky from "../../public/assets/images/Grumpy404.png";
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineEmergency } from "react-icons/md";
 import { Ri24HoursFill } from "react-icons/ri";

@@ -39,7 +39,7 @@ function Navigation() {
 
         {/* Desktop Sidebar Items  */}
         <div className={`mt-[5rem] hidden sm:block`}>
-          <PathCategory path="/">
+          <PathCategory path="/welcome">
             <FaHome className="relative mt-1 ml-[-0.5rem]" />
 
             <h2
@@ -62,7 +62,7 @@ function Navigation() {
             </h2>
           </PathCategory>
 
-          <PathCategory path="/pets">
+          <PathCategory path="/users">
             <MdPets className="relative mt-1 ml-[-0.5rem]" />
             <h2
               className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
