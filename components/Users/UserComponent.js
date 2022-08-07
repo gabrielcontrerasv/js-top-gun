@@ -5,6 +5,7 @@ import PetsCard from "./PetsCard";
 import PetsCardsPagination from "./PetsCardsPagination";
 import api from "../../axiosApi/api";
 import Navigation from "../Layout/Navigation";
+import Paginate from "../Paginate/Paginate";
 import UserCard from "./UserCard";
 
 const getWindowSize = () => {
@@ -83,7 +84,15 @@ const UserComponent = () => {
           </div>
           {/* PAGINATION */}
           <div>
-            <PetsCardsPagination
+            {/* <PetsCardsPagination
+              cardsPerPage={cardsPerPage}
+              totalCards={
+                searchValue.length < 1 ? users.length : searchResults.length
+              }
+              paginate={paginate}
+              currentPage={currentPage}
+            /> */}
+            <Paginate
               cardsPerPage={cardsPerPage}
               totalCards={
                 searchValue.length < 1 ? users.length : searchResults.length
