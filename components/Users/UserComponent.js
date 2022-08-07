@@ -74,14 +74,20 @@ const UserComponent = () => {
           {/* USERS GRID */}
           <div className="  w-full h-[55%] grid grid-cols-2 grid-rows-5 gap-2">
             <UserCard
-              users={searchValue.length < 2 ? currentCards : searchResults}
+              users={
+                searchValue.length < 1
+                  ? currentCards
+                  : searchResults.slice(indexOfFirstCard, indexOfLastCard)
+              }
             />
           </div>
           {/* PAGINATION */}
           <div>
             <PetsCardsPagination
               cardsPerPage={cardsPerPage}
-              totalCards={users.length}
+              totalCards={
+                searchValue.length < 1 ? users.length : searchResults.length
+              }
               paginate={paginate}
               currentPage={currentPage}
             />
