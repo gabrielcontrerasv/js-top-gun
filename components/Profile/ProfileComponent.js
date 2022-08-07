@@ -1,19 +1,19 @@
 import { useState, Fragment, useEffect, useContext } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import ProfileUserData from "./ProfileUserData";
 import PetsForm from "../Profile/PetsForm";
+import ProfileUserData from "./ProfileUserData";
 import api from "../../axiosApi/api";
 import { GeneralContext } from "../../contexts/GeneralContext";
-import ProfilePetsData from "./ProfilePetsData";
 import { FaUserCircle } from "react-icons/fa";
 import { useRouter } from "next/router";
+import ProfilePetsData from "./ProfilePetsData";
 
 const ProfileComponent = () => {
   const router = useRouter();
   console.log(router.route);
   const [user, setUser] = useState([]);
-  const [modal, setModal] = useState(false);
   const { userPets } = useContext(GeneralContext);
+  const [modal, setModal] = useState(false);
 
   const toggleModal = () => setModal(!modal);
   const closeModal = () => setModal(false);

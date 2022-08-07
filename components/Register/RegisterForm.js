@@ -60,13 +60,18 @@ const RegisterForm = () => {
 
         <select
           className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "
-          autoComplete="off"
           type="text"
-          {...register("gender")}
+          placeholder="Male"
+          {...register("gender", {
+            required: { value: true, message: "*Required field" },
+          })}
         >
           <option>Male</option>
           <option>Female</option>
         </select>
+        {errors.gender && (
+          <ErrorFormMsg errorMessage={errors.gender?.message} />
+        )}
         <div>
           <input
             className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "

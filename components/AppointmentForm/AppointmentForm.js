@@ -11,9 +11,7 @@ import ContactItem from "./ContactItem";
 import Form from "./Form";
 
 const AppointmentForm = () => {
-  // const submitErrorHandler = (error) => {
-  //   console.log(error);
-  // };
+
 
   return (
     //

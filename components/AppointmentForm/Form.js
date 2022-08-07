@@ -1,15 +1,14 @@
 import React from "react";
+import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
 // 3rd Party Library
 import { useForm } from "react-hook-form";
-// Component
-// import InputForm from "./InputForm";
-// -------------------------------------------------- //
+// ---------- //
 
 const Form = () => {
   //prettier-ignore
   const { handleSubmit, register, formState: { errors } } = useForm();
 
-  const submitHandler = (values) => {
+  const onSubmitHandler = (values) => {
     console.log(values);
   };
 
@@ -33,7 +32,7 @@ const Form = () => {
 
         <form
           className="text-center relative "
-          onSubmit={handleSubmit(submitHandler)}
+          onSubmit={handleSubmit(onSubmitHandler)}
         >
           <fieldset className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
             <div>
@@ -44,19 +43,29 @@ const Form = () => {
                 focus:ring-1 max-h-[45px]"
                 type="text"
                 placeholder="Service"
-                {...register("service", { required: true })}
+                {...register("service", {
+                  required: { value: true, message: "*Required field" },
+                })}
               >
                 <option>Medical Service</option>
                 <option>Grooming Service</option>
               </select>
+              {errors.service && (
+                <ErrorFormMsg errorMessage={errors.service?.message} />
+              )}
             </div>
             <div>
               <input
                 className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
                 type="date"
                 placeholder="Date"
-                {...register("date", { required: true })}
+                {...register("date", {
+                  required: { value: true, message: "*Required field" },
+                })}
               />
+              {errors.date && (
+                <ErrorFormMsg errorMessage={errors.date?.message} />
+              )}
             </div>
           </fieldset>
 

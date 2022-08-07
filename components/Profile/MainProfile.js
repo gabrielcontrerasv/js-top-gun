@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { useRouter } from "next/router";
+import { Dialog, Transition } from "@headlessui/react";
+import PetsForm from "../Profile/PetsForm";
 import Image from "next/image";
 import BgPetCard from "../../public/assets/images/BgPetCard.webp";
 import api from "../../axiosApi/api";
@@ -14,6 +16,11 @@ const MainProfile = () => {
   const [user, setUser] = useState([]);
   const router = useRouter();
   const pets = user.pets;
+
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => setModal(!modal);
+  const closeModal = () => setModal(false);
 
   useEffect(() => {
     const getUser = async () => {
@@ -69,7 +76,7 @@ const MainProfile = () => {
 
               <button
                 className="text-sm bg-dark-green text-white tracking-wider w-[7rem] h-[3rem] rounded-md hover:scale-110 duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e]"
-                // onClick={toggleModal}
+                onClick={toggleModal}
               >
                 New pet
               </button>
@@ -119,6 +126,46 @@ const MainProfile = () => {
             })}
           </div>
         </div>
+
+        <Transition appear show={modal} as={Fragment}>
+          <Dialog as="div" className="relative z-50" onClose={toggleModal}>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-black bg-opacity-25" />
+            </Transition.Child>
+
+            <div className="fixed inset-0 overflow-y-auto">
+              <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <Dialog.Panel className="w-[40rem] h-[35rem] transform overflow-hidden rounded-md bg-white p-10 text-left align-middle shadow-xl transition-all ">
+                    <Dialog.Title
+                      as="h3"
+                      className="text-2xl font-semibold  text-dark-green border-b-[1px] border-dark-green pb-5 "
+                    >
+                      Add new pet
+                    </Dialog.Title>
+                    <PetsForm />
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition>
       </section>
     </div>
   );
