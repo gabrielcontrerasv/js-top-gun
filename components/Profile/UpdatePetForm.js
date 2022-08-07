@@ -1,10 +1,10 @@
 import { useEffect, useContext } from "react";
-import { PetsContext } from "../../contexts/PetsContext";
+import { GeneralContext } from "../../contexts/GeneralContext";
 import { useForm } from "react-hook-form";
 import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
 
 const UpdatePetForm = ({ toUpdatePet, toggleModal }) => {
-  const { updatePet } = useContext(PetsContext);
+  const { updatePet } = useContext(GeneralContext);
   const id = toUpdatePet.id;
   const {
     handleSubmit,

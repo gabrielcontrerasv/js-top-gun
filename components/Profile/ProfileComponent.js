@@ -3,14 +3,14 @@ import { Dialog, Transition } from "@headlessui/react";
 import ProfileUserData from "./ProfileUserData";
 import PetsForm from "../Profile/PetsForm";
 import api from "../../axiosApi/api";
-import { PetsContext } from "../../contexts/PetsContext";
+import { GeneralContext } from "../../contexts/GeneralContext";
 import ProfilePetsData from "./ProfilePetsData";
 import { FaUserCircle } from "react-icons/fa";
 
 const ProfileComponent = () => {
   const [user, setUser] = useState([]);
   const [modal, setModal] = useState(false);
-  const { userPets } = useContext(PetsContext);
+  const { userPets } = useContext(GeneralContext);
 
   const toggleModal = () => setModal(!modal);
   const closeModal = () => setModal(false);
@@ -67,7 +67,7 @@ const ProfileComponent = () => {
                 <ProfileUserData data1="E-mail" data2={data.email} />
                 <ProfileUserData data1="Phone" data2={data.phone} />
               </div>
-              {/* <div className="w-[80%] flex gap-5 mt-10">
+              <div className="w-[80%] flex gap-5 mt-10">
                 <button className=" bg-dark-green  text-white tracking-wider w-[9rem] h-[3.5rem] rounded-md hover:scale-110 duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e] transition ease-linear ">
                   Edit profile
                 </button>
@@ -78,7 +78,7 @@ const ProfileComponent = () => {
                 >
                   New pet
                 </button>
-              </div> */}
+              </div>
             </div>
           );
         })}
@@ -126,7 +126,7 @@ const ProfileComponent = () => {
       </div>
 
       {/* CARD_PROFILE_PET */}
-      {/* <ProfilePetsData /> */}
+      <ProfilePetsData />
     </>
   );
 };

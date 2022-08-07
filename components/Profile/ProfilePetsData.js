@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { PetsContext } from "../../contexts/PetsContext";
+import { GeneralContext } from "../../contexts/GeneralContext";
 
 import PetCard from "./PetCard";
 
 const ProfilePetsData = () => {
-  const { userPets } = useContext(PetsContext);
+  const { userPets } = useContext(GeneralContext);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import { useState, useContext, Fragment } from "react";
-import { PetsContext } from "../../contexts/PetsContext";
+import { GeneralContext } from "../../contexts/GeneralContext";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { Dialog, Transition } from "@headlessui/react";
 import UpdatePetForm from "./UpdatePetForm";
@@ -8,7 +8,7 @@ const PetCard = ({ pet }) => {
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
 
-  const { deletePet } = useContext(PetsContext);
+  const { deletePet } = useContext(GeneralContext);
   return (
     <>
       <div>

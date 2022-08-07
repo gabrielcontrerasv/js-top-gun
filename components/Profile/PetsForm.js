@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { PetsContext } from "../../contexts/PetsContext";
+import { GeneralContext } from "../../contexts/GeneralContext";
 import { useForm } from "react-hook-form";
 import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
 import api from "../../axiosApi/api";
 import { v4 as uuidv4 } from "uuid";
 
 const PetsForm = () => {
-  const { addNewPet } = useContext(PetsContext);
+  const { addNewPet } = useContext(GeneralContext);
 
   const {
     handleSubmit,
