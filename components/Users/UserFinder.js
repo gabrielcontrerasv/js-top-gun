@@ -3,8 +3,7 @@ import { GeneralContext } from "../../contexts/GeneralContext";
 import { BiSearchAlt2 } from "react-icons/bi";
 
 const UserFinder = () => {
-  const { searchValue, setSearchValue, searchHandler } =
-    useContext(GeneralContext);
+  const { searchValue, searchHandler } = useContext(GeneralContext);
 
   const inputChangeHandler = (e) => {
     const inputValue = e.target.value;
@@ -13,14 +12,11 @@ const UserFinder = () => {
   };
 
   return (
-    <div className="relative top-[-2rem] mt-6 ">
-      <BiSearchAlt2
-        size={30}
-        className="relative top-[2.6rem] text-dark-green border-r-1 border-dark-green w-[4rem] "
-      />
+    <div className="relative top-[-2rem] mt-6 h-[3.5rem] md:h-[4rem] md:mb-10">
+      <BiSearchAlt2 className="relative top-[2.5rem] text-dark-green ml-4 text-2xl md:top-[3rem] md:text-3xl" />
 
       <input
-        className="w-full pt-4 pb-2 rounded-md border-[2px] border-dark-green pl-[4rem] focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 placeholder:text-2xl bg-white"
+        className=" w-full pt-4 pb-2 rounded-md border-[2px] border-dark-green pl-12 md:pl-[4rem] focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 placeholder:text-lg md:placeholder:text-2xl bg-white placeholder:text-secondary-text  md:text-2xl text-primary-text"
         type="search"
         name="search-form"
         id="search-form"
@@ -33,17 +29,3 @@ const UserFinder = () => {
 };
 
 export default UserFinder;
-
-// const [usersData, setUsersData] = useState(users);
-// const [search, setSearch] = useState("");
-
-// const userFiltering = (inputValue) => {
-//   const user = users.filter((user) => {
-//     if (!user) return users;
-//     if (user.name.toLowerCase().includes(inputValue.toLowerCase())) {
-//       console.log(user);
-//       return user;
-//     }
-//   });
-//   setUsers(user);
-// };

@@ -9,15 +9,15 @@ const userCard = ({ users }) => {
         return (
           <div
             key={i}
-            className="flex w-full justify-between items-center border-[1px] border-primary-text rounded-md bg-white overflow-hidden"
+            className="flex w-full justify-between items-center border-[1px] border-primary-text rounded-md bg-white overflow-hidden h-[3rem]"
           >
             <div
               div
               className="w-[13%] h-full flex justify-center items-center border-r-[1px] border-primary-text"
             >
-              <FaUserAlt className="text-primary-text text-2xl" />
+              <FaUserAlt className="text-primary-text text-xl md:text-2xl" />
             </div>
-            <p className="text-xl text-primary-text ">
+            <p className=" md:text-xl text-primary-text text-center">
               <span className="font-semibold">
                 {" "}
                 {user.name} {user.lastName}{" "}
@@ -25,7 +25,7 @@ const userCard = ({ users }) => {
               {user.document}
             </p>
             <div className="w-[13%] h-full flex justify-center items-center border-l-[1px] border-primary-text bg-dark-green cursor-pointer hover:bg-light-green">
-              <IoEnterOutline className="text-white text-2xl font-semibold " />
+              <IoEnterOutline className="text-white text-xl md:text-2xl font-semibold " />
             </div>
           </div>
         );
