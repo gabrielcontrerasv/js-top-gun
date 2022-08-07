@@ -6,8 +6,11 @@ import api from "../../axiosApi/api";
 import { GeneralContext } from "../../contexts/GeneralContext";
 import ProfilePetsData from "./ProfilePetsData";
 import { FaUserCircle } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 const ProfileComponent = () => {
+  const router = useRouter();
+  console.log(router.route);
   const [user, setUser] = useState([]);
   const [modal, setModal] = useState(false);
   const { userPets } = useContext(GeneralContext);
@@ -16,7 +19,7 @@ const ProfileComponent = () => {
   const closeModal = () => setModal(false);
 
   const fetchUser = async () => {
-    const response = await api.get("/users");
+    const response = await api.get(`/users/${user.id}`);
     return response.data;
   };
 

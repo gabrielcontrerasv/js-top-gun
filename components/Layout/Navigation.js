@@ -96,7 +96,7 @@ function Navigation() {
               Services
             </h2>
           </PathCategory>
-          <PathCategory path="/logout">
+          <PathCategory path="/">
             <AiOutlinePoweroff className="relative mt-1 ml-[-0.5rem]" />
             <h2
               className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
@@ -181,7 +181,7 @@ function Navigation() {
               className="w-full  text-center pt-4 hover:border-b-[1px] hover:border-white cursor-pointer  h-[4rem] tracking-wider font-semibold"
               onClick={showMobileMenuHandler}
             >
-              <Link href="/logout">
+              <Link href="/">
                 <h2 className="text-2xl">Logout</h2>
               </Link>
             </div>

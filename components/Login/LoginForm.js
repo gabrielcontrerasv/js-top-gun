@@ -66,12 +66,14 @@ const LoginForm = () => {
         </Link>
       </div>
       <div className="flex flex-col justify-between items-center h-[30%] ">
-        <button
-          className="bg-[#166060e4] text-white tracking-widest w-full h-[3rem] rounded-md hover:bg-[#2b9d9d] duration-100 mt-5 text-sm"
-          type="submit"
-        >
-          LOGIN
-        </button>
+        <Link href="/welcome">
+          <button
+            className="bg-[#166060e4] text-white tracking-widest w-full h-[3rem] rounded-md hover:bg-[#2b9d9d] duration-100 mt-5 text-sm"
+            type="submit"
+          >
+            LOGIN
+          </button>
+        </Link>
       </div>
     </form>
   );
