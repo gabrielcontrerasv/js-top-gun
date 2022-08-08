@@ -19,7 +19,6 @@ const PetsForm = () => {
       id: uuidv4(),
       ...values,
     };
-    console.log(request);
     const response = await api.post("/myPets", request);
     addNewPet(response.data);
   };

@@ -1,4 +1,6 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, useContext } from "react";
+import Link from "next/link";
+import { GeneralContext } from "../../contexts/GeneralContext";
 import { useRouter } from "next/router";
 import { Dialog, Transition } from "@headlessui/react";
 import PetsForm from "../Profile/PetsForm";
@@ -6,6 +8,8 @@ import Image from "next/image";
 import BgPetCard from "../../public/assets/images/BgPetCard.webp";
 import api from "../../axiosApi/api";
 import Navigation from "../Layout/Navigation";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import { RiFolderOpenFill } from "react-icons/ri";
 
 const fetchUser = async (userId) => {
   const response = await api.get(`users/${userId}`);
@@ -15,12 +19,17 @@ const fetchUser = async (userId) => {
 const MainProfile = () => {
   const [user, setUser] = useState([]);
   const router = useRouter();
-  const pets = user.pets;
+  const { deletePet, userPets } = useContext(GeneralContext);
+  let pets = userPets;
 
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => setModal(!modal);
   const closeModal = () => setModal(false);
+
+  useEffect(() => {
+    closeModal();
+  }, [pets]);
 
   useEffect(() => {
     const getUser = async () => {
@@ -40,7 +49,7 @@ const MainProfile = () => {
           {/* USER DETAILS CONTAINER */}
           <div className="w-full h-[50%]  flex gap-5">
             {/* USER IMAGE */}
-            <div className="w-[30%] h-full bg-slate-200"></div>
+            <div className="w-[30%] h-full bg-slate-200 rounded-md"></div>
             {/* USER DETAILS */}
             <div className="w-[70%]  flex flex-col gap-5 ">
               <h1 className="font-bold text-4xl text-primary-text">
@@ -119,6 +128,15 @@ const MainProfile = () => {
                         <p className="font-semibold">Birthday:</p>
                         <p>{pet.birthday}</p>
                       </div>
+                      <div className="flex ">
+                        <AiFillDelete
+                          className="cursor-pointer text-dark-green"
+                          onClick={() => deletePet(pet.id)}
+                        />
+                        <Link href={`/myPets/${pet.id}`}>
+                          <RiFolderOpenFill className="cursor-pointer text-dark-green" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -127,6 +145,7 @@ const MainProfile = () => {
           </div>
         </div>
 
+        {/* ADD NEW PET MODAL */}
         <Transition appear show={modal} as={Fragment}>
           <Dialog as="div" className="relative z-50" onClose={toggleModal}>
             <Transition.Child

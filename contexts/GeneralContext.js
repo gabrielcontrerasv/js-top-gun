@@ -14,8 +14,8 @@ const fetchUsers = async () => {
 };
 
 const GeneralContextProvider = (props) => {
-  const [userPets, setUserPets] = useState([]);
   const [users, setUsers] = useState([]);
+  const [userPets, setUserPets] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -28,7 +28,18 @@ const GeneralContextProvider = (props) => {
         console.log(error);
       }
     };
+
+    const getPets = async () => {
+      try {
+        const pets = await fetchPets();
+        if (pets) setUserPets(pets);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     getUsers();
+    getPets();
   }, []);
 
   const searchHandler = (term) => {
@@ -71,6 +82,7 @@ const GeneralContextProvider = (props) => {
       value={{
         users,
         setUsers,
+        userPets,
         searchValue,
         searchHandler,
         setSearchValue,

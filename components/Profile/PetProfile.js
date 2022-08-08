@@ -4,26 +4,32 @@ import Image from "next/image";
 import BgPetCard from "../../public/assets/images/BgPetCard.webp";
 import api from "../../axiosApi/api";
 import Navigation from "../Layout/Navigation";
+import PetTable from "./PetTable";
 
-const fetchUser = async (petId) => {
-  const response = await api.get(`pets/${petId}`);
-  return response.data;
+const fetchPet = async (petId) => {
+  try {
+    const response = await api.get(`myPets/${petId}`);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const PetProfile = () => {
-  // const [user, setUser] = useState([]);
-  // const router = useRouter();
-  // const pets = user.pets;
+  const [pet, setPet] = useState([]);
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   const getUser = async () => {
-  //     const user = await fetchUser(router.query.userId);
-  //     if (user) {
-  //       setUser(user);
-  //     }
-  //   };
-  //   getUser();
-  // }, []);
+  useEffect(() => {
+    const getPet = async () => {
+      const pet = await fetchPet(router.query.index);
+      if (pet) {
+        setPet(pet);
+      }
+    };
+    getPet();
+  }, []);
+
+  console.log(pet);
 
   return (
     <div>
@@ -37,46 +43,35 @@ const PetProfile = () => {
             {/* USER DETAILS */}
             <div className="w-[70%]  flex flex-col gap-5 ">
               <h1 className="font-bold text-4xl text-primary-text">
-                {/* {user.name} {user.lastName} */}
+                {pet.name}
               </h1>
               <div className="w-full h-[70%] flex flex-col gap-1 justify-between text-2xl text-primary-text tracking-wide ">
                 <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">code number:</p>
-                  {/* <p>{user.document}</p> */}
+                  <p className="font-semibold pb-2">Code number:</p>
+                  <p>{pet.microchip}</p>
                 </div>
                 <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">Inter ? : </p>
-                  {/* <p>{user.email}</p> */}
+                  <p className="font-semibold pb-2">species: </p>
+                  <p>{pet.species}</p>
                 </div>
                 <div className="flex justify-between border-b-[1px] border-dark-green">
                   <p className="font-semibold pb-2">Weight:</p>
-                  {/* <p>{user.phone}</p> */}
+                  <p>{pet.weight}</p>
                 </div>
                 <div className="flex justify-between border-b-[1px] border-dark-green">
                   <p className="font-semibold pb-2">Age:</p>
-                  {/* <p>{user.age} years</p> */}
+                  <p>{pet.birthday} years</p>
                 </div>
                 <div className="flex justify-between border-b-[1px] border-dark-green">
                   <p className="font-semibold pb-2">Status:</p>
-                  {/* <p>{user.address}</p> */}
+                  <p>{pet.status}</p>
                 </div>
               </div>
             </div>
           </div>
           <div>
             {/* RECORDS */}
-            <table class="table-auto">
-              <thead>
-                <tr>
-                  <th>Appointment</th>
-                  <th>Specialist</th>
-                  <th>Diagnostic</th>
-                  <th>Treatment</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+            <PetTable />
           </div>
         </div>
       </section>
