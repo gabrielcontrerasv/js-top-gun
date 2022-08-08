@@ -19,6 +19,7 @@ const GeneralContextProvider = (props) => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
+  // GET REQUEST
   useEffect(() => {
     const getUsers = async () => {
       try {
@@ -42,6 +43,7 @@ const GeneralContextProvider = (props) => {
     getPets();
   }, []);
 
+  // SEARCH FUNCTIONALITY
   const searchHandler = (term) => {
     setSearchValue(term);
     if (term !== "") {
@@ -57,22 +59,36 @@ const GeneralContextProvider = (props) => {
     }
   };
 
+  // POST REQUEST
   const addNewPet = (newPetData) => {
     setUserPets([...userPets, newPetData]);
   };
 
+  // DELETE REQUEST
   const deletePet = async (id) => {
     await api.delete(`/myPets/${id}`);
     const newPetsList = userPets.filter((pets) => pets.id !== id);
     setUserPets(newPetsList);
   };
 
+  // PUT REQUEST
   const updatePet = async (updatedPet) => {
     const response = await api.put(`/myPets/${updatedPet.id}`, updatedPet);
 
     setUserPets(
       userPets.map((pet) => {
         return pet.id === updatedPet.id ? { ...response.data } : pet;
+      })
+    );
+  };
+
+  const updateUser = async (updatedUser) => {
+    console.log(updatedUser);
+    const response = await api.put(`/users/${updatedUser.id}`, updatedUser);
+
+    setUsers(
+      users.map((user) => {
+        return user.id === updatedUser.id ? { ...response.data } : user;
       })
     );
   };
@@ -90,6 +106,7 @@ const GeneralContextProvider = (props) => {
         addNewPet,
         deletePet,
         updatePet,
+        updateUser,
       }}
     >
       {props.children}

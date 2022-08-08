@@ -3,9 +3,9 @@ import { GeneralContext } from "../../contexts/GeneralContext";
 import { useForm } from "react-hook-form";
 import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
 
-const UpdateUserForm = ({ toUpdatePet, toggleModal }) => {
-  const { updatePet } = useContext(GeneralContext);
-  const id = toUpdatePet.id;
+const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
+  const { updateUser } = useContext(GeneralContext);
+  const id = toUpdateUser.id;
   const {
     handleSubmit,
     register,
@@ -14,18 +14,17 @@ const UpdateUserForm = ({ toUpdatePet, toggleModal }) => {
   } = useForm();
 
   useEffect(() => {
-    setValue("name", toUpdatePet.name);
-    setValue("microchip", toUpdatePet.microchip);
-    setValue("species", toUpdatePet.species);
-    setValue("breed", toUpdatePet.breed);
-    setValue("birthday", toUpdatePet.birthday);
-    setValue("weight", toUpdatePet.weight);
-    setValue("status", toUpdatePet.status);
-    setValue("gender", toUpdatePet.gender);
+    setValue("name", toUpdateUser.name);
+    setValue("lastName", toUpdateUser.lastName);
+    setValue("document", toUpdateUser.document);
+    setValue("email", toUpdateUser.email);
+    setValue("phone", toUpdateUser.phone);
+    setValue("age", toUpdateUser.age);
+    setValue("address", toUpdateUser.address);
   }, []);
 
   const onSubmitHandler = async (values) => {
-    updatePet({ ...values, id });
+    updateUser({ ...values, id });
   };
 
   return (
@@ -56,6 +55,19 @@ const UpdateUserForm = ({ toUpdatePet, toggleModal }) => {
         />
         {errors.lastName && (
           <ErrorPetsMsg errorMessage={errors.lastName?.message} />
+        )}
+      </div>
+      <div>
+        <input
+          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 max-h-11"
+          type="text"
+          placeholder="Document"
+          {...register("document", {
+            required: { value: true, message: "*Required field" },
+          })}
+        />
+        {errors.document && (
+          <ErrorPetsMsg errorMessage={errors.document?.message} />
         )}
       </div>
       <div>

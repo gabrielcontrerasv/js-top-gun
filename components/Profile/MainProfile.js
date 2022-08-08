@@ -10,6 +10,7 @@ import api from "../../axiosApi/api";
 import Navigation from "../Layout/Navigation";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { RiFolderOpenFill } from "react-icons/ri";
+import UpdateUserForm from "./UpdateUserForm";
 
 const fetchUser = async (userId) => {
   const response = await api.get(`users/${userId}`);
@@ -18,13 +19,20 @@ const fetchUser = async (userId) => {
 
 const MainProfile = () => {
   const [user, setUser] = useState([]);
+  const [toggleForm, setToggleForm] = useState(true);
   const router = useRouter();
   const { deletePet, userPets } = useContext(GeneralContext);
   let pets = userPets;
 
   const [modal, setModal] = useState(false);
 
-  const toggleModal = () => setModal(!modal);
+  const toggleModal = (e) => {
+    if (!e) return setModal(!modal);
+    const actionType = e.target.innerText;
+    if (actionType === "Edit profile") setToggleForm(true);
+    if (actionType === "New pet") setToggleForm(false);
+    setModal(!modal);
+  };
   const closeModal = () => setModal(false);
 
   useEffect(() => {
@@ -39,7 +47,7 @@ const MainProfile = () => {
       }
     };
     getUser();
-  }, []);
+  }, [user]);
 
   return (
     <div>
@@ -79,7 +87,10 @@ const MainProfile = () => {
               </div>
             </div>
             <div className=" flex flex-col gap-5 mt-10">
-              <button className="text-sm bg-dark-green  text-white tracking-wider w-[7rem] h-[3rem] rounded-md hover:scale-110 duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e] transition ease-linear ">
+              <button
+                className="text-sm bg-dark-green  text-white tracking-wider w-[7rem] h-[3rem] rounded-md hover:scale-110 duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e] transition ease-linear"
+                onClick={toggleModal}
+              >
                 Edit profile
               </button>
 
@@ -176,9 +187,16 @@ const MainProfile = () => {
                       as="h3"
                       className="text-2xl font-semibold  text-dark-green border-b-[1px] border-dark-green pb-5 "
                     >
-                      Add new pet
+                      {toggleForm ? "Edit user Data" : "Create new pet"}
                     </Dialog.Title>
-                    <PetsForm />
+                    {toggleForm ? (
+                      <UpdateUserForm
+                        toUpdateUser={user}
+                        toggleModal={toggleModal}
+                      />
+                    ) : (
+                      <PetsForm />
+                    )}
                   </Dialog.Panel>
                 </Transition.Child>
               </div>
