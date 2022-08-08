@@ -1,6 +1,10 @@
-import { useForm } from "react-hook-form";
-import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
+// Next Feature
 import Link from "next/link";
+// Third Party Library ( Hook Form )
+import { useForm } from "react-hook-form";
+// Components
+import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
+// ----------------------------------------
 
 const RegisterForm = () => {
   const {
@@ -155,7 +159,7 @@ const RegisterForm = () => {
           )}
         </div>
       </div>
-
+      {/* Action__Button__Container */}
       <div className="flex flex-col justify-between items-center   ">
         <button
           className="bg-[#166060] text-white tracking-widest w-full h-[3rem]    text-sm sm:h-[3rem] absolute bottom-0 2xl:h-[3.5rem] 2xl:text-xl 2xl:tracking-[0.2rem] hover:bg-[#2b9d9d]"

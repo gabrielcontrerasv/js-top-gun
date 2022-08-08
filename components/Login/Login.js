@@ -1,17 +1,21 @@
-import React from "react";
-import LoginForm from "./LoginForm";
+// Next Features
 import Image from "next/image";
-import LoginBg from "../../public/assets/images/LoginBg.jpg";
+// Components
+import LoginForm from "./LoginForm";
+// Assets
+import LoginBg from "../../public/assets/images/LoginBg.webp";
+// ----------------------------------------------------------------------
 
 const Login = () => {
   return (
     <section className="h-[100vh] w-[100vw] overflow-hidden flex">
+      {/* Bg__Image */}
       <div className="z-10 relative w-[100%] md:w-[65%] h-full flex justify-center items-center min-h-[40rem]">
-        <div className="relative top-0 left-0 w-full h-full z-10 bg-[#00000051] "></div>
+        <div className="relative top-0 left-0 w-full h-full z-10 bg-[#0000005b] "></div>
         <Image src={LoginBg} layout="fill" objectFit="cover" />
       </div>
 
-      {/* --- Login ---  */}
+      {/* Login__Container  */}
       <div className="absolute top-0 right-0 w-full sm:w-[45%] xl:w-[35%] h-full bg-gradient-to-t from-dark-green to-mid-green md:flex justify-center items-center z-10">
         <div className=" h-[80%] flex justify-center ">
           <div className="p-10 h-full mt-12 relative">

@@ -1,79 +1,75 @@
-import React from "react";
+// Components
+import FooterIconsUi from "../UI/FooterIconsUi";
+// Third Party Library ( Icons )
 //prettier-ignore
 import { BsFillTelephoneFill, BsFillClockFill,  BsShieldFillCheck} from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { IoPawSharp, IoLocationSharp } from "react-icons/io5";
+// -------------------------------------------------------------------------------------------
 
 const Footer = () => {
   return (
     <footer className="relative bottom-[-6rem] col-start-1 col-end-13  md:mt-[15rem] lg:mt-10 row-start-7 row.end.9">
       <div className="bg-mid-green flex flex-wrap md:grid md:grid-cols-11 text-white px-2 py-[3rem] gap-5 ">
+        {/* Contact__&__Location__Container */}
         <div className="col-start-2 col-end-5 px-5 mt-2 ">
           <h3 className="text-xl font-semibold tracking-wider mb-3 2xl:text-4xl 2xl:my-10">
             Contact & Location
           </h3>
           <div className="flex flex-col gap-5">
-            <div className="flex items-center gap-5 font-light tracking-wider text-lg 2xl:text-2xl 2xl:font-light">
+            <FooterIconsUi text="321-275-6540">
               <BsFillTelephoneFill />
-              <p>321-275-6540</p>
-            </div>
-            <div className="flex items-center gap-5 font-light tracking-wider text-lg xl:text-xl 2xl:text-2xl 2xl:font-light ">
+            </FooterIconsUi>
+            <FooterIconsUi text="info@vetTeams.com">
               <MdEmail />
-              <p>info@vetTeams.com</p>
-            </div>
-            <div className="flex items-center gap-4 font-light tracking-wider text-lg xl:text-xl 2xl:text-2xl 2xl:font-light ">
+            </FooterIconsUi>
+            <FooterIconsUi text="Street Avenue 123">
               <IoLocationSharp />
-              <p>Street Avenue 123</p>
-            </div>
+            </FooterIconsUi>
           </div>
         </div>
+        {/* Schedule__Container */}
         <div className="col-start-5 col-end-8  px-5 mt-2">
           <h3 className="text-xl font-semibold tracking-wider mb-3 2xl:text-4xl 2xl:my-10">
             Schedule
           </h3>
           <div className="flex flex-col gap-5">
-            <div className="flex items-center gap-5 font-light tracking-wider text-lg xl:text-xl 2xl:text-2xl 2xl:font-light ">
+            <FooterIconsUi text="Mon - Sun 24 hrs">
               <BsFillClockFill />
-              <p>Mon - Sun 24 hrs</p>
-            </div>
-            <div className="flex items-center gap-5 font-light tracking-wider text-lg xl:text-xl 2xl:text-2xl 2xl:font-light ">
+            </FooterIconsUi>
+            <FooterIconsUi text="Open on Holidays">
               <BsShieldFillCheck />
-              <p>Open on Holidays</p>
-            </div>
+            </FooterIconsUi>
           </div>
         </div>
+        {/* Services__Container */}
         <div className="col-start-8 col-end-11  px-5 mt-2">
           <h3 className="text-xl font-semibold tracking-wider mb-3 2xl:text-4xl 2xl:my-10">
             Services
           </h3>
           <div className="flex flex-col gap-5">
-            <div className="flex items-center gap-5 font-light tracking-wider text-lg xl:text-xl 2xl:text-2xl 2xl:font-light ">
+            <FooterIconsUi text="General consultation">
               <IoPawSharp />
-              <p>General consultation</p>
-            </div>
-            <div className="flex items-center gap-5 font-light tracking-wider text-lg xl:text-xl 2xl:text-2xl 2xl:font-light ">
+            </FooterIconsUi>
+            <FooterIconsUi text="Specialized consultation">
               <IoPawSharp />
-              <p>Specialized consultation</p>
-            </div>
-            <div className="flex items-center gap-5 font-light tracking-wider text-lg xl:text-xl 2xl:text-2xl 2xl:font-light ">
+            </FooterIconsUi>
+            <FooterIconsUi text="Ultrasound">
               <IoPawSharp />
-              <p>Ultrasound</p>
-            </div>
-            <div className="flex items-center gap-5 font-light tracking-wider text-lg xl:text-xl 2xl:text-2xl 2xl:font-light ">
+            </FooterIconsUi>
+            <FooterIconsUi text="X-Ray">
               <IoPawSharp />
-              <p>X-ray</p>
-            </div>
-            <div className="flex items-center gap-5 font-light tracking-wider text-lg xl:text-xl 2xl:text-2xl 2xl:font-light ">
+            </FooterIconsUi>
+            <FooterIconsUi text="Laboratory">
               <IoPawSharp />
-              <p>Laboratory</p>
-            </div>
-            <div className="flex items-center gap-5 font-light tracking-wider text-lg xl:text-xl 2xl:text-2xl 2xl:font-light ">
+            </FooterIconsUi>
+            <FooterIconsUi text="Surgery">
               <IoPawSharp />
-              <p>Surgery</p>
-            </div>
+            </FooterIconsUi>
           </div>
         </div>
       </div>
+      {/* Copyright__Container */}
       <div className="bg-dark-green h-[4.5rem] flex justify-center items-center text-white tracking-wider text-sm 2xl:text-xl font-light">
         <p>© 2022, Top Gun Lab project, All rights reserved.</p>
       </div>

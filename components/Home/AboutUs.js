@@ -1,10 +1,13 @@
-import React from "react";
+// Next Features
 import Image from "next/image";
+// Assets
 import AboutUsImg from "../../public/assets/images/doctors-with-dog-in-lobby.webp";
+// -------------------------------------------------
 
 const AboutUs = () => {
   return (
     <div className="px-8 col-start-1 col-end-13 row-start-3 row-end-5 2xl:row-end-5 grid lg:col-start-2 lg:col-end-12 lg:grid-cols-10 lg:grid-rows-2 2xl:pt-10  items-center ">
+      {/* Side__Image__Container */}
       <div className="row-start-2 row-end-3 relative h-[15rem] lg:h-[35rem] lg:col-start-1 lg:col-end-6 lg:row-start-1 lg:row-end-3">
         <Image
           src={AboutUsImg}
@@ -13,7 +16,7 @@ const AboutUs = () => {
           objectFit="contain"
         />
       </div>
-
+      {/* Side__Text__Container */}
       <div className="row start-1 row-end-2 lg:col-start-6 lg:col-end-11 lg:p-2 lg:row-start-1 lg:row-end-3 lg:ml-10">
         <h2 className="text-center text-primary-text text-2xl tracking-wider  font-bold border-b-[1px] border-b-secondary-text py-4 sm:text-4xl 2xl:text-[3.5rem] 2xl:pb-12 2xl:text-left">
           About us

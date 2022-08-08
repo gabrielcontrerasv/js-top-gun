@@ -1,7 +1,10 @@
-import React from "react";
+// Next Feature
 import Image from "next/image";
-import WelcomeBg from "../../public/assets/images/LandingPhoto.jpg";
+// Component
 import Navigation from "../Layout/Navigation";
+// Assets
+import WelcomeBg from "../../public/assets/images/WelcomeBg.webp";
+// -----------------------------------------------------------------------
 
 const Welcome = () => {
   return (

@@ -1,7 +1,10 @@
-import { useForm } from "react-hook-form";
+// Next Feature
 import Link from "next/link";
-
+// Third Party Library ( Hook-Form )
+import { useForm } from "react-hook-form";
+// Components
 import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
+// ------------------------------------------------------------
 
 const LoginForm = () => {
   const {
@@ -16,6 +19,7 @@ const LoginForm = () => {
 
   return (
     // { required: true, pattern: /^[A-Za-z]+$/i }
+    // Main__Form
     <form
       className="w-full h-[75%] flex flex-col justify-around"
       onSubmit={handleSubmit(onFormSubmit)}
@@ -55,6 +59,7 @@ const LoginForm = () => {
           {<ErrorFormMsg errorMessage={errors.password?.message} />}
         </div>
       </div>
+      {/* Side__Text__Container */}
       <div className="mt-6">
         <p className="text-white tracking-widest text-left leading-8 text-md cursor-pointer">
           Forget your password?
@@ -65,6 +70,7 @@ const LoginForm = () => {
           </p>
         </Link>
       </div>
+      {/* Action__Button__Container */}
       <div className="flex flex-col justify-between items-center h-[30%] ">
         <Link href="/welcome">
           <button
