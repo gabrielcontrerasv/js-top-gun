@@ -58,7 +58,7 @@ const petTable = () => {
               <tbody className="divide-y divide-gray-200">
                 {dataTable?.map((data) => {
                   return (
-                    <tr>
+                    <tr key={data.id}>
                       <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                         {data.id}
                       </td>

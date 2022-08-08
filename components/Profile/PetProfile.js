@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import BgPetCard from "../../public/assets/images/BgPetCard.webp";
 import api from "../../axiosApi/api";
 import Navigation from "../Layout/Navigation";
 import PetTable from "./PetTable";
+import { AiFillEdit } from "react-icons/ai";
+import { Dialog, Transition } from "@headlessui/react";
+import UpdatePetForm from "./UpdatePetForm";
 
 const fetchPet = async (petId) => {
   try {
@@ -16,8 +19,10 @@ const fetchPet = async (petId) => {
 };
 
 const PetProfile = () => {
-  const [pet, setPet] = useState([]);
   const router = useRouter();
+  const [pet, setPet] = useState([]);
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => setModal(!modal);
 
   useEffect(() => {
     const getPet = async () => {
@@ -27,23 +32,25 @@ const PetProfile = () => {
       }
     };
     getPet();
-  }, []);
-
-  console.log(pet);
+  }, [pet]);
 
   return (
     <div>
       <Navigation />
       <section className="grid grid-cols-12 grid-rows-[repeat(10,_minmax(10vh,_10vh))] ">
         <div className="col-start-3 col-end-12 row-start-2 row-end-10 ">
-          {/* USER DETAILS CONTAINER */}
+          {/* PET DETAILS CONTAINER */}
           <div className="w-full h-[50%]  flex gap-5">
-            {/* USER IMAGE */}
+            {/* PET IMAGE */}
             <div className="w-[30%] h-full bg-slate-200"></div>
-            {/* USER DETAILS */}
+            {/* PET DETAILS */}
             <div className="w-[70%]  flex flex-col gap-5 ">
-              <h1 className="font-bold text-4xl text-primary-text">
+              <h1 className="font-bold text-4xl text-primary-text flex justify-between items-end">
                 {pet.name}
+                <AiFillEdit
+                  className="cursor-pointer text-primary-text text-2xl"
+                  onClick={toggleModal}
+                />
               </h1>
               <div className="w-full h-[70%] flex flex-col gap-1 justify-between text-2xl text-primary-text tracking-wide ">
                 <div className="flex justify-between border-b-[1px] border-dark-green">
@@ -74,6 +81,49 @@ const PetProfile = () => {
             <PetTable />
           </div>
         </div>
+
+        <Transition appear show={modal} as={Fragment}>
+          <Dialog as="div" className="relative z-10" onClose={toggleModal}>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-black bg-opacity-25" />
+            </Transition.Child>
+
+            <div className="fixed inset-0 overflow-y-auto">
+              <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <Dialog.Panel className="w-[40rem] h-[35rem] transform overflow-hidden rounded-md bg-white p-10 text-left align-middle shadow-xl transition-all ">
+                    <Dialog.Title
+                      as="h3"
+                      className="text-2xl font-semibold  text-dark-green border-b-[1px] border-dark-green pb-5 "
+                    >
+                      Update Data
+                    </Dialog.Title>
+                    <UpdatePetForm
+                      toUpdatePet={pet}
+                      toggleModal={toggleModal}
+                    />
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition>
       </section>
     </div>
   );
