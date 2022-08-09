@@ -1,17 +1,21 @@
+// React Features
 import { useEffect, useContext } from "react";
 import { GeneralContext } from "../../contexts/GeneralContext";
+// Third Party Library
 import { useForm } from "react-hook-form";
+// Components
 import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
+// ----------------------------------------------------------
 
 const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
   const { updateUser } = useContext(GeneralContext);
-  const id = toUpdateUser.id;
   const {
     handleSubmit,
     register,
     formState: { errors },
     setValue,
   } = useForm();
+  const id = toUpdateUser.id;
 
   useEffect(() => {
     setValue("name", toUpdateUser.name);
@@ -24,7 +28,7 @@ const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
   }, []);
 
   const onSubmitHandler = async (values) => {
-    updateUser({ ...values, id });
+    updateUser({ id, ...values });
   };
 
   return (

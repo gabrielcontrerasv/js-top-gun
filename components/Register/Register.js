@@ -5,7 +5,7 @@ import Link from "next/link";
 import RegisterForm from "./RegisterForm";
 import AsideLogin from "./AsideLogin";
 // Assets
-import RegisterBg from "../../public/assets/images/RegisterBg.jpg";
+import RegisterBg from "../../public/assets/images/RegisterBg.webp";
 // -------------------------------------------------------------------------
 
 const Register = () => {

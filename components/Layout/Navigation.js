@@ -51,7 +51,7 @@ function Navigation() {
             </h2>
           </PathCategory>
 
-          <PathCategory path="/profile">
+          {/* <PathCategory path="/profile">
             <FaUser className="relative mt-1 ml-[-0.5rem]" />
             <h2
               className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
@@ -60,7 +60,7 @@ function Navigation() {
             >
               Profile
             </h2>
-          </PathCategory>
+          </PathCategory> */}
 
           <PathCategory path="/users">
             <MdPets className="relative mt-1 ml-[-0.5rem]" />

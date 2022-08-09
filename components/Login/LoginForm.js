@@ -14,7 +14,7 @@ const LoginForm = () => {
   } = useForm();
 
   const onFormSubmit = (values) => {
-    console.log(values);
+    logUser(values);
   };
 
   return (

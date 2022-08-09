@@ -1,8 +1,12 @@
+// React Features
 import { useState, useEffect, createContext } from "react";
+// Third Party Library
 import api from "../axiosApi/api";
+// ----------------------------------------------------------
 
 export const GeneralContext = createContext();
 
+// GET REQUEST ( )
 const fetchPets = async () => {
   const response = await api.get("/myPets");
   return response.data;
@@ -15,11 +19,11 @@ const fetchUsers = async () => {
 
 const GeneralContextProvider = (props) => {
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState([]);
   const [userPets, setUserPets] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  // GET REQUEST
   useEffect(() => {
     const getUsers = async () => {
       try {
@@ -43,6 +47,17 @@ const GeneralContextProvider = (props) => {
     getPets();
   }, []);
 
+  const getUser = async (userId) => {
+    try {
+      const user = await api.get(`users/${userId}`);
+      if (user) {
+        setUser(user.data);
+      }
+    } catch (error) {
+      console.log("Error getting user", error);
+    }
+  };
+
   // SEARCH FUNCTIONALITY
   const searchHandler = (term) => {
     setSearchValue(term);
@@ -59,19 +74,38 @@ const GeneralContextProvider = (props) => {
     }
   };
 
-  // POST REQUEST
-  const addNewPet = (newPetData) => {
-    setUserPets([...userPets, newPetData]);
+  // POST REQUEST ( USER & PET REGISTER - USER LOGIN )
+  const addNewUser = async (newUserData) => {
+    try {
+      const updatedUser = await api.post("/users", newUserData);
+
+      setUsers([...users, updatedUser.data]);
+    } catch (error) {
+      console.error("Error Creating User", error);
+    }
   };
 
-  // DELETE REQUEST
+  const addNewPet = (newPetData) => {
+    setUserPets([newPetData, ...userPets]);
+  };
+
+  const logUser = async (loginData) => {
+    try {
+      const user = await api.post("/login", loginData);
+      console.log("User logged");
+    } catch (error) {
+      console.log("Login Error", error);
+    }
+  };
+
+  // DELETE REQUEST ( DELETE PET )
   const deletePet = async (id) => {
     await api.delete(`/myPets/${id}`);
     const newPetsList = userPets.filter((pets) => pets.id !== id);
     setUserPets(newPetsList);
   };
 
-  // PUT REQUEST
+  // PUT REQUEST ( UPDATE USER & PET DATA)
   const updatePet = async (updatedPet) => {
     const response = await api.put(`/myPets/${updatedPet.id}`, updatedPet);
 
@@ -83,12 +117,11 @@ const GeneralContextProvider = (props) => {
   };
 
   const updateUser = async (updatedUser) => {
-    console.log(updatedUser);
     const response = await api.put(`/users/${updatedUser.id}`, updatedUser);
 
     setUsers(
       users.map((user) => {
-        return user.id === updatedUser.id ? { ...response.data } : user;
+        return user.id === response.data.id ? { ...response.data } : user;
       })
     );
   };
@@ -96,6 +129,8 @@ const GeneralContextProvider = (props) => {
   return (
     <GeneralContext.Provider
       value={{
+        user,
+        getUser,
         users,
         setUsers,
         userPets,
@@ -104,9 +139,11 @@ const GeneralContextProvider = (props) => {
         setSearchValue,
         searchResults,
         addNewPet,
+        addNewUser,
         deletePet,
         updatePet,
         updateUser,
+        logUser,
       }}
     >
       {props.children}

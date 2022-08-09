@@ -1,30 +1,27 @@
+// React Features
 import { useState, useEffect, Fragment, useContext } from "react";
-import Link from "next/link";
 import { GeneralContext } from "../../contexts/GeneralContext";
-import { useRouter } from "next/router";
-import { Dialog, Transition } from "@headlessui/react";
-import PetsForm from "../Profile/PetsForm";
+// Next Features
+import Link from "next/link";
 import Image from "next/image";
-import BgPetCard from "../../public/assets/images/BgPetCard.webp";
-import api from "../../axiosApi/api";
-import Navigation from "../Layout/Navigation";
+import { useRouter } from "next/router";
+// Third Party Library
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import { Dialog, Transition } from "@headlessui/react";
 import { RiFolderOpenFill } from "react-icons/ri";
+// Components
+import Navigation from "../Layout/Navigation";
+import PetsForm from "./PetsForm";
 import UpdateUserForm from "./UpdateUserForm";
-
-const fetchUser = async (userId) => {
-  const response = await api.get(`users/${userId}`);
-  return response.data;
-};
+// Assets
+import BgPetCard from "../../public/assets/images/BgPetCard.webp";
+// ----------------------------------------------------------------------------------------
 
 const MainProfile = () => {
-  const [user, setUser] = useState([]);
-  const [toggleForm, setToggleForm] = useState(true);
   const router = useRouter();
-  const { deletePet, userPets } = useContext(GeneralContext);
-  let pets = userPets;
-
   const [modal, setModal] = useState(false);
+  const [toggleForm, setToggleForm] = useState(true);
+  const { deletePet, userPets, user, getUser } = useContext(GeneralContext);
 
   const toggleModal = (e) => {
     if (!e) return setModal(!modal);
@@ -37,28 +34,22 @@ const MainProfile = () => {
 
   useEffect(() => {
     closeModal();
-  }, [pets]);
+  }, []);
 
   useEffect(() => {
-    const getUser = async () => {
-      const user = await fetchUser(router.query.userId);
-      if (user) {
-        setUser(user);
-      }
-    };
-    getUser();
-  }, [user]);
+    getUser(router.query.userId);
+  }, []);
 
   return (
     <div>
       <Navigation />
       <section className="grid grid-cols-12 grid-rows-[repeat(10,_minmax(10vh,_10vh))] ">
         <div className="col-start-3 col-end-12 row-start-2 row-end-10 ">
-          {/* USER DETAILS CONTAINER */}
+          {/* USER__DETAILS__CONTAINER */}
           <div className="w-full h-[50%]  flex gap-5">
-            {/* USER IMAGE */}
+            {/* USER__IMAGE */}
             <div className="w-[30%] h-full bg-slate-200 rounded-md"></div>
-            {/* USER DETAILS */}
+            {/* USER__DETAILS */}
             <div className="w-[70%]  flex flex-col gap-5 ">
               <h1 className="font-bold text-4xl text-primary-text">
                 {user.name} {user.lastName}
@@ -104,7 +95,7 @@ const MainProfile = () => {
           </div>
           {/* PETS CARDS CONTAINER */}
           <div className="w-full h-[50%] flex justify-start items-center gap-4 ">
-            {pets?.map((pet) => {
+            {userPets?.map((pet) => {
               return (
                 <div className=" w-[15rem] h-[15rem]  border-[1px] border-dark-green rounded-md relative overflow-hidden px-5 py-2">
                   <Image

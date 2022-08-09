@@ -1,12 +1,17 @@
+// React Features
+import { useContext } from "react";
+import { GeneralContext } from "../../contexts/GeneralContext";
 // Next Feature
 import Link from "next/link";
 // Third Party Library ( Hook Form )
 import { useForm } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
 // Components
 import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
 // ----------------------------------------
 
 const RegisterForm = () => {
+  const { addNewUser } = useContext(GeneralContext);
   const {
     handleSubmit,
     register,
@@ -14,7 +19,11 @@ const RegisterForm = () => {
   } = useForm();
 
   const onSubmitHandler = (values) => {
-    console.log(values);
+    const newUserData = {
+      id: uuidv4(),
+      ...values,
+    };
+    addNewUser(newUserData);
   };
 
   return (
@@ -55,11 +64,13 @@ const RegisterForm = () => {
             autoComplete="off"
             type="number"
             placeholder="ID"
-            {...register("ID", {
+            {...register("document", {
               required: { value: true, message: "*Required field" },
             })}
           />
-          {errors.ID && <ErrorFormMsg errorMessage={errors.ID?.message} />}
+          {errors.document && (
+            <ErrorFormMsg errorMessage={errors.document?.message} />
+          )}
         </div>
 
         <select
@@ -82,12 +93,12 @@ const RegisterForm = () => {
             autoComplete="off"
             type="number"
             placeholder="Phone"
-            {...register("number", {
+            {...register("phone", {
               required: { value: true, message: "*Required field" },
             })}
           />
-          {errors.number && (
-            <ErrorFormMsg errorMessage={errors.number?.message} />
+          {errors.phone && (
+            <ErrorFormMsg errorMessage={errors.phone?.message} />
           )}
         </div>
         <div>

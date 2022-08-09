@@ -32,7 +32,7 @@ const PetProfile = () => {
       }
     };
     getPet();
-  }, [pet]);
+  }, []);
 
   return (
     <div>
