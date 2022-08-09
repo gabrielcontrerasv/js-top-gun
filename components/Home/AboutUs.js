@@ -6,7 +6,7 @@ import AboutUsImg from "../../public/assets/images/doctors-with-dog-in-lobby.web
 
 const AboutUs = () => {
   return (
-    <div className="px-8 col-start-1 col-end-13 row-start-3 row-end-5 2xl:row-end-5 grid lg:col-start-2 lg:col-end-12 lg:grid-cols-10 lg:grid-rows-2 2xl:pt-10  items-center ">
+    <div className="px-8 col-start-1 col-end-13 row-start-3 row-end-5 2xl:row-end-5 grid lg:col-start-2 lg:col-end-12 lg:grid-cols-10 lg:grid-rows-2 2xl:pt-10  items-center font-inter">
       {/* Side__Image__Container */}
       <div className="row-start-2 row-end-3 relative h-[15rem] lg:h-[35rem] lg:col-start-1 lg:col-end-6 lg:row-start-1 lg:row-end-3">
         <Image

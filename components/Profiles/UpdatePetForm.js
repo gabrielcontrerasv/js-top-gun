@@ -3,7 +3,7 @@ import { GeneralContext } from "../../contexts/GeneralContext";
 import { useForm } from "react-hook-form";
 import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
 
-const UpdatePetForm = ({ toUpdatePet, toggleModal }) => {
+const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
   const { updatePet } = useContext(GeneralContext);
   const {
     handleSubmit,
@@ -25,6 +25,7 @@ const UpdatePetForm = ({ toUpdatePet, toggleModal }) => {
 
   const onSubmitHandler = async (values) => {
     updatePet({ ...values, id });
+    closeModal()
   };
 
   const id = toUpdatePet.id;

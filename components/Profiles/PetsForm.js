@@ -9,7 +9,7 @@ import api from "../../axiosApi/api";
 import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
 // -----------------------------------------------------------
 
-const PetsForm = () => {
+const PetsForm = ({ closeModal }) => {
   const { addNewPet } = useContext(GeneralContext);
 
   const {
@@ -25,6 +25,7 @@ const PetsForm = () => {
     };
     const response = await api.post("/myPets", request);
     addNewPet(response.data);
+    closeModal();
   };
 
   return (

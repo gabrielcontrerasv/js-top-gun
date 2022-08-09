@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       gridTemplateRows: {
         mobile: "repeat(8, minmax(250px, 350px))",
+        mobileAuto: "repeat(auto-fill, minmax(250px, 350px))",
         desktop: "repeat(8, minmax(200px, 300px))",
       },
       gridRowEnd: {
@@ -15,6 +16,9 @@ module.exports = {
         9: "9",
         10: "10",
         11: "11",
+      },
+      fontFamily: {
+        inter: "Inter, sans-serif",
       },
       colors: {
         "light-green": "#2D9B9B",

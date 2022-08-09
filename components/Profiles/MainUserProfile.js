@@ -2,32 +2,35 @@
 import { useState, useEffect, Fragment, useContext } from "react";
 import { GeneralContext } from "../../contexts/GeneralContext";
 // Next Features
-import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
+import Image from "next/image";
 // Third Party Library
-import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { Dialog, Transition } from "@headlessui/react";
-import { RiFolderOpenFill } from "react-icons/ri";
+import { AiFillEdit } from "react-icons/ai";
+import { IoPawSharp } from "react-icons/io5";
 // Components
 import Navigation from "../Layout/Navigation";
 import PetsForm from "./PetsForm";
 import UpdateUserForm from "./UpdateUserForm";
-// Assets
-import BgPetCard from "../../public/assets/images/BgPetCard.webp";
+import PetCard from "./PetCard";
+import UserData from "./UserData";
+//Assets
+import MainBg from "../../public/assets/images/Shiny Overlay.svg";
+
 // ----------------------------------------------------------------------------------------
 
 const MainProfile = () => {
+  const [userGender, setUserGender] = useState("");
   const router = useRouter();
   const [modal, setModal] = useState(false);
   const [toggleForm, setToggleForm] = useState(true);
-  const { deletePet, userPets, user, getUser } = useContext(GeneralContext);
+  const { userPets, user, getUser } = useContext(GeneralContext);
 
   const toggleModal = (e) => {
     if (!e) return setModal(!modal);
     const actionType = e.target.innerText;
-    if (actionType === "Edit profile") setToggleForm(true);
-    if (actionType === "New pet") setToggleForm(false);
+    if (actionType === "Edit") setToggleForm(true);
+    if (actionType === "Add") setToggleForm(false);
     setModal(!modal);
   };
   const closeModal = () => setModal(false);
@@ -38,113 +41,23 @@ const MainProfile = () => {
 
   useEffect(() => {
     getUser(router.query.userId);
+    setUserGender(user.gender);
   }, []);
 
   return (
-    <div>
+    <>
       <Navigation />
-      <section className="grid grid-cols-12 grid-rows-[repeat(10,_minmax(10vh,_10vh))] ">
-        <div className="col-start-3 col-end-12 row-start-2 row-end-10 ">
+      <section className="grid grid-cols-12 grid-rows-mobileAuto sm:grid-rows-[repeat(10,_minmax(10vh,_10vh))] font-inter h-full w-full ">
+        <div className="col-start-1 col-end-13 sm:col-start-3 sm:col-end-12 sm:row-start-2 sm:row-end-10 pt-[6rem] sm:pt-0">
           {/* USER__DETAILS__CONTAINER */}
-          <div className="w-full h-[50%]  flex gap-5">
-            {/* USER__IMAGE */}
-            <div className="w-[30%] h-full bg-slate-200 rounded-md"></div>
-            {/* USER__DETAILS */}
-            <div className="w-[70%]  flex flex-col gap-5 ">
-              <h1 className="font-bold text-4xl text-primary-text">
-                {user.name} {user.lastName}
-              </h1>
-              <div className="w-full h-[70%] flex flex-col gap-1 justify-between text-2xl text-primary-text tracking-wide ">
-                <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">Document:</p>
-                  <p>{user.document}</p>
-                </div>
-                <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">E-mail: </p>
-                  <p>{user.email}</p>
-                </div>
-                <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">Phone:</p>
-                  <p>{user.phone}</p>
-                </div>
-                <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">Age:</p>
-                  <p>{user.age} years</p>
-                </div>
-                <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">Address:</p>
-                  <p>{user.address}</p>
-                </div>
-              </div>
-            </div>
-            <div className=" flex flex-col gap-5 mt-10">
-              <button
-                className="text-sm bg-dark-green  text-white tracking-wider w-[7rem] h-[3rem] rounded-md hover:scale-110 duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e] transition ease-linear"
-                onClick={toggleModal}
-              >
-                Edit profile
-              </button>
+          <UserData user={user} toggleModal={toggleModal} />
 
-              <button
-                className="text-sm bg-dark-green text-white tracking-wider w-[7rem] h-[3rem] rounded-md hover:scale-110 duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e]"
-                onClick={toggleModal}
-              >
-                New pet
-              </button>
-            </div>
-          </div>
           {/* PETS CARDS CONTAINER */}
-          <div className="w-full h-[50%] flex justify-start items-center gap-4 ">
+          <ul className="w-full flex flex-wrap sm:flex-nowrap justify-center items-center gap-8 mt-[1rem] sm:mt-10">
             {userPets?.map((pet) => {
-              return (
-                <div className=" w-[15rem] h-[15rem]  border-[1px] border-dark-green rounded-md relative overflow-hidden px-5 py-2">
-                  <Image
-                    src={BgPetCard}
-                    layout="fill"
-                    objectFit="contain"
-                    objectPosition="top"
-                  />
-
-                  <div className="z-50 relative flex flex-col gap-8  ">
-                    <h1 className="text-3xl text-white tracking-wider">
-                      {pet.name}
-                    </h1>
-                    <div className="flex flex-col gap-1">
-                      <div className="text-primary-green flex justify-between ">
-                        <p className="font-semibold">Species:</p>
-                        <p>{pet.species}</p>
-                      </div>
-                      <div className="text-primary-green flex justify-between ">
-                        <p className="font-semibold">Gender:</p>
-                        <p>{pet.gender}</p>
-                      </div>
-                      <div className="text-primary-green flex justify-between ">
-                        <p className="font-semibold">Weight:</p>
-                        <p>{pet.species}</p>
-                      </div>
-                      <div className="text-primary-green flex justify-between ">
-                        <p className="font-semibold">Breed:</p>
-                        <p>{pet.breed}</p>
-                      </div>
-                      <div className="text-primary-green flex justify-between ">
-                        <p className="font-semibold">Birthday:</p>
-                        <p>{pet.birthday}</p>
-                      </div>
-                      <div className="flex ">
-                        <AiFillDelete
-                          className="cursor-pointer text-dark-green"
-                          onClick={() => deletePet(pet.id)}
-                        />
-                        <Link href={`/myPets/${pet.id}`}>
-                          <RiFolderOpenFill className="cursor-pointer text-dark-green" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
+              return <PetCard key={pet.id} pet={pet} />;
             })}
-          </div>
+          </ul>
         </div>
 
         {/* ADD NEW PET MODAL */}
@@ -178,7 +91,7 @@ const MainProfile = () => {
                       as="h3"
                       className="text-2xl font-semibold  text-dark-green border-b-[1px] border-dark-green pb-5 "
                     >
-                      {toggleForm ? "Edit user Data" : "Create new pet"}
+                      {toggleForm ? "Edit" : "Add"}
                     </Dialog.Title>
                     {toggleForm ? (
                       <UpdateUserForm
@@ -186,7 +99,7 @@ const MainProfile = () => {
                         toggleModal={toggleModal}
                       />
                     ) : (
-                      <PetsForm />
+                      <PetsForm closeModal={closeModal} />
                     )}
                   </Dialog.Panel>
                 </Transition.Child>
@@ -195,7 +108,7 @@ const MainProfile = () => {
           </Dialog>
         </Transition>
       </section>
-    </div>
+    </>
   );
 };
 

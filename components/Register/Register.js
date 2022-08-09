@@ -10,7 +10,7 @@ import RegisterBg from "../../public/assets/images/RegisterBg.webp";
 
 const Register = () => {
   return (
-    <section className="h-[100vh] w-[100vw] sm:overflow-hidden flex">
+    <section className="h-[100vh] w-[100vw] sm:overflow-hidden flex font-inter">
       <button className="absolute right-5 top-5 sm:top-10 sm:right-10 text-white z-50 cursor-pointer border-b-[1px] pb-2 ">
         <Link href="/">
           <p className="tracking-wider text-sm md:text-2xl ">Go back</p>

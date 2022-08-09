@@ -39,12 +39,6 @@ const petTable = () => {
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-white uppercase "
                   >
-                    Date
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase "
-                  >
                     Diagnosis
                   </th>
                   <th
@@ -52,6 +46,12 @@ const petTable = () => {
                     className="px-6 py-3 text-xs font-bold text-left text-white uppercase "
                   >
                     Treatment
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase "
+                  >
+                    Date
                   </th>
                 </tr>
               </thead>
@@ -63,13 +63,13 @@ const petTable = () => {
                         {data.id}
                       </td>
                       <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {data.date}
-                      </td>
-                      <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                         {data.diagnosis}
                       </td>
                       <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                         {data.treatment}
+                      </td>
+                      <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {data.date}
                       </td>
                     </tr>
                   );

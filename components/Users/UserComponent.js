@@ -57,7 +57,7 @@ const UserComponent = () => {
   return (
     <>
       <Navigation />
-      <section className="grid grid-cols-12 grid-rows-[repeat(10,_minmax(10vh,_10vh))] ">
+      <section className="grid grid-cols-12 grid-rows-[repeat(10,_minmax(10vh,_10vh))] font-inter ">
         {/* SEARCHER MAIN CONTAINER */}
 
         <div className="col-start-2 col-end-12 row-start-3 row-end-10 sm:col-start-4 lg:col-start-3 md:col-end-12 md:row-start-2 md:row-end-10">

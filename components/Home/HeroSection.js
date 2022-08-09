@@ -9,7 +9,7 @@ import MobileBg from "../../public/assets/images/MobileBg.webp";
 
 const HeroSection = () => {
   return (
-    <section className="col-start-1 col-end-13 row-start-1 row-end-3 flex justify-center relative">
+    <section className="col-start-1 col-end-13 row-start-1 row-end-3 flex justify-center relative font-inter">
       {/* Setting__Background */}
       <div className="hidden md:block">
         <Image src={DesktopBg} layout="fill" objectFit="cover" />

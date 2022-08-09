@@ -1,5 +1,5 @@
 import React from "react";
-import PetProfile from "../../components/Profile/PetProfile";
+import PetProfile from "../../components/Profiles/PetProfile";
 
 const index = () => {
   return (
