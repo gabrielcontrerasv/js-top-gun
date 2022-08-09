@@ -3,28 +3,26 @@ import { useState, useEffect, Fragment, useContext } from "react";
 import { GeneralContext } from "../../contexts/GeneralContext";
 // Next Features
 import { useRouter } from "next/router";
-import Image from "next/image";
 // Third Party Library
 import { Dialog, Transition } from "@headlessui/react";
-import { AiFillEdit } from "react-icons/ai";
-import { IoPawSharp } from "react-icons/io5";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/css";
 // Components
 import Navigation from "../Layout/Navigation";
 import PetsForm from "./PetsForm";
 import UpdateUserForm from "./UpdateUserForm";
 import PetCard from "./PetCard";
 import UserData from "./UserData";
-//Assets
-import MainBg from "../../public/assets/images/Shiny Overlay.svg";
 
 // ----------------------------------------------------------------------------------------
 
 const MainProfile = () => {
-  const [userGender, setUserGender] = useState("");
   const router = useRouter();
+  const [cardsPerPage, setCardsPerPage] = useState();
   const [modal, setModal] = useState(false);
   const [toggleForm, setToggleForm] = useState(true);
-  const { userPets, user, getUser } = useContext(GeneralContext);
+  const { userPets, user, getUser, width, getWidthHandler } =
+    useContext(GeneralContext);
 
   const toggleModal = (e) => {
     if (!e) return setModal(!modal);
@@ -41,23 +39,52 @@ const MainProfile = () => {
 
   useEffect(() => {
     getUser(router.query.userId);
-    setUserGender(user.gender);
   }, []);
+
+  useEffect(() => {
+    getWidthHandler();
+
+    if (width < 650) {
+      setCardsPerPage(1);
+    }
+
+    if (width > 900) {
+      setCardsPerPage(2);
+    }
+
+    if (width > 1200) {
+      setCardsPerPage(3);
+    }
+
+    window.addEventListener("resize", getWidthHandler);
+
+    return () => window.removeEventListener("resize", getWidthHandler);
+  }, [width]);
 
   return (
     <>
       <Navigation />
-      <section className="grid grid-cols-12 grid-rows-mobileAuto sm:grid-rows-[repeat(10,_minmax(10vh,_10vh))] font-inter h-full w-full ">
+      <section className="grid grid-cols-12 grid-rows-mobileAuto sm:grid-rows-[repeat(10,_minmax(10vh,_10vh))] font-inter h-full w-full">
         <div className="col-start-1 col-end-13 sm:col-start-3 sm:col-end-12 sm:row-start-2 sm:row-end-10 pt-[6rem] sm:pt-0">
           {/* USER__DETAILS__CONTAINER */}
           <UserData user={user} toggleModal={toggleModal} />
 
           {/* PETS CARDS CONTAINER */}
-          <ul className="w-full flex flex-wrap sm:flex-nowrap justify-center items-center gap-8 mt-[1rem] sm:mt-10">
+          <Splide
+            options={{ perPage: `${cardsPerPage}`, speed: 600 }}
+            className="px-[2rem]"
+          >
             {userPets?.map((pet) => {
-              return <PetCard key={pet.id} pet={pet} />;
+              return (
+                <SplideSlide
+                  key={pet.id}
+                  className="w-full h-[20rem] flex flex-wrap sm:flex-nowrap justify-center items-center gap-8 mt-[1rem] sm:mt-[5rem] "
+                >
+                  <PetCard pet={pet} />
+                </SplideSlide>
+              );
             })}
-          </ul>
+          </Splide>
         </div>
 
         {/* ADD NEW PET MODAL */}

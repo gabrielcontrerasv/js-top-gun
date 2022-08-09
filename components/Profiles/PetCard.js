@@ -1,10 +1,11 @@
+// React Features
 import { useContext } from "react";
 import { GeneralContext } from "../../contexts/GeneralContext";
 // Next Feature
 import Link from "next/link";
 import Image from "next/image";
 // Third Party Library
-import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import { AiFillDelete } from "react-icons/ai";
 import { RiFolderOpenFill } from "react-icons/ri";
 // Assets
 import BgPetCard from "../../public/assets/images/BgPetCard.webp";

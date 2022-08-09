@@ -4,35 +4,27 @@ import Image from "next/image";
 import { AiFillEdit } from "react-icons/ai";
 import { IoPawSharp } from "react-icons/io5";
 // Assets
-import WomanBg from "../../public/assets/images/WomanPhoto.avif";
-import MenPhoto from "../../public/assets/images/MenPhoto.avif";
+import WomanPhoto from "../../public/assets/images/WomanPhoto.avif";
+import ManPhoto from "../../public/assets/images/MenPhoto.avif";
 // ------------------------------------------------------------
 
 const UserData = ({ user, toggleModal }) => {
+  const photo = user.gender === "Female" ? WomanPhoto : ManPhoto;
   return (
-    <div className=" h-[20rem] flex mx-5 sm:w-full sm:gap-5">
+    <div className=" h-[20rem] flex mx-5 sm:w-full sm:gap-5 ">
       {/* USER__IMAGE */}
-      <div className="hidden sm:block w-[30%] h-full bg-slate-200 rounded-md relative overflow-hidden mr-5 drop-shadow-2xl">
-        {user.gender === "Female" ? (
-          <Image
-            src={WomanBg}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top center"
-          />
-        ) : (
-          <Image
-            src={MenPhoto}
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
-          />
-        )}
+      <div className="hidden sm:block w-[30%] h-full bg-slate-200 rounded-md relative overflow-hidden mr-5 drop-shadow-2xl  ">
+        <Image
+          src={photo}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="top center"
+        />
       </div>
       {/* USER__DETAILS */}
       <div className="w-full sm:w-[70%] flex flex-col gap-5 z-10">
         <div className="flex justify-between ">
-          <h1 className="font-bold text-xl sm:text-4xl xl:text-[3rem] text-primary-text">
+          <h1 className="font-bold text-xl sm:text-4xl xl:text-[3rem] text-primary-text drop-shadow-lg shadow-black">
             {user.name} {user.lastName}
           </h1>
           <div className="flex gap-5">
@@ -54,23 +46,23 @@ const UserData = ({ user, toggleModal }) => {
         </div>
 
         <div className="w-full h-[10rem] flex flex-col gap-1 justify-between text-2xl text-primary-text tracking-wide lg:mt-4">
-          <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light">
-            <p className="font-semibold pb-1">Document:</p>
+          <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
+            <p className="font-semibold pb-1 drop-shadow-xl ">Document:</p>
             <p>{user.document}</p>
           </div>
-          <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light">
+          <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">E-mail: </p>
             <p>{user.email}</p>
           </div>
-          <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light">
+          <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">Phone:</p>
             <p>{user.phone}</p>
           </div>
-          <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light">
+          <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">Age:</p>
             <p>{user.age} years</p>
           </div>
-          <div className="flex text-sm sm:text-lg lg:text- justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light">
+          <div className="flex text-sm sm:text-lg lg:text- justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">Address:</p>
             <p>{user.address}</p>
           </div>

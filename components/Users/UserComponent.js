@@ -5,15 +5,20 @@ import Navigation from "../Layout/Navigation";
 import Paginate from "../Paginate/Paginate";
 import UserCard from "./UserCard";
 
-const getWindowSize = () => {
-  const { innerWidth: width } = window;
-  return { width };
-};
+// const getWindowSize = () => {
+//   const { innerWidth: width } = window;
+//   return { width };
+// };
 
 const UserComponent = () => {
-  const [width, setWidth] = useState();
-  const { users, setUsers, searchValue, searchResults } =
-    useContext(GeneralContext);
+  const {
+    users,
+    setUsers,
+    searchValue,
+    searchResults,
+    width,
+    getWidthHandler,
+  } = useContext(GeneralContext);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(2);
@@ -27,13 +32,9 @@ const UserComponent = () => {
   };
 
   useEffect(() => {
-    const getWidthHandler = () => {
-      const { width } = getWindowSize();
-      setWidth(width);
-    };
-
+    getWidthHandler();
     if (width < 900) {
-      setCardsPerPage(4);
+      setCardsPerPage(5);
     }
 
     if (width > 900) {
@@ -48,7 +49,6 @@ const UserComponent = () => {
       setCardsPerPage(12);
     }
 
-    setWidth(window.innerWidth);
     window.addEventListener("resize", getWidthHandler);
 
     return () => window.removeEventListener("resize", getWidthHandler);

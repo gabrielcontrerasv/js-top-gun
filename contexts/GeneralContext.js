@@ -17,12 +17,23 @@ const fetchUsers = async () => {
   return response.data;
 };
 
+const getWindowSize = () => {
+  const { innerWidth: width } = window;
+  return { width };
+};
+
 const GeneralContextProvider = (props) => {
+  const [width, setWidth] = useState();
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
   const [userPets, setUserPets] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
+  const getWidthHandler = () => {
+    const { width } = getWindowSize();
+    setWidth(width);
+  };
 
   useEffect(() => {
     const getUsers = async () => {
@@ -144,6 +155,8 @@ const GeneralContextProvider = (props) => {
         updatePet,
         updateUser,
         logUser,
+        width,
+        getWidthHandler,
       }}
     >
       {props.children}
