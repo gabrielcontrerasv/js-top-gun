@@ -1,11 +1,17 @@
+// React Features
 import { useState, useEffect, Fragment } from "react";
 import { useRouter } from "next/router";
+// Next Feature
 import api from "../../axiosApi/api";
-import Navigation from "../Layout/Navigation";
-import PetTable from "./PetTable";
-import { AiFillEdit } from "react-icons/ai";
+// Third Party Library
 import { Dialog, Transition } from "@headlessui/react";
+import { AiFillEdit } from "react-icons/ai";
+// Components
+import Navigation from "../Layout/Navigation";
+import PetData from "./PetData";
+import PetTable from "./PetTable";
 import UpdatePetForm from "./UpdatePetForm";
+// ----------------------------------------------------------
 
 const fetchPet = async (petId) => {
   try {
@@ -35,54 +41,13 @@ const PetProfile = () => {
   return (
     <div>
       <Navigation />
-      <section className="grid grid-cols-12 grid-rows-[repeat(10,_minmax(10vh,_10vh))] font-inter ">
-        <div className="col-start-3 col-end-12 row-start-2 row-end-10 ">
-          {/* PET DETAILS CONTAINER */}
-          <div className="w-full h-[50%]  flex gap-5">
-            {/* PET IMAGE */}
-            <div className="w-[30%] h-full bg-slate-200"></div>
-            {/* PET DETAILS */}
-            <div className="w-[70%]  flex flex-col gap-5 ">
-              <div className="flex justify-between">
-                <h1 className="font-bold text-4xl text-primary-text flex justify-between items-end">
-                  {pet.name}
-                </h1>
-                <div
-                  className="flex gap-2 cursor-pointer text-primary-text  items-center hover:border-b-[1px] hover:border-dark-green hover:scale-[1.1] duration-300 hover:font-semibold"
-                  onClick={toggleModal}
-                >
-                  Update Data
-                  <AiFillEdit className="text-xl" />
-                </div>
-              </div>
-              <div className="w-full h-[70%] flex flex-col gap-1 justify-between text-2xl text-primary-text tracking-wide ">
-                <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">Code number:</p>
-                  <p>{pet.microchip}</p>
-                </div>
-                <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">species: </p>
-                  <p>{pet.species}</p>
-                </div>
-                <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">Weight:</p>
-                  <p>{pet.weight}</p>
-                </div>
-                <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">Age:</p>
-                  <p>{pet.birthday} years</p>
-                </div>
-                <div className="flex justify-between border-b-[1px] border-dark-green">
-                  <p className="font-semibold pb-2">Status:</p>
-                  <p>{pet.status}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            {/* RECORDS */}
-            <PetTable />
-          </div>
+      <section className="grid grid-cols-12 grid-rows-mobileAuto sm:grid-rows-[repeat(10,_minmax(10vh,_10vh))] font-inter h-full w-full">
+        <div className="col-start-1 col-end-13 sm:col-start-3 sm:col-end-12 sm:row-start-2 sm:row-end-10 pt-[6rem] sm:pt-0">
+          <PetData pet={pet} toggleModal={toggleModal} />
+        </div>
+
+        <div className="col-start-1 col-end-13 px-2 sm:col-start-3 sm:col-end-12 row-start-6">
+          <PetTable />
         </div>
 
         <Transition appear show={modal} as={Fragment}>
