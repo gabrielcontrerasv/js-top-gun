@@ -22,7 +22,7 @@ const MainProfile = () => {
   const [modal, setModal] = useState(false);
   const [toggleForm, setToggleForm] = useState(true);
   const { userPets, user, getUser, width, getWidthHandler } =
-    useContext(GeneralContext);
+  useContext(GeneralContext);
 
   const toggleModal = (e) => {
     if (!e) return setModal(!modal);

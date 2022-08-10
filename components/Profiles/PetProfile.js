@@ -9,7 +9,7 @@ import UpdatePetForm from "./UpdatePetForm";
 
 const fetchPet = async (petId) => {
   try {
-    const response = await api.get(`myPets/${petId}`);
+    const response = await api.get(`pets/${petId}`);
     return response.data;
   } catch (error) {
     console.log(error);

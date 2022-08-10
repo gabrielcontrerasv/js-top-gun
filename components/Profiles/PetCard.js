@@ -32,7 +32,7 @@ const PetCard = ({ pet }) => {
               className="cursor-pointer text-white sm:text-[1.2rem] hover:scale-[1.1] drop-shadow-lg shadow-black "
               onClick={() => deletePet(pet.id)}
             />
-            <Link href={`/myPets/${pet.id}`}>
+            <Link href={`/petProfile/${pet.id}`}>
               <RiFolderOpenFill className="cursor-pointer text-white sm:text-[1.2rem] hover:scale-[1.1] drop-shadow-lg shadow-black " />
             </Link>
           </div>

@@ -10,7 +10,7 @@ export const GeneralContext = createContext();
 
 // GET REQUEST ( )
 const fetchPets = async () => {
-  const response = await api.get("/myPets");
+  const response = await api.get("/pets");
   return response.data;
 };
 
@@ -25,12 +25,12 @@ const getWindowSize = () => {
 };
 
 const GeneralContextProvider = (props) => {
-  const [width, setWidth] = useState();
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
   const [userPets, setUserPets] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [width, setWidth] = useState();
 
   const getWidthHandler = () => {
     const { width } = getWindowSize();
