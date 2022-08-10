@@ -27,7 +27,6 @@ const RecordsForm = () => {
 
       {/* --- Login ---  */}
 
-      <AsideRegisterPet />
     </section>
   );
 };
