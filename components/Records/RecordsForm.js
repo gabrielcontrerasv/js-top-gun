@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import RecordForm from "./RecordForm";
 import RegisterBg from "../../public/assets/images/RegisterBg.jpg";
-import AsideRegisterPet from "../Register/AsideRegisterPet";
 
 const RecordsForm = () => {
   return (
