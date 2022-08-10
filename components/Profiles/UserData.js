@@ -29,18 +29,18 @@ const UserData = ({ user, toggleModal }) => {
           </h1>
           <div className="flex gap-5">
             <div
-              className="flex gap-2 cursor-pointer text-primary-text  items-center hover:border-b-[1px] hover:border-dark-green hover:scale-[1.1] duration-300 hover:font-semibold text-xs sm:text-md xl:text-lg"
+              className="flex gap-2 cursor-pointer text-primary-text  items-center hover:border-b-[1px] hover:border-dark-green hover:scale-[1.1] duration-300 hover:font-semibold text-xs sm:text-md xl:text-lg "
               onClick={toggleModal}
             >
               Add
-              <IoPawSharp className="text-xl" />
+              <IoPawSharp className="text-xl hover:scale-[1.1]" />
             </div>
             <div
-              className="flex gap-2 cursor-pointer text-primary-text  items-center hover:border-b-[1px] hover:border-dark-green hover:scale-[1.1] duration-300 hover:font-semibold text-xs sm:text-md xl:text-lg"
+              className="flex gap-2 cursor-pointer text-primary-text  items-center hover:border-b-[1px] hover:border-dark-green hover:scale-[1.1] duration-300 hover:font-semibold text-xs sm:text-md xl:text-lg "
               onClick={toggleModal}
             >
               Edit
-              <AiFillEdit className="text-xl" />
+              <AiFillEdit className="text-xl hover:scale-[1.1]" />
             </div>
           </div>
         </div>

@@ -24,38 +24,42 @@ const PetCard = ({ pet }) => {
 
       <div className="z-50 relative flex flex-col gap-8 ">
         <div className="flex justify-between items-center mt-1 ">
-          <h1 className="text-xl sm:text-2xl xl:text-3xl text-white tracking-wide  font-semibold">
+          <h1 className="text-xl sm:text-2xl xl:text-3xl text-white tracking-wide  font-semibold drop-shadow-lg shadow-black">
             {pet.name}
           </h1>
           <div className="flex gap-2">
             <AiFillDelete
-              className="cursor-pointer text-white sm:text-[1.2rem]"
+              className="cursor-pointer text-white sm:text-[1.2rem] hover:scale-[1.1] drop-shadow-lg shadow-black "
               onClick={() => deletePet(pet.id)}
             />
             <Link href={`/myPets/${pet.id}`}>
-              <RiFolderOpenFill className="cursor-pointer text-white sm:text-[1.2rem]" />
+              <RiFolderOpenFill className="cursor-pointer text-white sm:text-[1.2rem] hover:scale-[1.1] drop-shadow-lg shadow-black " />
             </Link>
           </div>
         </div>
         <div className="flex flex-col gap-1 mt-2 ">
           <div className="text-sm sm:text-md lg:text-lg text-primary-green flex justify-between ">
-            <p className="font-semibold">Species:</p>
+            <p className="font-semibold drop-shadow-lg shadow-black">
+              Species:
+            </p>
             <p>{pet.species}</p>
           </div>
           <div className="text-sm sm:text-md lg:text-lg text-primary-green flex justify-between ">
-            <p className="font-semibold">Gender:</p>
+            <p className="font-semibold drop-shadow-lg shadow-black">Gender:</p>
             <p>{pet.gender}</p>
           </div>
           <div className="text-sm sm:text-md lg:text-lg text-primary-green flex justify-between ">
-            <p className="font-semibold">Weight:</p>
+            <p className="font-semibold drop-shadow-lg shadow-black">Weight:</p>
             <p>{pet.species}</p>
           </div>
           <div className="text-sm sm:text-md lg:text-lg text-primary-green flex justify-between ">
-            <p className="font-semibold">Breed:</p>
+            <p className="font-semibold drop-shadow-lg shadow-black">Breed:</p>
             <p>{pet.breed}</p>
           </div>
           <div className="text-sm sm:text-md lg:text-lg text-primary-green flex justify-between ">
-            <p className="font-semibold">Birthday:</p>
+            <p className="font-semibold drop-shadow-lg shadow-black">
+              Birthday:
+            </p>
             <p>{pet.birthday}</p>
           </div>
         </div>

@@ -1,5 +1,8 @@
 // Next Feature
 import Link from "next/link";
+// React Features
+import { useContext } from "react";
+import { GeneralContext } from "../../contexts/GeneralContext";
 // Third Party Library ( Hook-Form )
 import { useForm } from "react-hook-form";
 // Components
@@ -7,6 +10,8 @@ import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
 // ------------------------------------------------------------
 
 const LoginForm = () => {
+  const { logUser } = useContext(GeneralContext);
+
   const {
     handleSubmit,
     register,
@@ -72,14 +77,12 @@ const LoginForm = () => {
       </div>
       {/* Action__Button__Container */}
       <div className="flex flex-col justify-between items-center h-[30%] ">
-        <Link href="/welcome">
-          <button
-            className="bg-[#166060e4] text-white tracking-widest w-full h-[3rem] rounded-md hover:bg-[#2b9d9d] duration-100 mt-5 text-sm"
-            type="submit"
-          >
-            LOGIN
-          </button>
-        </Link>
+        <button
+          className="bg-[#166060e4] text-white tracking-widest w-full h-[3rem] rounded-md hover:bg-[#2b9d9d] duration-100 mt-5 text-sm"
+          type="submit"
+        >
+          LOGIN
+        </button>
       </div>
     </form>
   );

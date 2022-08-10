@@ -1,3 +1,5 @@
+// Next Feature
+import { router } from "next/router";
 // React Features
 import { useState, useEffect, createContext } from "react";
 // Third Party Library
@@ -102,10 +104,20 @@ const GeneralContextProvider = (props) => {
 
   const logUser = async (loginData) => {
     try {
-      const user = await api.post("/login", loginData);
-      console.log("User logged");
+      const response = await api.post("/login", loginData);
+      console.log(response);
+      if (response) router.push("/welcome");
     } catch (error) {
-      console.log("Login Error", error);
+      console.error("Login Error", error.message);
+    }
+  };
+
+  const logout = async () => {
+    try {
+      const response = await api.post("/logout");
+      if (response) router.push("/");
+    } catch (error) {
+      console.log("Logout Error", error);
     }
   };
 
@@ -155,6 +167,7 @@ const GeneralContextProvider = (props) => {
         updatePet,
         updateUser,
         logUser,
+        logout,
         width,
         getWidthHandler,
       }}

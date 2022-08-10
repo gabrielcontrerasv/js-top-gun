@@ -12,17 +12,16 @@ const userCard = ({ users }) => {
             key={i}
             className="flex w-full justify-between items-center border-[1px] border-primary-text rounded-md bg-white overflow-hidden h-[3rem]"
           >
-            <ul
+            <div
               div
               className="w-[13%] h-full flex justify-center items-center border-r-[1px] border-primary-text"
             >
               <FaUserAlt className="text-primary-text text-xl md:text-2xl" />
-            </ul>
+            </div>
             <p className=" md:text-xl text-primary-text text-center">
               <span className="font-semibold">
-                {" "}
-                {user.name} {user.lastName}{" "}
-              </span>{" "}
+                {user.name} {user.lastName}
+              </span>
               {user.document}
             </p>
             <Link href={`/users/${user.id}`}>

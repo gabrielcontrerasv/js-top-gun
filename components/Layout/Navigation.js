@@ -1,5 +1,7 @@
-import { useState } from "react";
-import Image from "next/image";
+// React Feature
+import { useState, useContext } from "react";
+import { GeneralContext } from "../../contexts/GeneralContext";
+// Next Feature
 import Link from "next/link";
 // 3rd party libraries
 import { IconContext } from "react-icons";
@@ -13,6 +15,7 @@ import PathCategory from "./PathCategory";
 // --------------------------------------------------------------- //
 
 function Navigation() {
+  const { logout } = useContext(GeneralContext);
   const [showSidebar, setShowSidebar] = useState(false);
   const [showMobileIcon, setShowMobileIcon] = useState(false);
 
@@ -96,7 +99,10 @@ function Navigation() {
               Services
             </h2>
           </PathCategory>
-          <PathCategory path="/">
+          <button
+            className={`block pt-3 hover:bg-[#7bdbdb9c] cursor-pointer pl-6  duration-500 relative h-[4rem]`}
+            onClick={logout}
+          >
             <AiOutlinePoweroff className="relative mt-1 ml-[-0.5rem]" />
             <h2
               className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
@@ -105,7 +111,7 @@ function Navigation() {
             >
               Logout
             </h2>
-          </PathCategory>
+          </button>
         </div>
 
         {/* Mobile Hamburger */}
