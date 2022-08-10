@@ -4,9 +4,9 @@
       "node": true
   },
   "extends": [
-      "standard",
+      /*"standard",*/
       /*"next/babel",*/
-      "next/core-web-vitals"
+      /*"next/core-web-vitals"*/
       
   ],
   "parser": "@typescript-eslint/parser",
@@ -16,7 +16,7 @@
   },
   "plugins": [
       /*"@typescript-eslint"*/
-      "@next/next/recommended"
+      //"@next/next/recommended"//
   ],
   "rules": {
     
