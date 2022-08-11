@@ -25,14 +25,13 @@ const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
 
   const onSubmitHandler = async (values) => {
     updatePet({ ...values, id });
-    closeModal()
   };
 
   const id = toUpdatePet.id;
 
   return (
     <form
-      className="grid grid-cols-2 p-5 gap-y-2 gap-x-2 mt-5"
+      className="grid grid-cols-2  gap-y-6 gap-x-2 mt-10 font-inter"
       onSubmit={handleSubmit(onSubmitHandler)}
     >
       <div>
@@ -136,13 +135,15 @@ const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
           <ErrorPetsMsg errorMessage={errors.gender?.message} />
         )}
       </div>
-      <button
-        type="submit"
-        className=" bg-dark-green text-white tracking-wider w-full col-span-2 h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e] mt-7"
-        onClick={toggleModal}
-      >
-        Update
-      </button>
+      <div className="col-span-2 h-[5rem] flex justify-center items-center">
+        <button
+          type="submit"
+          className="absolute bottom-3 bg-dark-green text-white tracking-wider w-[85%] h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e]"
+          onClick={toggleModal}
+        >
+          Update
+        </button>
+      </div>
     </form>
   );
 };

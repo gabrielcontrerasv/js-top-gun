@@ -25,9 +25,10 @@ const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
     setValue("phone", toUpdateUser.phone);
     setValue("age", toUpdateUser.age);
     setValue("address", toUpdateUser.address);
+    setValue("gender", toUpdateUser.gender);
   }, []);
 
-  const onSubmitHandler = async (values) => {
+  const onSubmitHandler = (values) => {
     updateUser({ id, ...values });
   };
 
@@ -118,6 +119,19 @@ const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
         />
         {errors.address && (
           <ErrorPetsMsg errorMessage={errors.address?.message} />
+        )}
+      </div>
+      <div>
+        <input
+          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+          type="text"
+          placeholder="Gender"
+          {...register("gender", {
+            required: { value: true, message: "*Required field" },
+          })}
+        />
+        {errors.gender && (
+          <ErrorPetsMsg errorMessage={errors.gender?.message} />
         )}
       </div>
 

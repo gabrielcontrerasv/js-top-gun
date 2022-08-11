@@ -72,24 +72,38 @@ const RegisterForm = () => {
             <ErrorFormMsg errorMessage={errors.document?.message} />
           )}
         </div>
-
-        <select
-          className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "
-          type="text"
-          placeholder="Male"
-          {...register("gender", {
-            required: { value: true, message: "*Required field" },
-          })}
-        >
-          <option>Male</option>
-          <option>Female</option>
-        </select>
-        {errors.gender && (
-          <ErrorFormMsg errorMessage={errors.gender?.message} />
-        )}
+        <div>
+          <select
+            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 
+          placeholder:text-sm border-mid-green 
+          sm:pl-4 pr-3 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+            type="text"
+            placeholder="Gender"
+            {...register("gender", {
+              required: {
+                value: true,
+                message: "*Required field",
+              },
+            })}
+          >
+            <option
+              className="text-gray-600 text-sm block"
+              value=""
+              disabled
+              selected
+            >
+              Select your option
+            </option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+          {errors.gender && (
+            <ErrorFormMsg errorMessage={errors.gender?.message} />
+          )}
+        </div>
         <div>
           <input
-            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4 "
+            className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
             autoComplete="off"
             type="number"
             placeholder="Phone"
@@ -173,7 +187,7 @@ const RegisterForm = () => {
       {/* Action__Button__Container */}
       <div className="flex flex-col justify-between items-center   ">
         <button
-          className="bg-[#166060] text-white tracking-widest w-full h-[3rem]    text-sm sm:h-[3rem] absolute bottom-0 2xl:h-[3.5rem] 2xl:text-xl 2xl:tracking-[0.2rem] hover:bg-[#2b9d9d]"
+          className="bg-[#166060] text-white tracking-widest w-full h-[3rem] text-sm sm:h-[3rem] absolute bottom-0 2xl:h-[3.5rem] 2xl:text-xl 2xl:tracking-[0.2rem] hover:bg-[#2b9d9d] duration-300 rounded-b-md"
           type="submit"
         >
           SIGN UP

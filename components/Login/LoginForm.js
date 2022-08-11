@@ -1,5 +1,6 @@
 // Next Feature
 import Link from "next/link";
+import { useRouter } from "next/router";
 // React Features
 import { useContext } from "react";
 import { GeneralContext } from "../../contexts/GeneralContext";
@@ -11,6 +12,7 @@ import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
 
 const LoginForm = () => {
   const { logUser } = useContext(GeneralContext);
+  const router = useRouter();
 
   const {
     handleSubmit,
@@ -19,7 +21,9 @@ const LoginForm = () => {
   } = useForm();
 
   const onFormSubmit = (values) => {
-    logUser(values);
+    logUser(values).then(() => {
+      router.push("/welcome");
+    });
   };
 
   return (
@@ -66,12 +70,9 @@ const LoginForm = () => {
       </div>
       {/* Side__Text__Container */}
       <div className="mt-6">
-        <p className="text-white tracking-widest text-left leading-8 text-md cursor-pointer">
-          Forget your password?
-        </p>
         <Link href="/register">
           <p className="text-white tracking-widest text-left leading-8 text-md cursor-pointer">
-            Create new account
+            Create a new account
           </p>
         </Link>
       </div>

@@ -13,7 +13,6 @@ import PetsForm from "./PetsForm";
 import UpdateUserForm from "./UpdateUserForm";
 import PetCard from "./PetCard";
 import UserData from "./UserData";
-
 // ----------------------------------------------------------------------------------------
 
 const MainProfile = () => {
@@ -21,8 +20,8 @@ const MainProfile = () => {
   const [cardsPerPage, setCardsPerPage] = useState();
   const [modal, setModal] = useState(false);
   const [toggleForm, setToggleForm] = useState(true);
-  const { userPets, user, getUser, width, getWidthHandler } =
-  useContext(GeneralContext);
+  const { userPets, user, getUser, width, getWidthHandler, users } =
+    useContext(GeneralContext);
 
   const toggleModal = (e) => {
     if (!e) return setModal(!modal);
@@ -39,7 +38,7 @@ const MainProfile = () => {
 
   useEffect(() => {
     getUser(router.query.userId);
-  }, []);
+  }, [users]);
 
   useEffect(() => {
     getWidthHandler();
@@ -80,7 +79,7 @@ const MainProfile = () => {
                   key={pet.id}
                   className="w-full h-[20rem] flex flex-wrap sm:flex-nowrap justify-center items-center gap-8 mt-[1rem] sm:mt-[5rem] "
                 >
-                  <PetCard pet={pet} />
+                  <PetCard pet={pet} closeModal={closeModal} />
                 </SplideSlide>
               );
             })}

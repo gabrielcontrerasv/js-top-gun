@@ -1,11 +1,10 @@
 // React Features
 import { useState, useEffect, Fragment } from "react";
-import { useRouter } from "next/router";
 // Next Feature
-import api from "../../axiosApi/api";
+import { useRouter } from "next/router";
 // Third Party Library
 import { Dialog, Transition } from "@headlessui/react";
-import { AiFillEdit } from "react-icons/ai";
+import api from "../../axiosApi/api";
 // Components
 import Navigation from "../Layout/Navigation";
 import PetData from "./PetData";

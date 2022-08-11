@@ -3,6 +3,7 @@ import { router } from "next/router";
 // React Features
 import { useState, useEffect, createContext } from "react";
 // Third Party Library
+import Cookie from "js-cookie";
 import api from "../axiosApi/api";
 // ----------------------------------------------------------
 
@@ -25,6 +26,7 @@ const getWindowSize = () => {
 };
 
 const GeneralContextProvider = (props) => {
+  const [mainUser, setMainUser] = useState(null);
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
   const [userPets, setUserPets] = useState([]);
@@ -63,6 +65,7 @@ const GeneralContextProvider = (props) => {
   const getUser = async (userId) => {
     try {
       const user = await api.get(`users/${userId}`);
+
       if (user) {
         setUser(user.data);
       }
@@ -103,10 +106,26 @@ const GeneralContextProvider = (props) => {
   };
 
   const logUser = async (loginData) => {
+    const options = {
+      headers: {
+        accept: " */*",
+        "Content-Type": "application/json",
+      },
+    };
     try {
-      const response = await api.post("/login", loginData);
-      console.log(response);
-      if (response) router.push("/welcome");
+      const { data: token } = await api.post("/auth/login", loginData, options);
+      console.log(token);
+
+      // if (token) {
+      //   const token = token.token;
+      //   Cookie.set("token", token, { expires: 5 });
+
+      //   api.defaults.headers.Authorization = `Bearer ${token}`;
+      //   const { data: user } = await api.get("/users");
+      //   setMainUser(user);
+      // }
+
+      // if (response) router.push("/welcome");
     } catch (error) {
       console.error("Login Error", error.message);
     }
@@ -123,14 +142,14 @@ const GeneralContextProvider = (props) => {
 
   // DELETE REQUEST ( DELETE PET )
   const deletePet = async (id) => {
-    await api.delete(`/myPets/${id}`);
+    await api.delete(`/pets/${id}`);
     const newPetsList = userPets.filter((pets) => pets.id !== id);
     setUserPets(newPetsList);
   };
 
   // PUT REQUEST ( UPDATE USER & PET DATA)
   const updatePet = async (updatedPet) => {
-    const response = await api.put(`/myPets/${updatedPet.id}`, updatedPet);
+    const response = await api.put(`/pets/${updatedPet.id}`, updatedPet);
 
     setUserPets(
       userPets.map((pet) => {

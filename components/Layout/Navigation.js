@@ -54,17 +54,6 @@ function Navigation() {
             </h2>
           </PathCategory>
 
-          {/* <PathCategory path="/profile">
-            <FaUser className="relative mt-1 ml-[-0.5rem]" />
-            <h2
-              className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
-                !showSidebar && "scale-0"
-              } `}
-            >
-              Profile
-            </h2>
-          </PathCategory> */}
-
           <PathCategory path="/users">
             <MdPets className="relative mt-1 ml-[-0.5rem]" />
             <h2
@@ -100,12 +89,12 @@ function Navigation() {
             </h2>
           </PathCategory>
           <button
-            className={`block pt-3 hover:bg-[#7bdbdb9c] cursor-pointer pl-6  duration-500 relative h-[4rem]`}
+            className={`w-full block pt-3 hover:bg-[#7bdbdb9c] cursor-pointer pl-6  duration-500 relative h-[4rem]`}
             onClick={logout}
           >
             <AiOutlinePoweroff className="relative mt-1 ml-[-0.5rem]" />
             <h2
-              className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
+              className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 text-left ${
                 !showSidebar && "scale-0"
               } `}
             >
