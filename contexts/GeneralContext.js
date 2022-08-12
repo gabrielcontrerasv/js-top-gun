@@ -134,7 +134,7 @@ const GeneralContextProvider = (props) => {
         "Content-Type": "application/json",
       },
     };
-    
+
     try {
       const response = await api.post("/auth/login", loginData, options);
       const { token } = response.data;
@@ -167,13 +167,17 @@ const GeneralContextProvider = (props) => {
 
   // PUT REQUEST ( UPDATE USER & PET DATA)
   const updatePet = async (updatedPet) => {
-    const response = await api.put(`/pets/${updatedPet.id}`, updatedPet);
+    try {
+      const response = await api.put(`/pets/${updatedPet.id}`, updatedPet);
 
-    setUserPets(
-      userPets.map((pet) => {
-        return pet.id === updatedPet.id ? { ...response.data } : pet;
-      })
-    );
+      setUserPets(
+        userPets.map((pet) => {
+          return pet.id === updatedPet.id ? { ...response.data } : pet;
+        })
+      );
+    } catch (error) {
+      console.error("Error occur during pet update", error);
+    }
   };
 
   const updateUser = async (updatedUser) => {
@@ -192,6 +196,7 @@ const GeneralContextProvider = (props) => {
         user,
         pet,
         users,
+        userPets,
         setUsers,
         userPets,
         getUser,

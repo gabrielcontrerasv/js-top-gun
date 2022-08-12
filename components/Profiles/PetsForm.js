@@ -23,7 +23,7 @@ const PetsForm = ({ closeModal }) => {
       id: uuidv4(),
       ...values,
     };
-    const response = await api.post("/myPets", request);
+    const response = await api.post("/pets", request);
     addNewPet(response.data);
     closeModal();
   };

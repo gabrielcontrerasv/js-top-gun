@@ -15,7 +15,7 @@ import { GeneralContext } from "../../contexts/GeneralContext";
 
 const PetProfile = () => {
   const router = useRouter();
-  const { pet, getPet } = useContext(GeneralContext);
+  const { pet, getPet, userPets } = useContext(GeneralContext);
   const petId = router.query.index;
 
   const [modal, setModal] = useState(false);
@@ -23,7 +23,7 @@ const PetProfile = () => {
 
   useEffect(() => {
     getPet(petId);
-  }, []);
+  }, [userPets]);
 
   return (
     <div>

@@ -14,7 +14,7 @@ import BgPetCard from "../../public/assets/images/BgPetCard.webp";
 const PetCard = ({ pet }) => {
   const { deletePet } = useContext(GeneralContext);
   return (
-    <ul className="border bg-gradient-to-t from-white p-5 drop-shadow-2xl cursor-pointer w-[16rem] h-[13.5rem] lg:w-[17rem] lg:h-[16.5rem] border-dark-green rounded-md relative overflow-hidden px-5 py-2 hover:translate-y-[-10px] duration-300 ">
+    <ul className="border-[0.5px] bg-gradient-to-t from-white p-5 drop-shadow-2xl cursor-pointer w-[16rem] h-[13.5rem] lg:w-[17rem] lg:h-[16.5rem] border-dark-green rounded-md relative overflow-hidden px-5 py-2 hover:translate-y-[-10px] duration-300 ">
       <Image
         src={BgPetCard}
         layout="fill"

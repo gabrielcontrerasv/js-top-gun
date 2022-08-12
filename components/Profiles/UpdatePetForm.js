@@ -12,12 +12,14 @@ const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
     setValue,
   } = useForm();
 
+  const id = toUpdatePet.id;
+
   useEffect(() => {
     setValue("name", toUpdatePet.name);
+    setValue("birthday", toUpdatePet.birthday);
     setValue("microchip", toUpdatePet.microchip);
     setValue("species", toUpdatePet.species);
     setValue("breed", toUpdatePet.breed);
-    setValue("birthday", toUpdatePet.birthday);
     setValue("weight", toUpdatePet.weight);
     setValue("status", toUpdatePet.status);
     setValue("gender", toUpdatePet.gender);
@@ -27,7 +29,7 @@ const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
     updatePet({ ...values, id });
   };
 
-  const id = toUpdatePet.id;
+ 
 
   return (
     <form
