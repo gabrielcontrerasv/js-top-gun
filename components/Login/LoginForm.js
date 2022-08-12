@@ -12,7 +12,7 @@ import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
 
 const LoginForm = () => {
   const { logUser } = useContext(GeneralContext);
-  const router = useRouter();
+  const { push } = useRouter();
 
   const {
     handleSubmit,
@@ -22,13 +22,11 @@ const LoginForm = () => {
 
   const onFormSubmit = (values) => {
     logUser(values).then(() => {
-      router.push("/welcome");
+      push("/welcome");
     });
   };
 
   return (
-    // { required: true, pattern: /^[A-Za-z]+$/i }
-    // Main__Form
     <form
       className="w-full h-[75%] flex flex-col justify-around"
       onSubmit={handleSubmit(onFormSubmit)}

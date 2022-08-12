@@ -2,31 +2,31 @@ import { NextResponse } from "next/server";
 import { jwtVerify } from "jose";
 
 const middleware = async (request) => {
-  const jwt = request.cookies.get("myToken");
+  const jwt = request.cookies.get("token");
 
-  // if (request.nextUrl.pathname.includes("/welcome")) {
   if (jwt === undefined) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
   if (jwt) return NextResponse.next();
-  if (!jwt) return NextResponse.redirect(new URL("/login", request.url));
+
   // try {
-  //   const { payload } = await jwtVerify(
+  //   const verifiedJWT = await jwtVerify(
   //     jwt,
   //     new TextEncoder().encode("secret")
   //   );
-  //   if (jwt) return NextResponse.next();
+  //   console.log("Valid Token");
+  //   if (verifiedJWT) return NextResponse.next();
   // } catch (error) {
-  //   console.log(error);
+  //   console.error(error);
   //   return NextResponse.redirect(new URL("/login", request.url));
   // }
-  // }
-  // return NextResponse.next();
+
+  return NextResponse.next();
 };
 
 export const config = {
-  matcher: ["/welcome", "/users/:path*", "/petProfile/:path*  "],
+  matcher: ["/welcome", "/users/:path*", "/petProfile/:path*, /appointments"],
 };
 
 export default middleware;

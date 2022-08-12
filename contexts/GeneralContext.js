@@ -1,7 +1,7 @@
 // Next Feature
 import { router } from "next/router";
 // React Features
-import { useState, useEffect, createContext } from "react";
+import { useState, createContext } from "react";
 // Third Party Library
 import Cookie from "js-cookie";
 import api from "../axiosApi/api";
@@ -11,14 +11,31 @@ export const GeneralContext = createContext();
 
 // GET REQUEST ( )
 const fetchPets = async () => {
-  const response = await api.get("/pets");
-  return response.data;
+  try {
+    const response = await api.get("/pets");
+    return response.data;
+  } catch (error) {
+    console.error("An error occur during GET /pets request", error);
+  }
 };
 
 const fetchUsers = async () => {
-  const response = await api.get("/users");
-  return response.data;
+  try {
+    const response = await api.get("/users");
+    return response.data;
+  } catch (error) {
+    console.error("An error occur during GET /users request", error);
+  }
 };
+
+// const fetchPet = async (petId) => {
+//   try {
+//     const response = ;
+//     return response.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
 const getWindowSize = () => {
   const { innerWidth: width } = window;
@@ -26,9 +43,9 @@ const getWindowSize = () => {
 };
 
 const GeneralContextProvider = (props) => {
-  const [mainUser, setMainUser] = useState(null);
-  const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [pet, setPet] = useState([]);
   const [userPets, setUserPets] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -39,38 +56,43 @@ const GeneralContextProvider = (props) => {
     setWidth(width);
   };
 
-  useEffect(() => {
-    const getUsers = async () => {
-      try {
-        const users = await fetchUsers();
-        if (users) setUsers(users);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const getUsers = async () => {
+    try {
+      const users = await fetchUsers();
+      if (users) setUsers(users);
+    } catch (error) {
+      console.error("An error occur during GET /users", error);
+    }
+  };
 
-    const getPets = async () => {
-      try {
-        const pets = await fetchPets();
-        if (pets) setUserPets(pets);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getUsers();
-    getPets();
-  }, []);
+  const getPets = async () => {
+    try {
+      const pets = await fetchPets();
+      if (pets) setUserPets(pets);
+    } catch (error) {
+      console.error("An error occur during GET /pets", error);
+    }
+  };
 
   const getUser = async (userId) => {
     try {
       const user = await api.get(`users/${userId}`);
-
       if (user) {
         setUser(user.data);
       }
     } catch (error) {
       console.log("Error getting user", error);
+    }
+  };
+
+  const getPet = async (petId) => {
+    try {
+      const pet = await api.get(`pets/${petId}`);
+      if (pet) {
+        setPet(pet.data);
+      }
+    } catch (error) {
+      console.error("Error occur during /GET pet");
     }
   };
 
@@ -112,20 +134,16 @@ const GeneralContextProvider = (props) => {
         "Content-Type": "application/json",
       },
     };
+    
     try {
-      const { data: token } = await api.post("/auth/login", loginData, options);
-      console.log(token);
+      const response = await api.post("/auth/login", loginData, options);
+      const { token } = response.data;
 
-      // if (token) {
-      //   const token = token.token;
-      //   Cookie.set("token", token, { expires: 5 });
+      if (token) {
+        Cookie.set("token", token);
 
-      //   api.defaults.headers.Authorization = `Bearer ${token}`;
-      //   const { data: user } = await api.get("/users");
-      //   setMainUser(user);
-      // }
-
-      // if (response) router.push("/welcome");
+        api.defaults.headers.Authorization = `Bearer ${token}`;
+      }
     } catch (error) {
       console.error("Login Error", error.message);
     }
@@ -172,10 +190,14 @@ const GeneralContextProvider = (props) => {
     <GeneralContext.Provider
       value={{
         user,
-        getUser,
+        pet,
         users,
         setUsers,
         userPets,
+        getUser,
+        getUsers,
+        getPet,
+        getPets,
         searchValue,
         searchHandler,
         setSearchValue,

@@ -1,5 +1,5 @@
 // React Features
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, useContext } from "react";
 // Next Feature
 import { useRouter } from "next/router";
 // Third Party Library
@@ -10,31 +10,19 @@ import Navigation from "../Layout/Navigation";
 import PetData from "./PetData";
 import PetTable from "./PetTable";
 import UpdatePetForm from "./UpdatePetForm";
+import { GeneralContext } from "../../contexts/GeneralContext";
 // ----------------------------------------------------------
-
-const fetchPet = async (petId) => {
-  try {
-    const response = await api.get(`pets/${petId}`);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 const PetProfile = () => {
   const router = useRouter();
-  const [pet, setPet] = useState([]);
+  const { pet, getPet } = useContext(GeneralContext);
+  const petId = router.query.index;
+
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
 
   useEffect(() => {
-    const getPet = async () => {
-      const pet = await fetchPet(router.query.index);
-      if (pet) {
-        setPet(pet);
-      }
-    };
-    getPet();
+    getPet(petId);
   }, []);
 
   return (
