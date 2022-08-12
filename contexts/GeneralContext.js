@@ -1,10 +1,22 @@
 // Next Feature
 import { router } from "next/router";
 // React Features
-import { useState, createContext } from "react";
+import { useState, useReducer, createContext } from "react";
 // Third Party Library
 import Cookie from "js-cookie";
 import api from "../axiosApi/api";
+// HTTP Req
+import {
+  fetchAllUsers,
+  fetchUser,
+  createNewUser,
+  updateUserData,
+} from "../helpers/ReqHandlers/index";
+// Users Reducer
+import usersReducer, {
+  defaultUsersState,
+  usersActionsTypes,
+} from "../helpers/reducers/users-reducer";
 // ----------------------------------------------------------
 
 export const GeneralContext = createContext();
@@ -16,15 +28,6 @@ const fetchPets = async () => {
     return response.data;
   } catch (error) {
     console.error("An error occur during GET /pets request", error);
-  }
-};
-
-const fetchUsers = async () => {
-  try {
-    const response = await api.get("/users");
-    return response.data;
-  } catch (error) {
-    console.error("An error occur during GET /users request", error);
   }
 };
 
@@ -43,8 +46,6 @@ const getWindowSize = () => {
 };
 
 const GeneralContextProvider = (props) => {
-  const [user, setUser] = useState([]);
-  const [users, setUsers] = useState([]);
   const [pet, setPet] = useState([]);
   const [userPets, setUserPets] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -56,13 +57,50 @@ const GeneralContextProvider = (props) => {
     setWidth(width);
   };
 
-  const getUsers = async () => {
+  const [allUsersState, dispatchUsersAction] = useReducer(
+    usersReducer,
+    defaultUsersState
+  );
+
+  // Handlers
+  const getAllUsersHandler = async () => {
+    await fetchAllUsers().then((response) => {
+      dispatchUsersAction({
+        type: usersActionsTypes.getAllUsers,
+        payload: response,
+      });
+    });
+  };
+
+  const getUserHandler = async (userId) => {
     try {
-      const users = await fetchUsers();
-      if (users) setUsers(users);
+      await fetchUser(userId).then((response) => {
+        dispatchUsersAction({
+          type: usersActionsTypes.getUserById,
+          payload: response,
+        });
+      });
     } catch (error) {
-      console.error("An error occur during GET /users", error);
+      console.log("Error getting user", error);
     }
+  };
+
+  const addUserHandler = async (newUserData) => {
+    await createNewUser(newUserData).then((response) => {
+      dispatchUsersAction({
+        type: usersActionsTypes.createUser,
+        payload: response,
+      });
+    });
+  };
+
+  const updateUserHandler = async (newData) => {
+    await updateUserData(newData).then((response) => {
+      dispatchUsersAction({
+        type: usersActionsTypes.updateUserData,
+        payload: response,
+      });
+    });
   };
 
   const getPets = async () => {
@@ -71,17 +109,6 @@ const GeneralContextProvider = (props) => {
       if (pets) setUserPets(pets);
     } catch (error) {
       console.error("An error occur during GET /pets", error);
-    }
-  };
-
-  const getUser = async (userId) => {
-    try {
-      const user = await api.get(`users/${userId}`);
-      if (user) {
-        setUser(user.data);
-      }
-    } catch (error) {
-      console.log("Error getting user", error);
     }
   };
 
@@ -100,7 +127,7 @@ const GeneralContextProvider = (props) => {
   const searchHandler = (term) => {
     setSearchValue(term);
     if (term !== "") {
-      const user = users.filter((user) => {
+      const user = allUsersState.users.filter((user) => {
         return Object.values(user)
           .join(" ")
           .toLowerCase()
@@ -108,20 +135,11 @@ const GeneralContextProvider = (props) => {
       });
       setSearchResults(user);
     } else {
-      setSearchResults(users);
+      setSearchResults(allUsersState);
     }
   };
 
   // POST REQUEST ( USER & PET REGISTER - USER LOGIN )
-  const addNewUser = async (newUserData) => {
-    try {
-      const updatedUser = await api.post("/users", newUserData);
-
-      setUsers([...users, updatedUser.data]);
-    } catch (error) {
-      console.error("Error Creating User", error);
-    }
-  };
 
   const addNewPet = (newPetData) => {
     setUserPets([newPetData, ...userPets]);
@@ -180,27 +198,17 @@ const GeneralContextProvider = (props) => {
     }
   };
 
-  const updateUser = async (updatedUser) => {
-    const response = await api.put(`/users/${updatedUser.id}`, updatedUser);
-
-    setUsers(
-      users.map((user) => {
-        return user.id === response.data.id ? { ...response.data } : user;
-      })
-    );
-  };
-
   return (
     <GeneralContext.Provider
       value={{
-        user,
+        allUsersState,
         pet,
-        users,
         userPets,
-        setUsers,
         userPets,
-        getUser,
-        getUsers,
+        getUserHandler,
+        getAllUsersHandler,
+        addUserHandler,
+        updateUserHandler,
         getPet,
         getPets,
         searchValue,
@@ -208,10 +216,8 @@ const GeneralContextProvider = (props) => {
         setSearchValue,
         searchResults,
         addNewPet,
-        addNewUser,
         deletePet,
         updatePet,
-        updateUser,
         logUser,
         logout,
         width,

@@ -11,7 +11,7 @@ import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
 // ----------------------------------------
 
 const RegisterForm = () => {
-  const { addNewUser } = useContext(GeneralContext);
+  const { addUserHandler } = useContext(GeneralContext);
   const {
     handleSubmit,
     register,
@@ -23,7 +23,7 @@ const RegisterForm = () => {
       id: uuidv4(),
       ...values,
     };
-    addNewUser(newUserData);
+    addUserHandler(newUserData);
   };
 
   return (
@@ -86,12 +86,7 @@ const RegisterForm = () => {
               },
             })}
           >
-            <option
-              className="text-gray-600 text-sm block"
-              value=""
-              disabled
-              selected
-            >
+            <option className="text-gray-600 text-sm block" value="" disabled>
               Select your option
             </option>
             <option>Male</option>

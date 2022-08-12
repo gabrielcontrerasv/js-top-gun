@@ -20,8 +20,16 @@ const MainProfile = () => {
   const [cardsPerPage, setCardsPerPage] = useState();
   const [modal, setModal] = useState(false);
   const [toggleForm, setToggleForm] = useState(true);
-  const { userPets, user, getUser, width, getWidthHandler, users, getPets } =
-    useContext(GeneralContext);
+  const {
+    allUsersState,
+    getUserHandler,
+    userPets,
+    width,
+    getWidthHandler,
+    getPets,
+  } = useContext(GeneralContext);
+
+  const { user } = allUsersState;
 
   const toggleModal = (e) => {
     if (!e) return setModal(!modal);
@@ -37,9 +45,9 @@ const MainProfile = () => {
   }, []);
 
   useEffect(() => {
-    getUser(router.query.userId);
+    getUserHandler(router.query.userId);
     getPets();
-  }, [users]);
+  }, [user]);
 
   useEffect(() => {
     getWidthHandler();
@@ -71,7 +79,7 @@ const MainProfile = () => {
 
           {/* PETS CARDS CONTAINER */}
           <Splide
-            options={{ perPage: `${cardsPerPage}`, speed: 600 }}
+            options={{ perPage: `${cardsPerPage}`, speed: 1000 }}
             className="px-[2rem]"
           >
             {userPets?.map((pet) => {

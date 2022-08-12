@@ -7,14 +7,15 @@ import UserCard from "./UserCard";
 
 const UserComponent = () => {
   const {
-    users,
-    setUsers,
-    getUsers,
+    allUsersState,
+    getAllUsersHandler,
     searchValue,
     searchResults,
     width,
     getWidthHandler,
   } = useContext(GeneralContext);
+
+  const { users } = allUsersState;
 
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(2);
@@ -28,7 +29,7 @@ const UserComponent = () => {
   };
 
   useEffect(() => {
-    getUsers();
+    getAllUsersHandler();
   }, []);
 
   useEffect(() => {
@@ -67,7 +68,7 @@ const UserComponent = () => {
             </h1>
           </div>
           <div>
-            <UserFinder users={users} setUsers={setUsers} />
+            <UserFinder users={users} />
           </div>
           {/* USERS GRID */}
           <div className=" grid lg:grid-cols-2 lg:grid-rows-5 gap-2">
@@ -80,7 +81,7 @@ const UserComponent = () => {
             />
           </div>
           {/* PAGINATION */}
-          <div className="  ">
+          <div>
             <Paginate
               cardsPerPage={cardsPerPage}
               totalCards={
