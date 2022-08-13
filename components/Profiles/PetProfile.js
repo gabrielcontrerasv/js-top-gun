@@ -15,15 +15,17 @@ import { GeneralContext } from "../../contexts/GeneralContext";
 
 const PetProfile = () => {
   const router = useRouter();
-  const { pet, getPet, userPets } = useContext(GeneralContext);
+  const { petsCtx } = useContext(GeneralContext);
   const petId = router.query.index;
+  const { pets, pet, getPetHandler } = petsCtx;
+
 
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
 
   useEffect(() => {
-    getPet(petId);
-  }, [userPets]);
+    getPetHandler(petId);
+  }, [pets]);
 
   return (
     <div>

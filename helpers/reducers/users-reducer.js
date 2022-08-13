@@ -1,11 +1,11 @@
-const defaultUsersState = {
+const defaultGlobalState = {
   users: [],
-  user: {},
+  user: [],
   pets: [],
-  pet: {},
+  pet: [],
 };
 
-const usersActionsTypes = {
+const globalActionType = {
   getAllUsers: "GET_ALL_USERS",
   getAllPets: "GET_ALL_PETS",
   getUserById: "GET_USER_BY_ID",
@@ -17,28 +17,30 @@ const usersActionsTypes = {
   removePet: "REMOVE_PET",
 };
 
-const usersReducer = (state, action) => {
+const globalReducer = (state, action) => {
   switch (action.type) {
-    case usersActionsTypes.getAllUsers:
+    case globalActionType.getAllUsers:
       return { ...state, users: action.payload };
-    case usersActionsTypes.getUserById:
+    case globalActionType.getUserById:
       return { ...state, user: action.payload };
-    case usersActionsTypes.createUser:
-      return { ...state, users: { ...action.payload } };
-    case usersActionsTypes.updateUserData:
+    case globalActionType.createUser:
+      return { ...state, users: [{ ...action.payload }] };
+    case globalActionType.updateUserData:
       return { ...state, user: { ...action.payload } };
-    case usersActionsTypes.getAllPets:
-      return;
-    case usersActionsTypes.createPet:
-      return;
-    case usersActionsTypes.updatePetData:
-      return;
-    case usersActionsTypes.removePet:
-      return;
+    case globalActionType.getAllPets:
+      return { ...state, pets: action.payload };
+    case globalActionType.getPetById:
+      return { ...state, pet: action.payload };
+    case globalActionType.createPet:
+      return { ...state, pets: [{ ...action.payload }] };
+    case globalActionType.updatePetData:
+      return { ...state, pet: action.payload };
+    case globalActionType.removePet:
+      return state;
     default:
       return defaultUsersState;
   }
 };
 
-export { defaultUsersState, usersActionsTypes };
-export default usersReducer;
+export { defaultGlobalState, globalActionType };
+export default globalReducer;

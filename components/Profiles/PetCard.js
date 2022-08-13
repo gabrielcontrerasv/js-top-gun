@@ -12,7 +12,9 @@ import BgPetCard from "../../public/assets/images/BgPetCard.webp";
 // ------------------------------------------------------------------
 
 const PetCard = ({ pet }) => {
-  const { deletePet } = useContext(GeneralContext);
+  const { petsCtx } = useContext(GeneralContext);
+  const { deletePetHandler } = petsCtx;
+
   return (
     <ul className="border-[0.5px] bg-gradient-to-t from-white p-5 drop-shadow-2xl cursor-pointer w-[16rem] h-[13.5rem] lg:w-[17rem] lg:h-[16.5rem] border-dark-green rounded-md relative overflow-hidden px-5 py-2 hover:translate-y-[-10px] duration-300 ">
       <Image
@@ -30,7 +32,7 @@ const PetCard = ({ pet }) => {
           <div className="flex gap-2">
             <AiFillDelete
               className="cursor-pointer text-white sm:text-[1.2rem] hover:scale-[1.1] drop-shadow-lg shadow-black "
-              onClick={() => deletePet(pet.id)}
+              onClick={() => deletePetHandler(pet.id)}
             />
             <Link href={`/petProfile/${pet.id}`}>
               <RiFolderOpenFill className="cursor-pointer text-white sm:text-[1.2rem] hover:scale-[1.1] drop-shadow-lg shadow-black " />

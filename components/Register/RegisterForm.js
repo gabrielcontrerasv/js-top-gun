@@ -8,11 +8,13 @@ import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 // Components
 import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
+import { useRouter } from "next/router";
 // ----------------------------------------
 
 const RegisterForm = () => {
+  const { push } = useRouter();
   const { usersCtx } = useContext(GeneralContext);
-  const { addUser } = usersCtx;
+  const { addUserHandler } = usersCtx;
 
   const {
     handleSubmit,
@@ -25,7 +27,8 @@ const RegisterForm = () => {
       id: uuidv4(),
       ...values,
     };
-    addUser(newUserData);
+    addUserHandler(newUserData);
+    push("/users");
   };
 
   return (

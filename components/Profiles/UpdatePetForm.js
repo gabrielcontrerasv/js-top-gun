@@ -4,7 +4,9 @@ import { useForm } from "react-hook-form";
 import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
 
 const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
-  const { updatePet } = useContext(GeneralContext);
+  const { petsCtx } = useContext(GeneralContext);
+  const { updatePetHandler } = petsCtx;
+
   const {
     handleSubmit,
     register,
@@ -26,10 +28,8 @@ const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
   }, []);
 
   const onSubmitHandler = async (values) => {
-    updatePet({ ...values, id });
+    updatePetHandler({ ...values, id });
   };
-
- 
 
   return (
     <form

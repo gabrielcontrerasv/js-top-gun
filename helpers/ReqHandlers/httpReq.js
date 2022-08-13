@@ -16,12 +16,17 @@ export const fetchById = async (path, id) => {
   } catch (error) {}
 };
 
-export const createData = async (path, newUserData) => {
-  const response = await api.post(`${path}`, newUserData);
+export const createData = async (path, newData) => {
+  const response = await api.post(`${path}`, newData);
   return response.data;
 };
 
 export const updateData = async (path, newData) => {
-  const newUserData = await api.put(`${path}/${newData.id}`, newData);
-  return newUserData.data;
+  const response = await api.put(`${path}/${newData.id}`, newData);
+  return response.data;
+};
+
+export const deleteDataById = async (path, id) => {
+  const response = api.delete(`${path}/${id}`);
+  return response.data;
 };

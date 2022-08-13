@@ -6,7 +6,7 @@ import { IoEnterOutline } from "react-icons/io5";
 const userCard = ({ users }) => {
   return (
     <>
-      {users.map((user) => {
+      {users?.map((user) => {
         return (
           <Link key={user.id} href={`/users/${user.id}`}>
             <ul className="flex w-full justify-between items-center border-[0.5px] border-primary-text rounded-md bg-white overflow-hidden h-[3rem] duration-200 cursor-pointer hover:shadow-xl hover:font-bold">

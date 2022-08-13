@@ -10,7 +10,8 @@ import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
 // -----------------------------------------------------------
 
 const PetsForm = ({ closeModal }) => {
-  const { addNewPet } = useContext(GeneralContext);
+  const { petsCtx } = useContext(GeneralContext);
+  const { addPetHandler } = petsCtx;
 
   const {
     handleSubmit,
@@ -23,8 +24,7 @@ const PetsForm = ({ closeModal }) => {
       id: uuidv4(),
       ...values,
     };
-    const response = await api.post("/pets", request);
-    addNewPet(response.data);
+    addPetHandler(request);
     closeModal();
   };
 

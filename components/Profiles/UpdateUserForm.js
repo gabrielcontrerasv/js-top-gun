@@ -9,7 +9,7 @@ import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
 
 const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
   const { usersCtx } = useContext(GeneralContext);
-  const { updateUser } = usersCtx;
+  const { updateUserHandler } = usersCtx;
 
   const {
     handleSubmit,
@@ -31,7 +31,7 @@ const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
   }, []);
 
   const onSubmitHandler = (values) => {
-    updateUser({ id, ...values });
+    updateUserHandler({ id, ...values });
   };
 
   return (

@@ -11,35 +11,16 @@ import {
   fetchById,
   createData,
   updateData,
+  deleteDataById,
 } from "../helpers/ReqHandlers/httpReq";
-
-// Users Reducer
-import usersReducer, {
-  defaultUsersState,
-  usersActionsTypes,
+// Global Reducer
+import globalReducer, {
+  defaultGlobalState,
+  globalActionType,
 } from "../helpers/reducers/users-reducer";
 // ----------------------------------------------------------
 
 export const GeneralContext = createContext();
-
-// GET REQUEST ( )
-const fetchPets = async () => {
-  try {
-    const response = await api.get("/pets");
-    return response.data;
-  } catch (error) {
-    console.error("An error occur during GET /pets request", error);
-  }
-};
-
-// const fetchPet = async (petId) => {
-//   try {
-//     const response = ;
-//     return response.data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 
 const getWindowSize = () => {
   const { innerWidth: width } = window;
@@ -47,13 +28,10 @@ const getWindowSize = () => {
 };
 
 const GeneralContextProvider = (props) => {
-  const [allUsersState, dispatchUsersAction] = useReducer(
-    usersReducer,
-    defaultUsersState
+  const [globalState, dispatchGlobalAction] = useReducer(
+    globalReducer,
+    defaultGlobalState
   );
-
-  const [pet, setPet] = useState([]);
-  const [userPets, setUserPets] = useState([]);
 
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -66,21 +44,19 @@ const GeneralContextProvider = (props) => {
 
   // Users Functions Handlers
   const getAllUsersHandler = async () => {
-    await fetchAll("/users").then((response) => {
-      dispatchUsersAction({
-        type: usersActionsTypes.getAllUsers,
-        payload: response,
-      });
+    const response = await fetchAll("/users");
+    dispatchGlobalAction({
+      type: globalActionType.getAllUsers,
+      payload: response,
     });
   };
 
   const getUserHandler = async (userId) => {
     try {
-      await fetchById("/users", userId).then((response) => {
-        dispatchUsersAction({
-          type: usersActionsTypes.getUserById,
-          payload: response,
-        });
+      const response = await fetchById("/users", userId);
+      dispatchGlobalAction({
+        type: globalActionType.getUserById,
+        payload: response,
       });
     } catch (error) {
       console.log("Error getting user", error);
@@ -88,82 +64,96 @@ const GeneralContextProvider = (props) => {
   };
 
   const addUserHandler = async (newUserData) => {
-    await createData("/users", newUserData).then((response) => {
-      dispatchUsersAction({
-        type: usersActionsTypes.createUser,
-        payload: response,
-      });
+    const response = await createData("/users", newUserData);
+    dispatchGlobalAction({
+      type: globalActionType.createUser,
+      payload: response,
     });
   };
 
   const updateUserHandler = async (newData) => {
-    await updateData("/users", newData).then((response) => {
-      dispatchUsersAction({
-        type: usersActionsTypes.updateUserData,
-        payload: response,
-      });
+    const response = await updateData("/users", newData);
+    dispatchGlobalAction({
+      type: globalActionType.updateUserData,
+      payload: response,
     });
   };
 
   const usersCtx = {
-    users: allUsersState.users,
-    user: allUsersState.user,
-    getAllUsers: getAllUsersHandler,
-    getUser: getUserHandler,
-    addUser: addUserHandler,
-    updateUser: updateUserHandler,
+    users: globalState.users,
+    user: globalState.user,
+    getAllUsersHandler,
+    getUserHandler,
+    addUserHandler,
+    updateUserHandler,
   };
 
   // Pets Functions Handlers
-
   const getAllPetsHandler = async () => {
     try {
-      const pets = await fetchPets();
-      if (pets) setUserPets(pets);
+      const response = await fetchAll("/pets");
+      dispatchGlobalAction({
+        type: globalActionType.getAllPets,
+        payload: response,
+      });
     } catch (error) {
       console.error("An error occur during GET /pets", error);
     }
   };
 
-  const getPet = async (petId) => {
+  const getPetHandler = async (petId) => {
     try {
-      const pet = await api.get(`pets/${petId}`);
-      if (pet) {
-        setPet(pet.data);
-      }
+      const response = await fetchById("/pets", petId);
+      dispatchGlobalAction({
+        type: globalActionType.getPetById,
+        payload: response,
+      });
     } catch (error) {
       console.error("Error occur during /GET pet");
     }
   };
 
-  const addNewPet = (newPetData) => {
-    setUserPets([newPetData, ...userPets]);
+  const addPetHandler = async (newPetData) => {
+    const response = await createData("/pets", newPetData);
+    dispatchGlobalAction({
+      type: globalActionType.createPet,
+      payload: response,
+    });
   };
 
-  const deletePet = async (id) => {
-    await api.delete(`/pets/${id}`);
-    const newPetsList = userPets.filter((pets) => pets.id !== id);
-    setUserPets(newPetsList);
+  const deletePetHandler = async (id) => {
+    await deleteDataById("/pets", id);
+    dispatchGlobalAction({
+      type: globalActionType.removePet,
+    });
   };
 
-  const updatePet = async (updatedPet) => {
+  const updatePetHandler = async (newPetData) => {
     try {
-      const response = await api.put(`/pets/${updatedPet.id}`, updatedPet);
-
-      setUserPets(
-        userPets.map((pet) => {
-          return pet.id === updatedPet.id ? { ...response.data } : pet;
-        })
-      );
+      const response = await updateData("pets", newPetData);
+      dispatchGlobalAction({
+        type: globalActionType.updatePetData,
+        payload: response,
+      });
     } catch (error) {
       console.error("Error occur during pet update", error);
     }
   };
 
+  const petsCtx = {
+    pets: globalState.pets,
+    pet: globalState.pet,
+    getAllPetsHandler,
+    getPetHandler,
+    addPetHandler,
+    updatePetHandler,
+    deletePetHandler,
+  };
+
   const searchHandler = (term) => {
     setSearchValue(term);
     if (term !== "") {
-      const user = allUsersState.users.filter((user) => {
+      const user = globalState.users.filter((user) => {
         return Object.values(user)
           .join(" ")
           .toLowerCase()
@@ -171,7 +161,7 @@ const GeneralContextProvider = (props) => {
       });
       setSearchResults(user);
     } else {
-      setSearchResults(allUsersState);
+      setSearchResults(globalState);
     }
   };
 
@@ -210,18 +200,11 @@ const GeneralContextProvider = (props) => {
     <GeneralContext.Provider
       value={{
         usersCtx,
-        pet,
-        userPets,
-        userPets,
-        getAllPetsHandler,
-        getPet,
+        petsCtx,
         searchValue,
         searchHandler,
         setSearchValue,
         searchResults,
-        addNewPet,
-        deletePet,
-        updatePet,
         logUser,
         logout,
         width,

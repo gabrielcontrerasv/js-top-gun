@@ -1,29 +1,38 @@
 import { useState, useEffect, useContext } from "react";
 import { GeneralContext } from "../../contexts/GeneralContext";
+import Link from "next/link";
 import UserFinder from "./UserFinder";
 import Navigation from "../Layout/Navigation";
 import Paginate from "../Paginate/Paginate";
 import UserCard from "./UserCard";
+import { IoPersonAddSharp } from "react-icons/io5";
 
 const UserComponent = () => {
   const { usersCtx, searchValue, searchResults, width, getWidthHandler } =
     useContext(GeneralContext);
 
-  const { users, getAllUsers } = usersCtx;
+  const { users, getAllUsersHandler } = usersCtx;
 
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(2);
 
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
-  const currentCards = users.slice(indexOfFirstCard, indexOfLastCard);
+
+  let currentCards = [];
+
+  if (users) {
+    currentCards = users.slice(indexOfFirstCard, indexOfLastCard);
+  } else {
+    currentCards = users;
+  }
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
   useEffect(() => {
-    getAllUsers();
+    getAllUsersHandler();
   }, []);
 
   useEffect(() => {
@@ -56,10 +65,16 @@ const UserComponent = () => {
         {/* SEARCHER MAIN CONTAINER */}
         <div className="col-start-2 col-end-12 row-start-3 row-end-10 sm:col-start-4 lg:col-start-3 md:col-end-12 md:row-start-2 md:row-end-10">
           {/* HEADER & SEARCHER */}
-          <div className="md:border-b-[1px] md:border-primary-text">
-            <h1 className="text-primary-text text-2xl font-bold text-center md:text-4xl md:font-semibold md:pb-5 md:text-start">
+          <div className="md:border-b-[1px] md:border-primary-text flex justify-between">
+            <h1 className="text-primary-text text-2xl font-bold text-center md:text-4xl md:pb-5 md:text-start">
               Pet owner searcher
             </h1>
+            <Link href="/register">
+              <div className="flex gap-4 text-dark-green items-center cursor-pointer hover:font-semibold">
+                <p className="text-xl mt-2">Add</p>
+                <IoPersonAddSharp className="text-dark-green text-3xl" />
+              </div>
+            </Link>
           </div>
           <div>
             <UserFinder users={users} />
