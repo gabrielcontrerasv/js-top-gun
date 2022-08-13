@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import api from "../../axiosApi/api";
+import api from "../../../axiosApi/api";
 
 const fetchTable = async () => {
   try {

@@ -1,31 +1,37 @@
-// React feature
-import { useContext } from "react";
-import { GeneralContext } from "../../contexts/GeneralContext";
-// Third Party Library ( Hook Form - UUID - Axios)
+// React Features
+import { useEffect, useContext } from "react";
+import { GeneralContext } from "../../../contexts/GeneralContext";
+// Third Party Library
 import { useForm } from "react-hook-form";
-import { v4 as uuidv4 } from "uuid";
-import api from "../../axiosApi/api";
 // Components
-import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
-// -----------------------------------------------------------
+import ErrorPetsMsg from "../../ErrorFormMsg/ErrorFormMsg";
+// ----------------------------------------------------------
 
-const PetsForm = ({ closeModal }) => {
-  const { petsCtx } = useContext(GeneralContext);
-  const { addPetHandler } = petsCtx;
+const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
+  const { usersCtx } = useContext(GeneralContext);
+  const { updateUserHandler } = usersCtx;
 
   const {
     handleSubmit,
     register,
     formState: { errors },
+    setValue,
   } = useForm();
+  const id = toUpdateUser.id;
 
-  const onSubmitHandler = async (values) => {
-    const request = {
-      id: uuidv4(),
-      ...values,
-    };
-    addPetHandler(request);
-    closeModal();
+  useEffect(() => {
+    setValue("name", toUpdateUser.name);
+    setValue("lastName", toUpdateUser.lastName);
+    setValue("document", toUpdateUser.document);
+    setValue("email", toUpdateUser.email);
+    setValue("phone", toUpdateUser.phone);
+    setValue("age", toUpdateUser.age);
+    setValue("address", toUpdateUser.address);
+    setValue("gender", toUpdateUser.gender);
+  }, []);
+
+  const onSubmitHandler = (values) => {
+    updateUserHandler({ id, ...values });
   };
 
   return (
@@ -48,77 +54,73 @@ const PetsForm = ({ closeModal }) => {
       <div>
         <input
           className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 max-h-11"
-          type="number"
-          placeholder="Microchip"
-          {...register("microchip", {
-            required: { value: true, message: "*Required field" },
-          })}
-        />
-        {errors.microchip && (
-          <ErrorPetsMsg errorMessage={errors.microchip?.message} />
-        )}
-      </div>
-      <div>
-        <input
-          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
           type="text"
-          placeholder="Species"
-          {...register("species", {
+          placeholder="Last Name"
+          {...register("lastName", {
             required: { value: true, message: "*Required field" },
           })}
         />
-        {errors.species && (
-          <ErrorPetsMsg errorMessage={errors.species?.message} />
+        {errors.lastName && (
+          <ErrorPetsMsg errorMessage={errors.lastName?.message} />
         )}
       </div>
       <div>
         <input
-          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 max-h-11"
           type="text"
-          placeholder="Breed"
-          {...register("breed", {
+          placeholder="Document"
+          {...register("document", {
             required: { value: true, message: "*Required field" },
           })}
         />
-        {errors.breed && <ErrorPetsMsg errorMessage={errors.breed?.message} />}
+        {errors.document && (
+          <ErrorPetsMsg errorMessage={errors.document?.message} />
+        )}
       </div>
       <div>
         <input
           className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
-          type="date"
-          placeholder="Birthday"
-          {...register("birthday", {
+          type="email"
+          placeholder="E-mail"
+          {...register("email", {
             required: { value: true, message: "*Required field" },
           })}
         />
-        {errors.birthday && (
-          <ErrorPetsMsg errorMessage={errors.birthday?.message} />
-        )}
+        {errors.email && <ErrorPetsMsg errorMessage={errors.email?.message} />}
       </div>
       <div>
         <input
           className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
           type="number"
-          placeholder="Weight (Kg)"
-          {...register("weight", {
+          placeholder="Phone"
+          {...register("phone", {
             required: { value: true, message: "*Required field" },
           })}
         />
-        {errors.weight && (
-          <ErrorPetsMsg errorMessage={errors.weight?.message} />
-        )}
+        {errors.phone && <ErrorPetsMsg errorMessage={errors.phone?.message} />}
+      </div>
+      <div>
+        <input
+          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+          type="number"
+          placeholder="Age"
+          {...register("age", {
+            required: { value: true, message: "*Required field" },
+          })}
+        />
+        {errors.age && <ErrorPetsMsg errorMessage={errors.age?.message} />}
       </div>
       <div>
         <input
           className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
           type="text"
-          placeholder="Status"
-          {...register("status", {
+          placeholder="Address"
+          {...register("address", {
             required: { value: true, message: "*Required field" },
           })}
         />
-        {errors.status && (
-          <ErrorPetsMsg errorMessage={errors.status?.message} />
+        {errors.address && (
+          <ErrorPetsMsg errorMessage={errors.address?.message} />
         )}
       </div>
       <div>
@@ -134,14 +136,16 @@ const PetsForm = ({ closeModal }) => {
           <ErrorPetsMsg errorMessage={errors.gender?.message} />
         )}
       </div>
+
       <button
         type="submit"
         className=" bg-dark-green text-white tracking-wider w-full col-span-2 h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e] mt-7"
+        onClick={toggleModal}
       >
-        Add
+        Update
       </button>
     </form>
   );
 };
 
-export default PetsForm;
+export default UpdateUserForm;

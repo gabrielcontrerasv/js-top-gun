@@ -4,8 +4,8 @@ import Image from "next/image";
 import { AiFillEdit } from "react-icons/ai";
 import { IoPawSharp } from "react-icons/io5";
 // Assets
-import WomanPhoto from "../../public/assets/images/WomanPhoto.avif";
-import ManPhoto from "../../public/assets/images/MenPhoto.avif";
+import WomanPhoto from "../../../public/assets/images/WomanPhoto.avif";
+import ManPhoto from "../../../public/assets/images/MenPhoto.avif";
 // ------------------------------------------------------------
 
 const UserData = ({ user, toggleModal }) => {

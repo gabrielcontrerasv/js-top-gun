@@ -5,8 +5,8 @@ import Router from "next/router";
 import { AiFillEdit } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 // Assets
-import CatPhoto from "../../public/assets/images/CatPhoto.webp";
-import DogPhoto from "../../public/assets/images/DogPhoto.webp";
+import CatPhoto from "../../../public/assets/images/CatPhoto.webp";
+import DogPhoto from "../../../public/assets/images/DogPhoto.webp";
 // ------------------------------------------------------------
 
 const PetData = ({ pet, toggleModal }) => {

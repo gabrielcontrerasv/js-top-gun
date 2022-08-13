@@ -1,39 +1,35 @@
-import { useEffect, useContext } from "react";
-import { GeneralContext } from "../../contexts/GeneralContext";
+// React feature
+import { useContext } from "react";
+import { GeneralContext } from "../../../contexts/GeneralContext";
+// Third Party Library ( Hook Form - UUID - Axios)
 import { useForm } from "react-hook-form";
-import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
+import { v4 as uuidv4 } from "uuid";
+// Components
+import ErrorPetsMsg from "../../ErrorFormMsg/ErrorPetsMsg";
+// -----------------------------------------------------------
 
-const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
+const PetsForm = ({ closeModal }) => {
   const { petsCtx } = useContext(GeneralContext);
-  const { updatePetHandler } = petsCtx;
+  const { addPetHandler } = petsCtx;
 
   const {
     handleSubmit,
     register,
     formState: { errors },
-    setValue,
   } = useForm();
 
-  const id = toUpdatePet.id;
-
-  useEffect(() => {
-    setValue("name", toUpdatePet.name);
-    setValue("birthday", toUpdatePet.birthday);
-    setValue("microchip", toUpdatePet.microchip);
-    setValue("species", toUpdatePet.species);
-    setValue("breed", toUpdatePet.breed);
-    setValue("weight", toUpdatePet.weight);
-    setValue("status", toUpdatePet.status);
-    setValue("gender", toUpdatePet.gender);
-  }, []);
-
   const onSubmitHandler = async (values) => {
-    updatePetHandler({ ...values, id });
+    const request = {
+      id: uuidv4(),
+      ...values,
+    };
+    addPetHandler(request);
+    closeModal();
   };
 
   return (
     <form
-      className="grid grid-cols-2  gap-y-6 gap-x-2 mt-10 font-inter"
+      className="grid grid-cols-2 p-5 gap-y-2 gap-x-2 mt-5"
       onSubmit={handleSubmit(onSubmitHandler)}
     >
       <div>
@@ -137,17 +133,14 @@ const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
           <ErrorPetsMsg errorMessage={errors.gender?.message} />
         )}
       </div>
-      <div className="col-span-2 h-[5rem] flex justify-center items-center">
-        <button
-          type="submit"
-          className="absolute bottom-3 bg-dark-green text-white tracking-wider w-[85%] h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e]"
-          onClick={toggleModal}
-        >
-          Update
-        </button>
-      </div>
+      <button
+        type="submit"
+        className=" bg-dark-green text-white tracking-wider w-full col-span-2 h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e] mt-7"
+      >
+        Add
+      </button>
     </form>
   );
 };
 
-export default UpdatePetForm;
+export default PetsForm;

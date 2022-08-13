@@ -4,13 +4,12 @@ import { useState, useEffect, Fragment, useContext } from "react";
 import { useRouter } from "next/router";
 // Third Party Library
 import { Dialog, Transition } from "@headlessui/react";
-import api from "../../axiosApi/api";
 // Components
-import Navigation from "../Layout/Navigation";
+import Navigation from "../../Layout/Navigation";
 import PetData from "./PetData";
 import PetTable from "./PetTable";
 import UpdatePetForm from "./UpdatePetForm";
-import { GeneralContext } from "../../contexts/GeneralContext";
+import { GeneralContext } from "../../../contexts/GeneralContext";
 // ----------------------------------------------------------
 
 const PetProfile = () => {
@@ -18,7 +17,6 @@ const PetProfile = () => {
   const { petsCtx } = useContext(GeneralContext);
   const petId = router.query.index;
   const { pets, pet, getPetHandler } = petsCtx;
-
 
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);

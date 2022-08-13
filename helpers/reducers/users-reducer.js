@@ -32,11 +32,12 @@ const globalReducer = (state, action) => {
     case globalActionType.getPetById:
       return { ...state, pet: action.payload };
     case globalActionType.createPet:
-      return { ...state, pets: [{ ...action.payload }] };
+      return { ...state, pets: [...state.pets, { ...action.payload }] };
     case globalActionType.updatePetData:
-      return { ...state, pet: action.payload };
+      return { ...state, pet: { ...action.payload } };
     case globalActionType.removePet:
-      return state;
+      const newList = state.pets.filter((pets) => pets.id !== action.payload);
+      return { ...state, pets: newList };
     default:
       return defaultUsersState;
   }

@@ -1,6 +1,6 @@
 // React Features
 import { useState, useEffect, Fragment, useContext } from "react";
-import { GeneralContext } from "../../contexts/GeneralContext";
+import { GeneralContext } from "../../../contexts/GeneralContext";
 // Next Features
 import { useRouter } from "next/router";
 // Third Party Library
@@ -8,10 +8,10 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/css";
 // Components
-import Navigation from "../Layout/Navigation";
-import PetsForm from "./PetsForm";
+import Navigation from "../../Layout/Layout";
+import PetsForm from "../Pet/PetsForm";
 import UpdateUserForm from "./UpdateUserForm";
-import PetCard from "./PetCard";
+import PetCard from "../Pet/PetCard";
 import UserData from "./UserData";
 // ----------------------------------------------------------------------------------------
 
@@ -21,7 +21,7 @@ const MainProfile = () => {
   const [modal, setModal] = useState(false);
   const [toggleForm, setToggleForm] = useState(true);
 
-  const { usersCtx, petsCtx, userPets, width, getWidthHandler } =
+  const { usersCtx, petsCtx, width, getWidthHandler } =
     useContext(GeneralContext);
 
   const { user, getUserHandler } = usersCtx;
@@ -42,8 +42,11 @@ const MainProfile = () => {
 
   useEffect(() => {
     getUserHandler(router.query.userId);
+  }, []);
+
+  useEffect(() => {
     getAllPetsHandler();
-  }, [pets]);
+  }, []);
 
   useEffect(() => {
     getWidthHandler();

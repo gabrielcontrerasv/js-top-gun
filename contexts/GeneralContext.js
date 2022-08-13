@@ -121,13 +121,6 @@ const GeneralContextProvider = (props) => {
     });
   };
 
-  const deletePetHandler = async (id) => {
-    await deleteDataById("/pets", id);
-    dispatchGlobalAction({
-      type: globalActionType.removePet,
-    });
-  };
-
   const updatePetHandler = async (newPetData) => {
     try {
       const response = await updateData("pets", newPetData);
@@ -138,6 +131,14 @@ const GeneralContextProvider = (props) => {
     } catch (error) {
       console.error("Error occur during pet update", error);
     }
+  };
+
+  const deletePetHandler = async (id) => {
+    await deleteDataById("/pets", id);
+    dispatchGlobalAction({
+      type: globalActionType.removePet,
+      payload: id,
+    });
   };
 
   const petsCtx = {

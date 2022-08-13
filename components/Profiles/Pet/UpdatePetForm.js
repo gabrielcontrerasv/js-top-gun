@@ -1,15 +1,11 @@
-// React Features
 import { useEffect, useContext } from "react";
-import { GeneralContext } from "../../contexts/GeneralContext";
-// Third Party Library
+import { GeneralContext } from "../../../contexts/GeneralContext";
 import { useForm } from "react-hook-form";
-// Components
-import ErrorPetsMsg from "../ErrorFormMsg/ErrorPetsMsg";
-// ----------------------------------------------------------
+import ErrorPetsMsg from "../../ErrorFormMsg/ErrorPetsMsg";
 
-const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
-  const { usersCtx } = useContext(GeneralContext);
-  const { updateUserHandler } = usersCtx;
+const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
+  const { petsCtx } = useContext(GeneralContext);
+  const { updatePetHandler } = petsCtx;
 
   const {
     handleSubmit,
@@ -17,26 +13,27 @@ const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
     formState: { errors },
     setValue,
   } = useForm();
-  const id = toUpdateUser.id;
+
+  const id = toUpdatePet.id;
 
   useEffect(() => {
-    setValue("name", toUpdateUser.name);
-    setValue("lastName", toUpdateUser.lastName);
-    setValue("document", toUpdateUser.document);
-    setValue("email", toUpdateUser.email);
-    setValue("phone", toUpdateUser.phone);
-    setValue("age", toUpdateUser.age);
-    setValue("address", toUpdateUser.address);
-    setValue("gender", toUpdateUser.gender);
+    setValue("name", toUpdatePet.name);
+    setValue("birthday", toUpdatePet.birthday);
+    setValue("microchip", toUpdatePet.microchip);
+    setValue("species", toUpdatePet.species);
+    setValue("breed", toUpdatePet.breed);
+    setValue("weight", toUpdatePet.weight);
+    setValue("status", toUpdatePet.status);
+    setValue("gender", toUpdatePet.gender);
   }, []);
 
-  const onSubmitHandler = (values) => {
-    updateUserHandler({ id, ...values });
+  const onSubmitHandler = async (values) => {
+    updatePetHandler({ ...values, id });
   };
 
   return (
     <form
-      className="grid grid-cols-2 p-5 gap-y-2 gap-x-2 mt-5"
+      className="grid grid-cols-2  gap-y-6 gap-x-2 mt-10 font-inter"
       onSubmit={handleSubmit(onSubmitHandler)}
     >
       <div>
@@ -54,73 +51,77 @@ const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
       <div>
         <input
           className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 max-h-11"
-          type="text"
-          placeholder="Last Name"
-          {...register("lastName", {
+          type="number"
+          placeholder="Microchip"
+          {...register("microchip", {
             required: { value: true, message: "*Required field" },
           })}
         />
-        {errors.lastName && (
-          <ErrorPetsMsg errorMessage={errors.lastName?.message} />
-        )}
-      </div>
-      <div>
-        <input
-          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 max-h-11"
-          type="text"
-          placeholder="Document"
-          {...register("document", {
-            required: { value: true, message: "*Required field" },
-          })}
-        />
-        {errors.document && (
-          <ErrorPetsMsg errorMessage={errors.document?.message} />
+        {errors.microchip && (
+          <ErrorPetsMsg errorMessage={errors.microchip?.message} />
         )}
       </div>
       <div>
         <input
           className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
-          type="email"
-          placeholder="E-mail"
-          {...register("email", {
+          type="text"
+          placeholder="Species"
+          {...register("species", {
             required: { value: true, message: "*Required field" },
           })}
         />
-        {errors.email && <ErrorPetsMsg errorMessage={errors.email?.message} />}
-      </div>
-      <div>
-        <input
-          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
-          type="number"
-          placeholder="Phone"
-          {...register("phone", {
-            required: { value: true, message: "*Required field" },
-          })}
-        />
-        {errors.phone && <ErrorPetsMsg errorMessage={errors.phone?.message} />}
-      </div>
-      <div>
-        <input
-          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
-          type="number"
-          placeholder="Age"
-          {...register("age", {
-            required: { value: true, message: "*Required field" },
-          })}
-        />
-        {errors.age && <ErrorPetsMsg errorMessage={errors.age?.message} />}
+        {errors.species && (
+          <ErrorPetsMsg errorMessage={errors.species?.message} />
+        )}
       </div>
       <div>
         <input
           className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
           type="text"
-          placeholder="Address"
-          {...register("address", {
+          placeholder="Breed"
+          {...register("breed", {
             required: { value: true, message: "*Required field" },
           })}
         />
-        {errors.address && (
-          <ErrorPetsMsg errorMessage={errors.address?.message} />
+        {errors.breed && <ErrorPetsMsg errorMessage={errors.breed?.message} />}
+      </div>
+      <div>
+        <input
+          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+          type="date"
+          placeholder="Birthday"
+          {...register("birthday", {
+            required: { value: true, message: "*Required field" },
+          })}
+        />
+        {errors.birthday && (
+          <ErrorPetsMsg errorMessage={errors.birthday?.message} />
+        )}
+      </div>
+      <div>
+        <input
+          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+          type="number"
+          placeholder="Weight (Kg)"
+          {...register("weight", {
+            required: { value: true, message: "*Required field" },
+          })}
+        />
+        {errors.weight && (
+          <ErrorPetsMsg errorMessage={errors.weight?.message} />
+        )}
+      </div>
+      <div>
+        <input
+          className="placeholder:text-mid-green block bg-transparent w-full border-2 border-mid-green rounded-md py-2 pl-2  sm:pl-4 pr-3  focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
+          type="text"
+          placeholder="Status"
+          {...register("status", {
+            required: { value: true, message: "*Required field" },
+          })}
+        />
+        {errors.status && (
+          <ErrorPetsMsg errorMessage={errors.status?.message} />
         )}
       </div>
       <div>
@@ -136,16 +137,17 @@ const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
           <ErrorPetsMsg errorMessage={errors.gender?.message} />
         )}
       </div>
-
-      <button
-        type="submit"
-        className=" bg-dark-green text-white tracking-wider w-full col-span-2 h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e] mt-7"
-        onClick={toggleModal}
-      >
-        Update
-      </button>
+      <div className="col-span-2 h-[5rem] flex justify-center items-center">
+        <button
+          type="submit"
+          className="absolute bottom-3 bg-dark-green text-white tracking-wider w-[85%] h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e]"
+          onClick={toggleModal}
+        >
+          Update
+        </button>
+      </div>
     </form>
   );
 };
 
-export default UpdateUserForm;
+export default UpdatePetForm;
