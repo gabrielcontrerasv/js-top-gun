@@ -7,11 +7,12 @@ import Cookie from "js-cookie";
 import api from "../axiosApi/api";
 // HTTP Req
 import {
-  fetchAllUsers,
-  fetchUser,
-  createNewUser,
-  updateUserData,
-} from "../helpers/ReqHandlers/index";
+  fetchAll,
+  fetchById,
+  createData,
+  updateData,
+} from "../helpers/ReqHandlers/httpReq";
+
 // Users Reducer
 import usersReducer, {
   defaultUsersState,
@@ -46,8 +47,14 @@ const getWindowSize = () => {
 };
 
 const GeneralContextProvider = (props) => {
+  const [allUsersState, dispatchUsersAction] = useReducer(
+    usersReducer,
+    defaultUsersState
+  );
+
   const [pet, setPet] = useState([]);
   const [userPets, setUserPets] = useState([]);
+
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [width, setWidth] = useState();
@@ -57,14 +64,9 @@ const GeneralContextProvider = (props) => {
     setWidth(width);
   };
 
-  const [allUsersState, dispatchUsersAction] = useReducer(
-    usersReducer,
-    defaultUsersState
-  );
-
-  // Handlers
+  // Users Functions Handlers
   const getAllUsersHandler = async () => {
-    await fetchAllUsers().then((response) => {
+    await fetchAll("/users").then((response) => {
       dispatchUsersAction({
         type: usersActionsTypes.getAllUsers,
         payload: response,
@@ -74,7 +76,7 @@ const GeneralContextProvider = (props) => {
 
   const getUserHandler = async (userId) => {
     try {
-      await fetchUser(userId).then((response) => {
+      await fetchById("/users", userId).then((response) => {
         dispatchUsersAction({
           type: usersActionsTypes.getUserById,
           payload: response,
@@ -86,7 +88,7 @@ const GeneralContextProvider = (props) => {
   };
 
   const addUserHandler = async (newUserData) => {
-    await createNewUser(newUserData).then((response) => {
+    await createData("/users", newUserData).then((response) => {
       dispatchUsersAction({
         type: usersActionsTypes.createUser,
         payload: response,
@@ -95,7 +97,7 @@ const GeneralContextProvider = (props) => {
   };
 
   const updateUserHandler = async (newData) => {
-    await updateUserData(newData).then((response) => {
+    await updateData("/users", newData).then((response) => {
       dispatchUsersAction({
         type: usersActionsTypes.updateUserData,
         payload: response,
@@ -103,7 +105,18 @@ const GeneralContextProvider = (props) => {
     });
   };
 
-  const getPets = async () => {
+  const usersCtx = {
+    users: allUsersState.users,
+    user: allUsersState.user,
+    getAllUsers: getAllUsersHandler,
+    getUser: getUserHandler,
+    addUser: addUserHandler,
+    updateUser: updateUserHandler,
+  };
+
+  // Pets Functions Handlers
+
+  const getAllPetsHandler = async () => {
     try {
       const pets = await fetchPets();
       if (pets) setUserPets(pets);
@@ -123,7 +136,30 @@ const GeneralContextProvider = (props) => {
     }
   };
 
-  // SEARCH FUNCTIONALITY
+  const addNewPet = (newPetData) => {
+    setUserPets([newPetData, ...userPets]);
+  };
+
+  const deletePet = async (id) => {
+    await api.delete(`/pets/${id}`);
+    const newPetsList = userPets.filter((pets) => pets.id !== id);
+    setUserPets(newPetsList);
+  };
+
+  const updatePet = async (updatedPet) => {
+    try {
+      const response = await api.put(`/pets/${updatedPet.id}`, updatedPet);
+
+      setUserPets(
+        userPets.map((pet) => {
+          return pet.id === updatedPet.id ? { ...response.data } : pet;
+        })
+      );
+    } catch (error) {
+      console.error("Error occur during pet update", error);
+    }
+  };
+
   const searchHandler = (term) => {
     setSearchValue(term);
     if (term !== "") {
@@ -137,12 +173,6 @@ const GeneralContextProvider = (props) => {
     } else {
       setSearchResults(allUsersState);
     }
-  };
-
-  // POST REQUEST ( USER & PET REGISTER - USER LOGIN )
-
-  const addNewPet = (newPetData) => {
-    setUserPets([newPetData, ...userPets]);
   };
 
   const logUser = async (loginData) => {
@@ -176,41 +206,15 @@ const GeneralContextProvider = (props) => {
     }
   };
 
-  // DELETE REQUEST ( DELETE PET )
-  const deletePet = async (id) => {
-    await api.delete(`/pets/${id}`);
-    const newPetsList = userPets.filter((pets) => pets.id !== id);
-    setUserPets(newPetsList);
-  };
-
-  // PUT REQUEST ( UPDATE USER & PET DATA)
-  const updatePet = async (updatedPet) => {
-    try {
-      const response = await api.put(`/pets/${updatedPet.id}`, updatedPet);
-
-      setUserPets(
-        userPets.map((pet) => {
-          return pet.id === updatedPet.id ? { ...response.data } : pet;
-        })
-      );
-    } catch (error) {
-      console.error("Error occur during pet update", error);
-    }
-  };
-
   return (
     <GeneralContext.Provider
       value={{
-        allUsersState,
+        usersCtx,
         pet,
         userPets,
         userPets,
-        getUserHandler,
-        getAllUsersHandler,
-        addUserHandler,
-        updateUserHandler,
+        getAllPetsHandler,
         getPet,
-        getPets,
         searchValue,
         searchHandler,
         setSearchValue,

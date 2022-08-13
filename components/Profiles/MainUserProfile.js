@@ -20,16 +20,11 @@ const MainProfile = () => {
   const [cardsPerPage, setCardsPerPage] = useState();
   const [modal, setModal] = useState(false);
   const [toggleForm, setToggleForm] = useState(true);
-  const {
-    allUsersState,
-    getUserHandler,
-    userPets,
-    width,
-    getWidthHandler,
-    getPets,
-  } = useContext(GeneralContext);
 
-  const { user } = allUsersState;
+  const { usersCtx, userPets, width, getWidthHandler, getAllPetsHandler } =
+    useContext(GeneralContext);
+
+  const { user, getUser } = usersCtx;
 
   const toggleModal = (e) => {
     if (!e) return setModal(!modal);
@@ -45,9 +40,9 @@ const MainProfile = () => {
   }, []);
 
   useEffect(() => {
-    getUserHandler(router.query.userId);
-    getPets();
-  }, [user]);
+    getUser(router.query.userId);
+    getAllPetsHandler();
+  }, []);
 
   useEffect(() => {
     getWidthHandler();

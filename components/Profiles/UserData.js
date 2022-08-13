@@ -9,7 +9,7 @@ import ManPhoto from "../../public/assets/images/MenPhoto.avif";
 // ------------------------------------------------------------
 
 const UserData = ({ user, toggleModal }) => {
-  const photo = user.gender === "Female" ? WomanPhoto : ManPhoto;
+  const photo = user?.gender === "Female" ? WomanPhoto : ManPhoto;
   return (
     <div className=" h-[20rem] flex mx-5 sm:w-full sm:gap-5 ">
       {/* USER__IMAGE */}
@@ -25,7 +25,7 @@ const UserData = ({ user, toggleModal }) => {
       <div className="w-full sm:w-[70%] flex flex-col gap-5 z-10">
         <div className="flex justify-between ">
           <h1 className="font-bold text-xl sm:text-4xl xl:text-[3rem] text-primary-text drop-shadow-lg shadow-black">
-            {user.name} {user.lastName}
+            {user?.name} {user?.lastName}
           </h1>
           <div className="flex gap-5">
             <div
@@ -48,23 +48,23 @@ const UserData = ({ user, toggleModal }) => {
         <div className="w-full h-[10rem] flex flex-col gap-1 justify-between text-2xl text-primary-text tracking-wide lg:mt-4">
           <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-1 drop-shadow-xl ">Document:</p>
-            <p>{user.document}</p>
+            <p>{user?.document}</p>
           </div>
           <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">E-mail: </p>
-            <p>{user.email}</p>
+            <p>{user?.email}</p>
           </div>
           <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">Phone:</p>
-            <p>{user.phone}</p>
+            <p>{user?.phone}</p>
           </div>
           <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">Age:</p>
-            <p>{user.age} years</p>
+            <p>{user?.age} years</p>
           </div>
           <div className="flex text-sm sm:text-lg lg:text- justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">Address:</p>
-            <p>{user.address}</p>
+            <p>{user?.address}</p>
           </div>
         </div>
       </div>

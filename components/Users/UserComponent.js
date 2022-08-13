@@ -6,16 +6,10 @@ import Paginate from "../Paginate/Paginate";
 import UserCard from "./UserCard";
 
 const UserComponent = () => {
-  const {
-    allUsersState,
-    getAllUsersHandler,
-    searchValue,
-    searchResults,
-    width,
-    getWidthHandler,
-  } = useContext(GeneralContext);
+  const { usersCtx, searchValue, searchResults, width, getWidthHandler } =
+    useContext(GeneralContext);
 
-  const { users } = allUsersState;
+  const { users, getAllUsers } = usersCtx;
 
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(2);
@@ -29,7 +23,7 @@ const UserComponent = () => {
   };
 
   useEffect(() => {
-    getAllUsersHandler();
+    getAllUsers();
   }, []);
 
   useEffect(() => {

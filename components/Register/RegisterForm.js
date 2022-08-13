@@ -11,7 +11,9 @@ import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
 // ----------------------------------------
 
 const RegisterForm = () => {
-  const { addUserHandler } = useContext(GeneralContext);
+  const { usersCtx } = useContext(GeneralContext);
+  const { addUser } = usersCtx;
+
   const {
     handleSubmit,
     register,
@@ -23,7 +25,7 @@ const RegisterForm = () => {
       id: uuidv4(),
       ...values,
     };
-    addUserHandler(newUserData);
+    addUser(newUserData);
   };
 
   return (
