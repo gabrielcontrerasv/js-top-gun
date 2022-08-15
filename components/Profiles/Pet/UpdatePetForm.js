@@ -2,6 +2,7 @@ import { useEffect, useContext } from "react";
 import { GeneralContext } from "../../../contexts/GeneralContext";
 import { useForm } from "react-hook-form";
 import ErrorPetsMsg from "../../ErrorFormMsg/ErrorPetsMsg";
+import { feedbackAlert } from "../../../helpers/alerts/alerts";
 
 const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
   const { petsCtx } = useContext(GeneralContext);
@@ -29,6 +30,7 @@ const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
 
   const onSubmitHandler = async (values) => {
     updatePetHandler({ ...values, id });
+    feedbackAlert(`${values.name} data`, "was successfully updated", "success");
   };
 
   return (

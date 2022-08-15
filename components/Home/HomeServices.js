@@ -69,10 +69,12 @@ const HomeServices = () => {
       {/* Slider__Container */}
       <Splide
         options={{
-          speed: 500,
+          type: "fade",
           rewind: true,
           rewindSpeed: 2000,
-          focus: "center",
+          speed: 2000,
+
+          // focus: "center",
           arrows: false,
         }}
         aria-label="My Favorite services"

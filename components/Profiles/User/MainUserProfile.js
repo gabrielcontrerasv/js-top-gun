@@ -8,7 +8,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/css";
 // Components
-import Navigation from "../../Layout/Layout";
+import Navigation from "../../Layout/Navigation";
 import PetsForm from "../Pet/PetsForm";
 import UpdateUserForm from "./UpdateUserForm";
 import PetCard from "../Pet/PetCard";

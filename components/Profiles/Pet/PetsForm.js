@@ -3,9 +3,12 @@ import { useContext } from "react";
 import { GeneralContext } from "../../../contexts/GeneralContext";
 // Third Party Library ( Hook Form - UUID - Axios)
 import { useForm } from "react-hook-form";
+
 import { v4 as uuidv4 } from "uuid";
 // Components
 import ErrorPetsMsg from "../../ErrorFormMsg/ErrorPetsMsg";
+import { feedbackAlert } from "../../../helpers/alerts/alerts";
+
 // -----------------------------------------------------------
 
 const PetsForm = ({ closeModal }) => {
@@ -25,6 +28,7 @@ const PetsForm = ({ closeModal }) => {
     };
     addPetHandler(request);
     closeModal();
+    feedbackAlert(values.name, "has been registered.", "success");
   };
 
   return (

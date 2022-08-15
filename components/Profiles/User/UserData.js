@@ -19,6 +19,8 @@ const UserData = ({ user, toggleModal }) => {
           layout="fill"
           objectFit="cover"
           objectPosition="top center"
+          placeholder="blur"
+          alt="Profile user photo"
         />
       </div>
       {/* USER__DETAILS */}

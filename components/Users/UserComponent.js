@@ -5,6 +5,7 @@ import UserFinder from "./UserFinder";
 import Navigation from "../Layout/Navigation";
 import Paginate from "../Paginate/Paginate";
 import UserCard from "./UserCard";
+
 import { IoPersonAddSharp } from "react-icons/io5";
 
 const UserComponent = () => {

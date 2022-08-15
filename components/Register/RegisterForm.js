@@ -1,14 +1,13 @@
 // React Features
 import { useContext } from "react";
 import { GeneralContext } from "../../contexts/GeneralContext";
-// Next Feature
-import Link from "next/link";
-// Third Party Library ( Hook Form )
+// Third Party Library
 import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 // Components
 import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
 import { useRouter } from "next/router";
+import { feedbackAlert } from "../../helpers/alerts/alerts";
 // ----------------------------------------
 
 const RegisterForm = () => {
@@ -28,6 +27,7 @@ const RegisterForm = () => {
       ...values,
     };
     addUserHandler(newUserData);
+    feedbackAlert(values.name, "has been register successfully", "success");
     push("/users");
   };
 
@@ -190,7 +190,7 @@ const RegisterForm = () => {
           className="bg-[#166060] text-white tracking-widest w-full h-[3rem] text-sm sm:h-[3rem] absolute bottom-0 2xl:h-[3.5rem] 2xl:text-xl 2xl:tracking-[0.2rem] hover:bg-[#2b9d9d] duration-300 rounded-b-md"
           type="submit"
         >
-          SIGN UP
+          REGISTER
         </button>
       </div>
     </form>

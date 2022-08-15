@@ -17,7 +17,8 @@ import {
 import globalReducer, {
   defaultGlobalState,
   globalActionType,
-} from "../helpers/reducers/users-reducer";
+} from "../helpers/reducers/global-reducer";
+import { confirmDelete, feedbackAlert } from "../helpers/alerts/alerts";
 // ----------------------------------------------------------
 
 export const GeneralContext = createContext();
@@ -133,11 +134,16 @@ const GeneralContextProvider = (props) => {
     }
   };
 
-  const deletePetHandler = async (id) => {
-    await deleteDataById("/pets", id);
-    dispatchGlobalAction({
-      type: globalActionType.removePet,
-      payload: id,
+  const deletePetHandler = async (id, name) => {
+    confirmDelete().then(async (result) => {
+      if (result.isConfirmed) {
+        feedbackAlert(`${name}`, `has been deleted.`, "success");
+        await deleteDataById("/pets", id);
+        dispatchGlobalAction({
+          type: globalActionType.removePet,
+          payload: id,
+        });
+      }
     });
   };
 

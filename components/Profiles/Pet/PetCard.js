@@ -32,7 +32,7 @@ const PetCard = ({ pet }) => {
           <div className="flex gap-2">
             <AiFillDelete
               className="cursor-pointer text-white sm:text-[1.2rem] hover:scale-[1.1] drop-shadow-lg shadow-black "
-              onClick={() => deletePetHandler(pet.id)}
+              onClick={() => deletePetHandler(pet.id, pet.name)}
             />
             <Link href={`/petProfile/${pet.id}`}>
               <RiFolderOpenFill className="cursor-pointer text-white sm:text-[1.2rem] hover:scale-[1.1] drop-shadow-lg shadow-black " />

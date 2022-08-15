@@ -5,6 +5,7 @@ import { GeneralContext } from "../../../contexts/GeneralContext";
 import { useForm } from "react-hook-form";
 // Components
 import ErrorPetsMsg from "../../ErrorFormMsg/ErrorFormMsg";
+import { feedbackAlert } from "../../../helpers/alerts/alerts";
 // ----------------------------------------------------------
 
 const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
@@ -32,6 +33,7 @@ const UpdateUserForm = ({ toUpdateUser, toggleModal }) => {
 
   const onSubmitHandler = (values) => {
     updateUserHandler({ id, ...values });
+    feedbackAlert(`${values.name} data`, "was successfully updated", "success");
   };
 
   return (

@@ -22,11 +22,16 @@ const Register = () => {
       <div className="z-10 relative w-[100%] md:w-[65%] h-full flex justify-center items-center min-h-[40rem]">
         {/* Bg__Image */}
         <div className="relative top-0 left-0 w-full h-full z-10 bg-[#00000035] "></div>
-        <Image src={RegisterBg} layout="fill" objectFit="cover" />
+        <Image
+          src={RegisterBg}
+          layout="fill"
+          objectFit="cover"
+          alt="background image showing a dog in a large field"
+        />
         {/* Form__Container */}
         <div className="w-full h-full absolute bg-[#00000047] backdrop-blur-sm flex flex-col justify-center px-1 z-50 pt-10 sm:w-[70%] sm:h-[80%] sm:rounded-md sm:px-[2rem] md:justify-start">
           <h1 className="text-4xl sm:text-4xl tracking-wider font-bold text-center text-white">
-            Create Your Account
+            Create a New Account
           </h1>
           <RegisterForm />
         </div>
