@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import ErrorPetsMsg from "../../ErrorFormMsg/ErrorPetsMsg";
 import { feedbackAlert } from "../../../helpers/alerts/alerts";
 
-const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
+const UpdatePetForm = ({ toUpdatePet, toggleModal }) => {
   const { petsCtx } = useContext(GeneralContext);
   const { updatePetHandler } = petsCtx;
 
@@ -142,7 +142,7 @@ const UpdatePetForm = ({ toUpdatePet, toggleModal, closeModal }) => {
       <div className="col-span-2 h-[5rem] flex justify-center items-center">
         <button
           type="submit"
-          className="absolute bottom-3 bg-dark-green text-white tracking-wider w-[85%] h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e]"
+          className="absolute bottom-8 bg-dark-green text-white tracking-wider w-[85%] h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e]"
           onClick={toggleModal}
         >
           Update

@@ -66,13 +66,13 @@ const UserComponent = () => {
         <div className="col-start-2 col-end-12 row-start-3 row-end-10 sm:col-start-4 lg:col-start-3 md:col-end-12 md:row-start-2 md:row-end-10">
           {/* HEADER & SEARCHER */}
           <div className="md:border-b-[1px] md:border-primary-text flex justify-between">
-            <h1 className="text-primary-text text-2xl font-bold text-center md:text-4xl md:pb-5 md:text-start">
+            <h1 className="text-primary-text text-xl font-bold md:text-4xl md:pb-5 md:text-start">
               Pet owner searcher
             </h1>
             <Link href="/register">
               <div className="flex gap-4 text-dark-green items-center cursor-pointer hover:font-semibold">
-                <p className="text-xl mt-2">Add</p>
-                <IoPersonAddSharp className="text-dark-green text-3xl" />
+                <p className="md:text-xl mt-2">Add</p>
+                <IoPersonAddSharp className="text-dark-green text-xl md:text-3xl" />
               </div>
             </Link>
           </div>

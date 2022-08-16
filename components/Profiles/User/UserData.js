@@ -11,7 +11,7 @@ import ManPhoto from "../../../public/assets/images/MenPhoto.avif";
 const UserData = ({ user, toggleModal }) => {
   const photo = user?.gender === "Female" ? WomanPhoto : ManPhoto;
   return (
-    <div className=" h-[20rem] flex mx-5 sm:w-full sm:gap-5 ">
+    <div className=" sm:h-[20rem] flex mx-5 sm:w-full sm:gap-5 ">
       {/* USER__IMAGE */}
       <div className="hidden sm:block w-[30%] h-full bg-slate-200 rounded-md relative overflow-hidden mr-5 drop-shadow-2xl  ">
         <Image

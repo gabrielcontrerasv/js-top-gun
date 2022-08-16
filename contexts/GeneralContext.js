@@ -114,11 +114,27 @@ const GeneralContextProvider = (props) => {
     }
   };
 
+  const getPetRecords = async () => {
+    const response = await fetchAll("/records");
+    dispatchGlobalAction({
+      type: globalActionType.getAllPetRecords,
+      payload: response,
+    });
+  };
+
   const addPetHandler = async (newPetData) => {
     const response = await createData("/pets", newPetData);
     dispatchGlobalAction({
       type: globalActionType.createPet,
       payload: response,
+    });
+  };
+
+  const addRecordHandler = async (recordData) => {
+    await createData("/records", recordData);
+    dispatchGlobalAction({
+      type: globalActionType.createRecord,
+      payload: recordData,
     });
   };
 
@@ -147,14 +163,31 @@ const GeneralContextProvider = (props) => {
     });
   };
 
+  const deleteRecordHandler = async (id, record) => {
+    confirmDelete().then(async (result) => {
+      if (result.isConfirmed) {
+        feedbackAlert(`Record ${record}`, `has been deleted.`, "success");
+        await deleteDataById("/records", id);
+        dispatchGlobalAction({
+          type: globalActionType.removeRecord,
+          payload: id,
+        });
+      }
+    });
+  };
+
   const petsCtx = {
     pets: globalState.pets,
     pet: globalState.pet,
+    records: globalState.records,
     getAllPetsHandler,
     getPetHandler,
+    getPetRecords,
     addPetHandler,
+    addRecordHandler,
     updatePetHandler,
     deletePetHandler,
+    deleteRecordHandler,
   };
 
   const searchHandler = (term) => {
@@ -196,8 +229,13 @@ const GeneralContextProvider = (props) => {
 
   const logout = async () => {
     try {
-      const response = await api.post("/logout");
-      if (response) router.push("/");
+      // const response = await api.post("/logout");
+      Cookie.remove("token");
+      const jwt = Cookie.get("token");
+      if (!jwt) {
+        console.log("token deleted");
+        router.push("/");
+      }
     } catch (error) {
       console.log("Logout Error", error);
     }

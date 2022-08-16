@@ -98,7 +98,7 @@ const MainProfile = () => {
               return (
                 <SplideSlide
                   key={pet.id}
-                  className="w-full h-[20rem] flex flex-wrap sm:flex-nowrap justify-center items-center gap-8 mt-[1rem] sm:mt-[5rem] "
+                  className="w-full h-[20rem] flex flex-wrap sm:flex-nowrap justify-center items-center gap-8 sm:mt-[5rem] "
                 >
                   <PetCard pet={pet} closeModal={closeModal} />
                 </SplideSlide>

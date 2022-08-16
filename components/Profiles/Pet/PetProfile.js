@@ -4,27 +4,39 @@ import { useState, useEffect, Fragment, useContext } from "react";
 import { useRouter } from "next/router";
 // Third Party Library
 import { Dialog, Transition } from "@headlessui/react";
+import { motion } from "framer-motion";
 // Components
 import Navigation from "../../Layout/Navigation";
 import PetData from "./PetData";
 import PetTable from "./PetTable";
 import UpdatePetForm from "./UpdatePetForm";
+import RecordForm from "./RecordForm";
 import { GeneralContext } from "../../../contexts/GeneralContext";
-import { motion } from "framer-motion";
 // ----------------------------------------------------------
 
 const PetProfile = () => {
   const router = useRouter();
+  const [toggleForm, setToggleForm] = useState(true);
   const { petsCtx } = useContext(GeneralContext);
   const petId = router.query.index;
-  const { pets, pet, getPetHandler } = petsCtx;
+  const { pet, records, getPetHandler, getPetRecords, addRecordHandler } =
+    petsCtx;
 
   const [modal, setModal] = useState(false);
-  const toggleModal = () => setModal(!modal);
+  // const toggleModal = () => setModal(!modal);
 
   useEffect(() => {
     getPetHandler(petId);
-  }, [pets]);
+    getPetRecords();
+  }, []);
+
+  const toggleModal = (e) => {
+    if (!e) return setModal(!modal);
+    const actionType = e.target.innerText;
+    if (actionType === "Edit") setToggleForm(true);
+    if (actionType === "New Record") setToggleForm(false);
+    setModal(!modal);
+  };
 
   const variants = {
     hidden: { opacity: 0, x: -200, y: 0 },
@@ -46,8 +58,8 @@ const PetProfile = () => {
           <PetData pet={pet} toggleModal={toggleModal} />
         </div>
 
-        <div className="col-start-1 col-end-13 px-2 sm:col-start-3 sm:col-end-12 row-start-6">
-          <PetTable />
+        <div className="sm:mt-5 col-start-1 col-end-13 px-2 sm:col-start-3 sm:col-end-12 row-start-6">
+          <PetTable records={records} />
         </div>
 
         <Transition appear show={modal} as={Fragment}>
@@ -75,17 +87,21 @@ const PetProfile = () => {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-[40rem] h-[35rem] transform overflow-hidden rounded-md bg-white p-10 text-left align-middle shadow-xl transition-all ">
+                  <Dialog.Panel className=" transform overflow-hidden rounded-md bg-white p-10 text-left align-middle shadow-xl transition-all ">
                     <Dialog.Title
                       as="h3"
                       className="text-2xl font-semibold  text-dark-green border-b-[1px] border-dark-green pb-5 "
                     >
-                      Update Data
+                      {toggleForm ? "Edit" : "New Record"}
                     </Dialog.Title>
-                    <UpdatePetForm
-                      toUpdatePet={pet}
-                      toggleModal={toggleModal}
-                    />
+                    {toggleForm ? (
+                      <UpdatePetForm
+                        toUpdatePet={pet}
+                        toggleModal={toggleModal}
+                      />
+                    ) : (
+                      <RecordForm toggleModal={toggleModal} />
+                    )}
                   </Dialog.Panel>
                 </Transition.Child>
               </div>

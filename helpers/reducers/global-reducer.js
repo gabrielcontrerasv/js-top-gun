@@ -3,18 +3,22 @@ const defaultGlobalState = {
   user: [],
   pets: [],
   pet: [],
+  records: [],
 };
 
 const globalActionType = {
   getAllUsers: "GET_ALL_USERS",
   getAllPets: "GET_ALL_PETS",
+  getAllPetRecords: "GET_ALL_PET_RECORDS",
   getUserById: "GET_USER_BY_ID",
   getPetById: "GET_PET_BY_ID",
   createUser: "CREATE_USER",
   createPet: "CREATE_PET",
+  createRecord: "CREATE_PET_RECORD",
   updateUserData: "UPDATE_USER",
   updatePetData: "UPDATE_PET_DATA",
   removePet: "REMOVE_PET",
+  removeRecord: "REMOVE_RECORD",
 };
 
 const globalReducer = (state, action) => {
@@ -36,10 +40,21 @@ const globalReducer = (state, action) => {
     case globalActionType.updatePetData:
       return { ...state, pet: { ...action.payload } };
     case globalActionType.removePet:
-      const newList = state.pets.filter((pets) => pets.id !== action.payload);
-      return { ...state, pets: newList };
+      const updatedList = state.pets.filter(
+        (pets) => pets.id !== action.payload
+      );
+      return { ...state, pets: updatedList };
+    case globalActionType.getAllPetRecords:
+      return { ...state, records: action.payload };
+    case globalActionType.createRecord:
+      return { ...state, records: [...state.records, { ...action.payload }] };
+    case globalActionType.removeRecord:
+      const updatedRecords = state.records.filter(
+        (record) => record.id !== action.payload
+      );
+      return { ...state, records: updatedRecords };
     default:
-      return defaultUsersState;
+      return defaultGlobalState;
   }
 };
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Router from "next/router";
 // Third Party Library
 import { AiFillEdit } from "react-icons/ai";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaFileMedical } from "react-icons/fa";
 // Assets
 import CatPhoto from "../../../public/assets/images/CatPhoto.webp";
 import DogPhoto from "../../../public/assets/images/DogPhoto.webp";
@@ -24,17 +24,24 @@ const PetData = ({ pet, toggleModal }) => {
       </div>
       {/* PET__DETAILS */}
       <div className="w-full sm:w-[70%] flex flex-col gap-5 z-10">
-        <div className="flex justify-between ">
+        <div className="flex justify-between gap-5 ">
           <h1 className="font-bold text-xl sm:text-4xl xl:text-[3rem] text-primary-text drop-shadow-lg shadow-black">
             {pet.name}
           </h1>
-          <div className="flex gap-5">
+          <div className="flex gap-2 sm:gap-8">
             <div
               className="flex gap-2 cursor-pointer text-primary-text  items-center hover:border-b-[1px] hover:border-dark-green hover:scale-[1.1] duration-300 hover:font-semibold text-xs sm:text-md xl:text-lg "
               onClick={toggleModal}
             >
               Edit
               <AiFillEdit className="text-xl hover:scale-[1.1]" />
+            </div>
+            <div
+              className="flex gap-2 cursor-pointer text-primary-text  items-center hover:border-b-[1px] hover:border-dark-green hover:scale-[1.1] duration-300 hover:font-semibold text-xs sm:text-md xl:text-lg "
+              onClick={toggleModal}
+            >
+              New
+              <FaFileMedical className="text-xl hover:scale-[1.1]" />
             </div>
             <div
               onClick={() => Router.back()}
