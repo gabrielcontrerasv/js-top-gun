@@ -1,6 +1,7 @@
 // Next Features
 import Image from "next/image";
 import Router from "next/router";
+import { useEffect, useState } from "react";
 // Third Party Library
 import { AiFillEdit } from "react-icons/ai";
 import { FaUser, FaFileMedical } from "react-icons/fa";
@@ -11,6 +12,7 @@ import DogPhoto from "../../../public/assets/images/DogPhoto.webp";
 
 const PetData = ({ pet, toggleModal }) => {
   const photo = pet.species === "Feline" ? CatPhoto : DogPhoto;
+
   return (
     <div className=" h-[20rem] flex mx-5 sm:w-full sm:gap-5">
       {/* PET__IMAGE */}

@@ -71,8 +71,6 @@ const HomeServices = () => {
         options={{
           type: "fade",
           rewind: true,
-          rewindSpeed: 2000,
-          speed: 2000,
 
           // focus: "center",
           arrows: false,

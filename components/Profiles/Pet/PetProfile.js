@@ -34,7 +34,7 @@ const PetProfile = () => {
     if (!e) return setModal(!modal);
     const actionType = e.target.innerText;
     if (actionType === "Edit") setToggleForm(true);
-    if (actionType === "New Record") setToggleForm(false);
+    if (actionType === "New") setToggleForm(false);
     setModal(!modal);
   };
 

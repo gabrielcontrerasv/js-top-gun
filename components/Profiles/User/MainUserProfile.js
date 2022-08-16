@@ -133,7 +133,7 @@ const MainProfile = () => {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-[40rem] h-[35rem] transform overflow-hidden rounded-md bg-white p-10 text-left align-middle shadow-xl transition-all ">
+                  <Dialog.Panel className=" transform overflow-hidden rounded-md bg-white p-10 text-left align-middle shadow-xl transition-all ">
                     <Dialog.Title
                       as="h3"
                       className="text-2xl font-semibold  text-dark-green border-b-[1px] border-dark-green pb-5 "

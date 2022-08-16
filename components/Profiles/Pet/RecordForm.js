@@ -17,6 +17,7 @@ const RecordForm = ({ toggleModal }) => {
   const onSubmitHandler = async (values) => {
     addRecordHandler(values);
     feedbackAlert(`Record data`, "was successfully updated", "success");
+    toggleModal();
   };
 
   return (
@@ -80,7 +81,6 @@ const RecordForm = ({ toggleModal }) => {
         <button
           type="submit"
           className="absolute bottom-8 bg-dark-green text-white tracking-wider w-[85%] h-[3rem] rounded-md duration-100 hover:bg-gradient-to-t from-dark-green to-[#147e7e]"
-          onClick={toggleModal}
         >
           SEND
         </button>

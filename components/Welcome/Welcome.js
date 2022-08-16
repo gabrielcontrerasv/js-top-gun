@@ -18,6 +18,7 @@ const Welcome = () => {
             layout="fill"
             objectFit="cover"
             placeholder="blur"
+            alt="cat vet clinic"
           />
         </div>
 

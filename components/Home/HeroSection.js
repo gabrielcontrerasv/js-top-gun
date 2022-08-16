@@ -27,10 +27,22 @@ const HeroSection = () => {
     <section className="col-start-1 col-end-13 row-start-1 row-end-3 flex justify-center relative font-inter">
       {/* Setting__Background */}
       <div className="hidden md:block">
-        <Image src={DesktopBg} layout="fill" objectFit="cover" />
+        <Image
+          src={DesktopBg}
+          layout="fill"
+          objectFit="cover"
+          placeholder="blur"
+          alt="Happy-Dog Background"
+        />
       </div>
       <div className="md:hidden">
-        <Image src={MobileBg} layout="fill" objectFit="cover" />
+        <Image
+          src={MobileBg}
+          layout="fill"
+          objectFit="cover"
+          placeholder="blur"
+          alt="Cat Background"
+        />
       </div>
 
       {/* Banner__Container */}

@@ -14,6 +14,7 @@ const AboutUs = () => {
           alt="About us image"
           layout="fill"
           objectFit="contain"
+          placeholder="blur"
         />
       </div>
       {/* Side__Text__Container */}

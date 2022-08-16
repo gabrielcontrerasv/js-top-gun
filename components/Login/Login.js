@@ -21,7 +21,13 @@ const Login = () => {
       {/* Bg__Image */}
       <div className="z-10 relative w-[100%] md:w-[65%] h-full flex justify-center items-center min-h-[40rem]">
         <div className="relative top-0 left-0 w-full h-full z-10 bg-[#0000005b] "></div>
-        <Image src={LoginBg} layout="fill" objectFit="cover" />
+        <Image
+          src={LoginBg}
+          layout="fill"
+          objectFit="cover"
+          placeholder="blur"
+          alt="Veterinary office"
+        />
       </div>
 
       {/* Login__Container  */}
