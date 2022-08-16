@@ -4,6 +4,7 @@ import { GeneralContext } from "../../../contexts/GeneralContext";
 // Next Features
 import { useRouter } from "next/router";
 // Third Party Library
+import { motion } from "framer-motion";
 import { Dialog, Transition } from "@headlessui/react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/css";
@@ -68,8 +69,20 @@ const MainProfile = () => {
     return () => window.removeEventListener("resize", getWidthHandler);
   }, [width]);
 
+  const variants = {
+    hidden: { opacity: 0, x: -200, y: 0 },
+    enter: { opacity: 1, x: 0, y: 0 },
+    exit: { opacity: 0, x: 0, y: -100 },
+  };
+
   return (
-    <>
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      transition={{ type: "linear" }}
+    >
       <Navigation />
       <section className="grid grid-cols-12 grid-rows-mobileAuto sm:grid-rows-[repeat(10,_minmax(10vh,_10vh))] font-inter h-full w-full">
         <div className="col-start-1 col-end-13 sm:col-start-3 sm:col-end-12 sm:row-start-2 sm:row-end-10 pt-[6rem] sm:pt-0">
@@ -142,7 +155,7 @@ const MainProfile = () => {
           </Dialog>
         </Transition>
       </section>
-    </>
+    </motion.div>
   );
 };
 

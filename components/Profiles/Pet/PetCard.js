@@ -9,6 +9,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { RiFolderOpenFill } from "react-icons/ri";
 // Assets
 import BgPetCard from "../../../public/assets/images/BgPetCard.webp";
+
 // ------------------------------------------------------------------
 
 const PetCard = ({ pet }) => {

@@ -1,12 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import { GeneralContext } from "../../contexts/GeneralContext";
 import Link from "next/link";
+import { IoPersonAddSharp } from "react-icons/io5";
 import UserFinder from "./UserFinder";
 import Navigation from "../Layout/Navigation";
 import Paginate from "../Paginate/Paginate";
 import UserCard from "./UserCard";
-
-import { IoPersonAddSharp } from "react-icons/io5";
 
 const UserComponent = () => {
   const { usersCtx, searchValue, searchResults, width, getWidthHandler } =
