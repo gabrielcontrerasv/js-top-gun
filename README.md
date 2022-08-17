@@ -9,6 +9,11 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 Mira **Deployment** para conocer como desplegar el proyecto.
 
 
+## Diseño realizado en Figma
+
+https://www.figma.com/file/AGuWBgF3gqqoaRskoB4lnu/Vet-Teams
+
+
 ### Pre-requisitos 📋
 
 _Para desplegar a producion es necesario que poseas un equipo de computo con bases de datos en Postgres sql, si quieres usar el modo developer debes usar como base de datos MySQL, teniendo eso debes intalar nodejs ultima version en tu sistema operativo ya sea linux, macOS o Windows, teneindo el entorno del servidor listo y con el proyecto ya descargado debes realizar lo siguiente_
