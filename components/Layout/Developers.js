@@ -16,7 +16,7 @@ const Developers = () => {
       </Head>
 
       <Navigation />
-      <main className="p-5 flex flex-col justify-center items-center">
+      <main className="w-[100vw] h-[100vh] p-5 flex flex-col justify-center items-center">
         <h2 className="text-primary-text text-6xl font-semibold">
           Nuestro Equipo
         </h2>
@@ -26,37 +26,78 @@ const Developers = () => {
         </p>
 
         <div className="mt-10">
-          <div className={styles.grid}>
-            <a href="https://github.com/Nicolas-pc-dev" className={styles.card}>
-              <h2>Nicolas</h2>
-              <Image
-                src={NicolasImg}
-                alt="nicolas Profile"
-                width={150}
-                height={150}
-              />
-              <p>
-                Frontend <br></br> Developer
-              </p>
-              <hr></hr>
-            </a>
+          <div className="flex gap-10 flex-wrap justify-center">
+            <div class="w-[100vw] max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ">
+              <div class="p-5 flex  gap-8 py-10 ">
+                <div className="w-[8rem] h-[8rem] relative rounded-full overflow-hidden">
+                  <Image
+                    src={NicolasImg}
+                    alt="nicolas Profile"
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="center"
+                  />
+                </div>
+                <div className="mt-3">
+                  <h5 class="mb-1 text-2xl font-medium text-primary-text dark:text-white">
+                    Nicolas Peña
+                  </h5>
+                  <span class="text-md text-gray-500 dark:text-gray-400">
+                    Frontend Developer
+                  </span>
+                  <div class="flex mt-4 space-x-3 md:mt-6">
+                    <a
+                      href="https://github.com/Nicolas-pc-dev"
+                      className="w-[5.5rem] inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-primary-text rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Git-Hub
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/nicolaspe%C3%B1a-dev/"
+                      className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <a
-              href="https://github.com/gabrielcontrerasv"
-              className={styles.card}
-            >
-              <h2>Gabriel</h2>
-              <Image
-                src={GabrielImg}
-                alt="gabriel profile"
-                width={150}
-                height={150}
-              />
-              <p>
-                Backend <br></br> Developer
-              </p>
-              <hr></hr>
-            </a>
+            <div class="w-[100vw] max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <div class="p-5 flex gap-8 py-10 ">
+                <div className="w-[8rem] h-[8rem] relative rounded-full overflow-hidden">
+                  <Image
+                    src={GabrielImg}
+                    alt="Gabriel Profile"
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="center"
+                  />
+                </div>
+                <div>
+                  <h5 class="mb-1 text-2xl font-medium text-primary-text dark:text-white">
+                    Gabriel Contreras
+                  </h5>
+                  <span class="text-md text-gray-500 dark:text-gray-400">
+                    Backend Developer
+                  </span>
+                  <div class="flex mt-4 space-x-3 md:mt-6">
+                    <a
+                      href="https://github.com/gabrielcontrerasv"
+                      class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-primary-text rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      Git-Hub
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/gabrielcontrerasv3/"
+                      class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>

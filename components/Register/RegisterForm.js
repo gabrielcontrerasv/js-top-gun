@@ -26,7 +26,6 @@ const RegisterForm = () => {
       id: uuidv4(),
       ...values,
     };
-    console.log(newUserData);
     addUserHandler(newUserData);
     feedbackAlert(values.name, "has been register successfully", "success");
     push("/users");

@@ -11,7 +11,7 @@ import DogPhoto from "../../../public/assets/images/DogPhoto.webp";
 // ------------------------------------------------------------
 
 const PetData = ({ pet, toggleModal }) => {
-  const photo = pet.species === "Feline" ? CatPhoto : DogPhoto;
+  const photo = pet?.animalId === "Feline" ? CatPhoto : DogPhoto;
 
   return (
     <div className=" h-[20rem] flex mx-5 sm:w-full sm:gap-5">
@@ -58,11 +58,11 @@ const PetData = ({ pet, toggleModal }) => {
         <div className="w-full h-[10rem] flex flex-col gap-1 justify-between text-2xl text-primary-text tracking-wide lg:mt-4">
           <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-1 drop-shadow-xl ">Microchip:</p>
-            <p>{pet.microchip}</p>
+            <p>{pet.code_number}</p>
           </div>
           <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">Breed: </p>
-            <p>{pet.breed}</p>
+            <p>{pet.BreedId}</p>
           </div>
           <div className="flex text-sm sm:text-lg lg:text-xl justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">Weight:</p>
@@ -74,7 +74,7 @@ const PetData = ({ pet, toggleModal }) => {
           </div>
           <div className="flex text-sm sm:text-lg lg:text- justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">Status:</p>
-            <p>{pet.status}</p>
+            <p>{pet.status ? "Full" : "Neutered"}</p>
           </div>
         </div>
       </div>
