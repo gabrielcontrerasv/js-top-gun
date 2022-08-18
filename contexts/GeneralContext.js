@@ -65,7 +65,7 @@ const GeneralContextProvider = (props) => {
   };
 
   const addUserHandler = async (newUserData) => {
-    const response = await createData("/users", newUserData);
+    const response = await createData("/register", newUserData);
     dispatchGlobalAction({
       type: globalActionType.createUser,
       payload: response,
@@ -273,7 +273,6 @@ const GeneralContextProvider = (props) => {
       Cookie.remove("token");
       const jwt = Cookie.get("token");
       if (!jwt) {
-        console.log("token deleted");
         router.push("/");
       }
     } catch (error) {

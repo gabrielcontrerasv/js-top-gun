@@ -338,7 +338,7 @@
       "birthday": "2015-02-03",
       "weight": "8",
       "status": "Neutered",
-      "gender": "Female",
+      "genderId": "Female",
       "id": "0d39eff5-193c-44c9-ad97-b1e9fc06a94a"
     },
     {
@@ -401,7 +401,7 @@
       "date": "2022-08-16",
       "id": 2
     }
-  ],  
+  ],
   "login": [
     {
       "username": "User1234",
