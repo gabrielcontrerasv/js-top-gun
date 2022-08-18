@@ -176,6 +176,39 @@ const GeneralContextProvider = (props) => {
     });
   };
 
+  const getAllAppointmentsHandler = async () => {
+    const response = await fetchAll("/appointments");
+    dispatchGlobalAction({
+      type: globalActionType.getAllAppointments,
+      payload: response,
+    });
+  };
+
+  const addAppointmentHandler = async (newAppointmentData) => {
+    const response = await createData("/appointments", newAppointmentData);
+    dispatchGlobalAction({
+      type: globalActionType.createAppointment,
+      payload: response,
+    });
+  };
+
+  const deleteAppointmentHandler = async (id, appointment) => {
+    confirmDelete().then(async (result) => {
+      if (result.isConfirmed) {
+        feedbackAlert(
+          `Appointment ${appointment}`,
+          `has been deleted.`,
+          "success"
+        );
+        await deleteDataById("/appointments", id);
+        dispatchGlobalAction({
+          type: globalActionType.removerAppointment,
+          payload: id,
+        });
+      }
+    });
+  };
+
   const petsCtx = {
     pets: globalState.pets,
     pet: globalState.pet,
@@ -188,6 +221,11 @@ const GeneralContextProvider = (props) => {
     updatePetHandler,
     deletePetHandler,
     deleteRecordHandler,
+  };
+
+  const appointmentCtx = {
+    appointments: globalState.appointments,
+    
   };
 
   const searchHandler = (term) => {

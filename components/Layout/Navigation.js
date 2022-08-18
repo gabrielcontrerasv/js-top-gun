@@ -5,10 +5,11 @@ import { GeneralContext } from "../../contexts/GeneralContext";
 import Link from "next/link";
 // 3rd party libraries
 import { IconContext } from "react-icons";
-import { FaHome, FaBars, FaTimes, FaUser } from "react-icons/fa";
+import { FaHome, FaBars, FaTimes, FaClipboardList } from "react-icons/fa";
 import { AiFillSchedule, AiOutlinePoweroff } from "react-icons/ai";
 import { MdMedicalServices, MdPets } from "react-icons/md";
 import { IoMdArrowDroprightCircle } from "react-icons/io";
+import { RiTeamFill } from "react-icons/ri";
 // Components
 import PathCategory from "./PathCategory";
 
@@ -76,6 +77,17 @@ function Navigation() {
               Schedule
             </h2>
           </PathCategory>
+          <PathCategory path="/appointmentsList">
+            <FaClipboardList className="relative mt-1 ml-[-0.5rem]" />
+
+            <h2
+              className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
+                !showSidebar && "scale-0"
+              } `}
+            >
+              Sc. List
+            </h2>
+          </PathCategory>
 
           <PathCategory path="/services">
             <MdMedicalServices className="relative mt-1 ml-[-0.5rem]" />
@@ -86,6 +98,18 @@ function Navigation() {
               } `}
             >
               Services
+            </h2>
+          </PathCategory>
+
+          <PathCategory path="/developers">
+            <RiTeamFill className="relative mt-1 ml-[-0.5rem]" />
+
+            <h2
+              className={`text-xl left-[2.5rem] top-[-1.8rem] relative origin-left duration-500 ${
+                !showSidebar && "scale-0"
+              } `}
+            >
+              Dev's
             </h2>
           </PathCategory>
           <button

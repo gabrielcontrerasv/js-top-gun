@@ -84,7 +84,7 @@ const RegisterForm = () => {
           sm:pl-4 pr-3 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
             type="text"
             placeholder="Gender"
-            {...register("gender", {
+            {...register("genderId", {
               required: {
                 value: true,
                 message: "*Required field",
@@ -94,11 +94,11 @@ const RegisterForm = () => {
             <option className="text-gray-600 text-sm block" value="" disabled>
               Select your option
             </option>
-            <option>Male</option>
-            <option>Female</option>
+            <option value={1}>Male</option>
+            <option value={2}>Female</option>
           </select>
-          {errors.gender && (
-            <ErrorFormMsg errorMessage={errors.gender?.message} />
+          {errors.genderId && (
+            <ErrorFormMsg errorMessage={errors.genderId?.message} />
           )}
         </div>
         <div>
