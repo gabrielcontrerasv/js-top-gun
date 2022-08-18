@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Software que ofrece servicios de administracion y gestion de una veterinario
 
 _Teams Veterinary Clinic es un software de gestión para centros veterinarios, muy completo, robusto y también muy fácil de usar, que permite gestionar las tareas y recursos de manera rápida y eficiente, facilitando la coordinación del equipo de trabajo, logrando un servicio de alta calidad._
@@ -92,3 +93,12 @@ Este proyecto está bajo la Licencia gratuita para que sea mejorado o actualizad
 Gracias a Top Gun de team international por la oportunidad 😊
 
 
+=======
+Tienda y Servicios para Mascotas
+
+Test
+npm test -- --coverage --watchAll
+
+test report
+open coverage/lcov-report/index.html
+>>>>>>> develop

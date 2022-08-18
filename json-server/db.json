@@ -1,0 +1,479 @@
+{
+  "users": [
+    {
+      "id": "efc86b73-9cd3-430c-8ef8-438e5752e1ec",
+      "name": "Camila",
+      "lastName": "Palau",
+      "document": "1110531223",
+      "email": "Isa@test.com",
+      "phone": "3212756540",
+      "age": "25",
+      "address": "123 Av",
+      "gender": "Female"
+    },
+    {
+      "id": "95091498-13bf-49a1-80d2-32445b67acb5",
+      "name": "Juan Pablo",
+      "lastName": "Castro",
+      "document": "11105321",
+      "email": "jugo@test.com",
+      "phone": "32167566540",
+      "age": "31",
+      "address": "123",
+      "gender": "Male"
+    },
+    {
+      "id": "bd7c207a-6ed5-408f-9ec6-3801bf71d61a",
+      "name": "Maria Camila",
+      "lastName": "Martinez",
+      "document": "9999123",
+      "email": "Test@123.com",
+      "phone": "3219876543",
+      "age": "33",
+      "address": "123 Av",
+      "gender": "Female"
+    },
+    {
+      "id": "4ef5198b-b934-49fb-9add-d3d35cb52161",
+      "name": "Laura",
+      "lastName": "Varona",
+      "document": "7237653612",
+      "email": "ladu@gmail.com",
+      "phone": "321000000",
+      "age": "25",
+      "address": "13123",
+      "gender": "Female"
+    },
+    {
+      "id": "585e8062-25e9-4927-b588-578de2223d73",
+      "name": "Katherine",
+      "lastName": "Medina",
+      "document": "8943715",
+      "email": "kathe@test.com",
+      "phone": "3203196534",
+      "age": "33",
+      "address": "123 Av",
+      "gender": "Female"
+    },
+    {
+      "id": "6f22c723-a581-4600-9404-4f07f61a8994",
+      "name": "Daniela",
+      "lastName": "Ruiz",
+      "document": "11203247569",
+      "email": "dani@test.com",
+      "phone": "3186721388",
+      "age": "34",
+      "address": "Cra 123",
+      "gender": "Female"
+    },
+    {
+      "id": "3c4bdf20-b6f9-42aa-ac04-2d118cf40df3",
+      "name": "Natalia",
+      "lastName": "Rodriguez",
+      "document": "1276537",
+      "email": "Maria@test.com",
+      "phone": "3102987653",
+      "age": "32",
+      "address": "123 Av",
+      "gender": "Female"
+    },
+    {
+      "id": "0887722f-071b-45b3-bf83-f120bd8c8a99",
+      "name": "Alejandra",
+      "lastName": "Rodriguez",
+      "document": "98989123",
+      "email": "aho@testing.com",
+      "phone": "3192611622",
+      "age": "30",
+      "address": "123 Av",
+      "gender": "Female"
+    },
+    {
+      "id": "9cb45441-46b0-41ad-b1c0-1a658c2677c7",
+      "name": "Oscar",
+      "lastName": "Diaz",
+      "document": "10239888",
+      "gender": "Male",
+      "phone": "3212769034",
+      "email": "test@123.com",
+      "age": "26",
+      "address": "123 Av",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id": "85cb97a1-85e3-466d-a4f0-ddfe7558e038",
+      "name": "Mauricio",
+      "lastName": "Restrepo",
+      "document": "110654287",
+      "gender": "Male",
+      "phone": "3212756321",
+      "email": "maures@gmail.com",
+      "age": "32",
+      "address": "123 Av",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id": "9639b9f5-aa55-48ea-a7d1-d7217ea55dec",
+      "name": "Sara",
+      "lastName": "Gomez",
+      "document": "1110531286",
+      "email": "sago@test.com",
+      "phone": "3202984561",
+      "age": "28",
+      "address": "123 Av",
+      "gender": "Female"
+    },
+    {
+      "id": "f5b91bad-bda7-4ca1-bd09-abe50ced93b5",
+      "name": "Andrea",
+      "lastName": "Nieto",
+      "document": "1110826229",
+      "email": "annie@test.com",
+      "phone": "3139852754",
+      "age": "31",
+      "address": "123 Av",
+      "gender": "Female"
+    },
+    {
+      "id": "17fe039c-d3ec-4f1c-a512-c2b0a5654d72",
+      "name": "Miguel",
+      "lastName": "Hurtado",
+      "document": "1110918552",
+      "email": "fehu@test.com",
+      "phone": "3107651287",
+      "age": "33",
+      "address": "123 Av",
+      "gender": "Male"
+    },
+    {
+      "id": "ee819a8c-3150-4630-86d3-d7b215e21ad8",
+      "name": "Natalia",
+      "lastName": "Marulanda",
+      "document": "1110531224",
+      "email": "nama@test.com",
+      "phone": "3212779023",
+      "age": "30",
+      "address": "123 Av",
+      "gender": "Female"
+    },
+    {
+      "id": "260ec307-840e-42ad-a5a1-7ab3e4ec12ec",
+      "name": "Carolina",
+      "lastName": "Rojas",
+      "document": "1124628559",
+      "email": "cati@test.com",
+      "phone": "3212906732",
+      "age": "31",
+      "address": "123 Av",
+      "gender": "Female"
+    },
+    {
+      "id": "9daf530c-0918-4949-bf4a-677c562aebe3",
+      "name": "Mauricio ",
+      "lastName": "Arbelaez",
+      "document": "1108623412",
+      "gender": "Male",
+      "phone": "3002876231",
+      "email": "mao@test.com",
+      "age": "31",
+      "address": "123 Av",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id": "1d32b97e-a385-4c06-8538-08a7a54c2907",
+      "name": "Nicolas",
+      "lastName": "Peña",
+      "document": "1110531223",
+      "gender": "Male",
+      "phone": "3212756540",
+      "email": "nico@test.com",
+      "age": "29",
+      "address": "123 Av",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id": "20ded8a8-b274-4a5c-a99f-7d130beb4492",
+      "name": "Laura ",
+      "lastName": "Caicedo",
+      "document": "1112531223",
+      "gender": "Female",
+      "phone": "3192618044",
+      "email": "laucadi@test.com",
+      "age": "28",
+      "address": "123 Av",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id": "340d47d8-cbd4-4b32-ac8a-ed48c8455d21",
+      "name": "Laura",
+      "lastName": "Peña",
+      "document": "10192752344",
+      "gender": "Female",
+      "phone": "3108643635",
+      "email": "lau@test.com",
+      "age": "32",
+      "address": "123 Av",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id": "607825ea-295e-4c29-8b79-90b607ce6835",
+      "name": "Ramiro",
+      "lastName": "Herrera",
+      "document": "10182652340",
+      "gender": "Male",
+      "phone": "3126879023",
+      "email": "Rahe@test.com",
+      "age": "33",
+      "address": "123 Av",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id": "f8869fec-2d80-4c26-bedc-b0ae0ff8ab21",
+      "name": "Andres",
+      "lastName": "Orjuela",
+      "document": "192856123",
+      "gender": "Male",
+      "phone": "3105482944",
+      "email": "andres@test.com",
+      "age": "35",
+      "address": "123 Av",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id": "8fcee275-0791-43bb-99c4-85b612198002",
+      "name": "Mariana ",
+      "lastName": "Cano",
+      "document": "10192652322",
+      "email": "mari@test.com",
+      "phone": "3112678234",
+      "age": "26",
+      "address": "1234 av",
+      "gender": "Female"
+    },
+    {
+      "id": "4e5b1a64-45d0-491b-8ba4-00e504c20f8b",
+      "name": "Sofia",
+      "lastName": "Salazar",
+      "document": "1011513244",
+      "gender": "Female",
+      "phone": "3202867523",
+      "email": "sosa@test.com",
+      "age": "23",
+      "address": "1234 Av",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id": "6a545268-9f2b-4e70-822e-e5876ec350c8",
+      "name": "Jessica",
+      "lastName": "Rubio",
+      "document": "125172344",
+      "gender": "Female",
+      "phone": "3002645123",
+      "email": "jeru@test.com",
+      "age": "41",
+      "address": "123 Av",
+      "password": "1234",
+      "confirmPassword": "1234"
+    },
+    {
+      "id": "dafc8e48-9081-4408-a55c-ad8a804f7bc3",
+      "name": "Luisa",
+      "lastName": "Amaya",
+      "document": "1110532221",
+      "email": "luay@test.com",
+      "phone": "3002984544",
+      "age": "30",
+      "address": "1234 Av",
+      "gender": "Female"
+    },
+    {
+      "id": "63a2ce87-bb71-4b90-b931-14429940de77",
+      "name": "Carlos",
+      "lastName": "Molina",
+      "document": "231123862",
+      "email": "mario@test.com",
+      "phone": "3102237100",
+      "age": "29",
+      "address": "123 Cra",
+      "gender": "Male"
+    },
+    {
+      "id": "29c5ad71-8cd4-45a2-b22e-9ed8a5d4593f",
+      "name": "Lorena",
+      "lastName": "Maya",
+      "document": "11223565123",
+      "email": "lore@test.com",
+      "phone": "3128875454",
+      "age": "28",
+      "address": "123 Cra",
+      "gender": "Female"
+    },
+    {
+      "id": "bc868756-492a-41a9-9a29-002b077ea146",
+      "name": "Pilar",
+      "lastName": "Hernandez",
+      "document": "1123991273",
+      "email": "pihe@test.com",
+      "phone": "3001237862",
+      "age": "30",
+      "address": "123 Cra",
+      "gender": "Female"
+    }
+  ],
+  "pets": [
+    {
+      "name": "Killa",
+      "microchip": "7982331",
+      "species": "Feline",
+      "breed": "ALH",
+      "birthday": "2015-02-03",
+      "weight": "8",
+      "status": "Neutered",
+      "genderId": "Female",
+      "id": "0d39eff5-193c-44c9-ad97-b1e9fc06a94a"
+    },
+    {
+      "id": "1baa90ec-6143-4871-a68e-02f38689c43c",
+      "name": "Ozzy",
+      "microchip": "3321235",
+      "species": "Feline",
+      "breed": "ALH",
+      "birthday": "2022-08-01",
+      "weight": "1",
+      "status": "Neutered",
+      "gender": "Female"
+    },
+    {
+      "name": "Ranchero",
+      "microchip": "3312355",
+      "species": "Canine",
+      "breed": "Dachshund",
+      "birthday": "2014-12-29",
+      "weight": "7",
+      "status": "Neutered",
+      "gender": "Male",
+      "id": "91918de4-329a-4ce5-b677-001f1bcea2d5"
+    },
+    {
+      "name": "Rocky",
+      "microchip": "7752313",
+      "species": "Canine",
+      "breed": "Schnauzer",
+      "birthday": "2012-02-03",
+      "weight": "2",
+      "status": "Neutered",
+      "gender": "Male",
+      "id": "5d304acf-59da-4d43-8e81-af2e00b88057"
+    },
+    {
+      "id": "bfaab4fd-a883-40dd-bb13-e1bf5f5fc83e",
+      "name": "Mono",
+      "microchip": "234412",
+      "species": "Feline",
+      "breed": "ALH",
+      "birthday": "2019-01-16",
+      "weight": "5",
+      "status": "Neutered",
+      "gender": "Male"
+    }
+  ],
+  "records": [
+    {
+      "record": "C-100",
+      "diagnosis": "CKD",
+      "treatment": "Hospital Care",
+      "date": "2022-08-16",
+      "id": 1
+    },
+    {
+      "record": "C-111",
+      "diagnosis": "CKD",
+      "treatment": "Hospital Care",
+      "date": "2022-08-16",
+      "id": 2
+    }
+  ],
+  "login": [
+    {
+      "username": "User1234",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "username": "user123",
+      "password": "123456",
+      "id": 2
+    }
+  ],
+  "appointments": [
+    {
+      "id": 1,
+      "service": "Medical",
+      "date": "00-00-00",
+      "description": "some description"
+    },
+    {
+      "id": 2,
+      "service": "Medical",
+      "date": "00-00-00",
+      "description": "some description"
+    },
+    {
+      "id": 3,
+      "service": "Medical",
+      "date": "00-00-00",
+      "description": "some description"
+    },
+    {
+      "id": 4,
+      "service": "Medical",
+      "date": "00-00-00",
+      "description": "some description"
+    },
+    {
+      "id": 5,
+      "service": "Medical",
+      "date": "00-00-00",
+      "description": "some description"
+    },
+    {
+      "id": 6,
+      "service": "Medical",
+      "date": "00-00-00",
+      "description": "some description"
+    },
+    {
+      "id": 7,
+      "service": "Medical",
+      "date": "00-00-00",
+      "description": "some description"
+    },
+    {
+      "id": 8,
+      "service": "Medical",
+      "date": "00-00-00",
+      "description": "some description"
+    },
+    {
+      "id": 9,
+      "service": "Medical",
+      "date": "00-00-00",
+      "description": "some description"
+    },
+    {
+      "service": "Medical Service",
+      "date": "2022-08-16",
+      "description": "jjjjjj",
+      "id": 10
+    }
+  ]
+}

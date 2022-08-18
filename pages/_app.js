@@ -1,7 +1,15 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import GeneralContextProvider from "../contexts/GeneralContext";
+import Layout from "../components/Layout/Layout";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <GeneralContextProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </GeneralContextProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
