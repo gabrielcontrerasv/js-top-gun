@@ -6,6 +6,11 @@ import Navigation from "../Layout/Navigation";
 import WelcomeBg from "../../public/assets/images/WelcomeBg.webp";
 // -----------------------------------------------------------------------
 
+function deleteCookie(name) {
+  document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+  location.reload();
+}
+
 const Welcome = () => {
   return (
     <>
@@ -40,6 +45,7 @@ const Welcome = () => {
                   of your account
                 </p>
                 <button
+                  onClick={() => deleteCookie("token")}
                   className="bg-[#166060e4] text-white tracking-widest w-full h-[3rem] rounded-md hover:bg-[#2b9d9d] duration-100 mt-5 text-sm"
                   type="submit"
                 >
