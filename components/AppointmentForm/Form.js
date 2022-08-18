@@ -2,14 +2,24 @@ import React from "react";
 import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
 // 3rd Party Library
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { GeneralContext } from "../../contexts/GeneralContext";
+import { feedbackAlert } from "../../helpers/alerts/alerts";
 // ---------- //
 
 const Form = () => {
-  //prettier-ignore
-  const { handleSubmit, register, formState: { errors } } = useForm();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
+  const { appointmentCtx } = useContext(GeneralContext);
+  const { addAppointmentHandler } = appointmentCtx;
 
   const onSubmitHandler = (values) => {
-    console.log(values);
+    addAppointmentHandler(values);
+    feedbackAlert(values.service, "has been register successfully", "success");
   };
 
   return (
@@ -73,7 +83,7 @@ const Form = () => {
           cols={10}
           rows={6}
           placeholder="Some description"
-          {...register("textarea", { required: true })}
+          {...register("description", { required: true })}
         ></textarea>
 
         <button

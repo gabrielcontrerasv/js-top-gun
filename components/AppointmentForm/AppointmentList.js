@@ -1,9 +1,17 @@
-import React from "react";
+import { useContext, useEffect } from "react";
+import { AiFillDelete } from "react-icons/ai";
 import Navigation from "../../components/Layout/Navigation";
+import { GeneralContext } from "../../contexts/GeneralContext";
 
 const AppointmentList = () => {
-  // const { appointments } = useContext(GeneralContext);
-  // const { deleteAppointmentHandler } = petsCtx;
+  const { appointmentCtx } = useContext(GeneralContext);
+  const { appointments, getAllAppointmentsHandler, deleteAppointmentHandler } =
+    appointmentCtx;
+
+  useEffect(() => {
+    getAllAppointmentsHandler();
+  }, []);
+
   return (
     <section className="grid grid-cols-12 grid-rows-mobileAuto sm:grid-rows-[repeat(10,_minmax(10vh,_10vh))] font-inter h-full w-full">
       <Navigation />
@@ -41,35 +49,44 @@ const AppointmentList = () => {
                     >
                       Description
                     </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-xs font-bold text-center text-white uppercase "
+                    >
+                      remove
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {/* {records?.map((data) => {
-                  return (
-                    <tr key={data.record}>
-                      <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {data.record}
-                      </td>
-                      <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {data.diagnosis}
-                      </td>
-                      <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {data.treatment}
-                      </td>
-                      <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {data.date}
-                      </td>
-                      <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        <AiFillDelete
-                          className="mx-auto cursor-pointer text-dark-green sm:text-[1.2rem] hover:scale-[1.1] drop-shadow-lg shadow-black "
-                          onClick={() =>
-                            deleteAppointmentHandler(data.id, data.record)
-                          }
-                        />
-                      </td>
-                    </tr>
-                  );
-                })} */}
+                  {appointments?.map((appointment) => {
+                    return (
+                      <tr key={appointment.id}>
+                        <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                          {appointment.id}
+                        </td>
+                        <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                          {appointment.service}
+                        </td>
+                        <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                          {appointment.date}
+                        </td>
+                        <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                          {appointment.description}
+                        </td>
+                        <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                          <AiFillDelete
+                            className="mx-auto cursor-pointer text-dark-green sm:text-[1.2rem] hover:scale-[1.1] drop-shadow-lg shadow-black "
+                            onClick={() =>
+                              deleteAppointmentHandler(
+                                appointment.id,
+                                appointment.service
+                              )
+                            }
+                          />
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

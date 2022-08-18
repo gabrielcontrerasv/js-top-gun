@@ -65,7 +65,7 @@ const globalReducer = (state, action) => {
         ...state,
         appointments: [...state.appointments, { ...action.payload }],
       };
-    case globalActionType.removeRecord:
+    case globalActionType.removerAppointment:
       const updatedAppointments = state.appointments.filter(
         (appointment) => appointment.id !== action.payload
       );

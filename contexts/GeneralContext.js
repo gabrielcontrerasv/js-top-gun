@@ -196,7 +196,7 @@ const GeneralContextProvider = (props) => {
     confirmDelete().then(async (result) => {
       if (result.isConfirmed) {
         feedbackAlert(
-          `Appointment ${appointment}`,
+          `${appointment} appointment`,
           `has been deleted.`,
           "success"
         );
@@ -225,7 +225,9 @@ const GeneralContextProvider = (props) => {
 
   const appointmentCtx = {
     appointments: globalState.appointments,
-    
+    getAllAppointmentsHandler,
+    addAppointmentHandler,
+    deleteAppointmentHandler,
   };
 
   const searchHandler = (term) => {
@@ -284,6 +286,7 @@ const GeneralContextProvider = (props) => {
       value={{
         usersCtx,
         petsCtx,
+        appointmentCtx,
         searchValue,
         searchHandler,
         setSearchValue,
