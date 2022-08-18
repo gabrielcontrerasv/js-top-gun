@@ -65,7 +65,7 @@ const GeneralContextProvider = (props) => {
   };
 
   const addUserHandler = async (newUserData) => {
-    const response = await createData("/users", newUserData);
+    const response = await createData("/register", newUserData);
     dispatchGlobalAction({
       type: globalActionType.createUser,
       payload: response,
@@ -176,6 +176,39 @@ const GeneralContextProvider = (props) => {
     });
   };
 
+  const getAllAppointmentsHandler = async () => {
+    const response = await fetchAll("/appointments");
+    dispatchGlobalAction({
+      type: globalActionType.getAllAppointments,
+      payload: response,
+    });
+  };
+
+  const addAppointmentHandler = async (newAppointmentData) => {
+    const response = await createData("/appointments", newAppointmentData);
+    dispatchGlobalAction({
+      type: globalActionType.createAppointment,
+      payload: response,
+    });
+  };
+
+  const deleteAppointmentHandler = async (id, appointment) => {
+    confirmDelete().then(async (result) => {
+      if (result.isConfirmed) {
+        feedbackAlert(
+          `${appointment} appointment`,
+          `has been deleted.`,
+          "success"
+        );
+        await deleteDataById("/appointments", id);
+        dispatchGlobalAction({
+          type: globalActionType.removerAppointment,
+          payload: id,
+        });
+      }
+    });
+  };
+
   const petsCtx = {
     pets: globalState.pets,
     pet: globalState.pet,
@@ -188,6 +221,13 @@ const GeneralContextProvider = (props) => {
     updatePetHandler,
     deletePetHandler,
     deleteRecordHandler,
+  };
+
+  const appointmentCtx = {
+    appointments: globalState.appointments,
+    getAllAppointmentsHandler,
+    addAppointmentHandler,
+    deleteAppointmentHandler,
   };
 
   const searchHandler = (term) => {
@@ -233,7 +273,6 @@ const GeneralContextProvider = (props) => {
       Cookie.remove("token");
       const jwt = Cookie.get("token");
       if (!jwt) {
-        console.log("token deleted");
         router.push("/");
       }
     } catch (error) {
@@ -246,6 +285,7 @@ const GeneralContextProvider = (props) => {
       value={{
         usersCtx,
         petsCtx,
+        appointmentCtx,
         searchValue,
         searchHandler,
         setSearchValue,

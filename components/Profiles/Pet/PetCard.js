@@ -49,15 +49,15 @@ const PetCard = ({ pet }) => {
           </div>
           <div className="text-sm sm:text-md lg:text-lg text-primary-green flex justify-between ">
             <p className="font-semibold drop-shadow-lg shadow-black">Gender:</p>
-            <p>{pet.gender}</p>
+            <p>{pet.GenderId}</p>
           </div>
           <div className="text-sm sm:text-md lg:text-lg text-primary-green flex justify-between ">
             <p className="font-semibold drop-shadow-lg shadow-black">Weight:</p>
-            <p>{pet.species}</p>
+            <p>{pet.weight}</p>
           </div>
           <div className="text-sm sm:text-md lg:text-lg text-primary-green flex justify-between ">
             <p className="font-semibold drop-shadow-lg shadow-black">Breed:</p>
-            <p>{pet.breed}</p>
+            <p>{pet.BreedId}</p>
           </div>
           <div className="text-sm sm:text-md lg:text-lg text-primary-green flex justify-between ">
             <p className="font-semibold drop-shadow-lg shadow-black">

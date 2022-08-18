@@ -1,4 +1,4 @@
-import React from "react";
+
 // Assets
 import { BsTelephone } from "react-icons/bs";
 import { MdOutlineEmergency } from "react-icons/md";
@@ -10,6 +10,7 @@ import Form from "./Form";
 import Navigation from "../Layout/Navigation";
 
 const AppointmentForm = () => {
+ 
   return (
     <>
       <Navigation />

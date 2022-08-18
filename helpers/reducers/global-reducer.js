@@ -4,6 +4,8 @@ const defaultGlobalState = {
   pets: [],
   pet: [],
   records: [],
+  appointments: [],
+  appointment: [],
 };
 
 const globalActionType = {
@@ -19,6 +21,9 @@ const globalActionType = {
   updatePetData: "UPDATE_PET_DATA",
   removePet: "REMOVE_PET",
   removeRecord: "REMOVE_RECORD",
+  getAllAppointments: "GET_ALL_APPOINTMENTS",
+  createAppointment: "CREATE_APPOINTMENT",
+  removerAppointment: "REMOVE_APPOINTMENT",
 };
 
 const globalReducer = (state, action) => {
@@ -53,6 +58,18 @@ const globalReducer = (state, action) => {
         (record) => record.id !== action.payload
       );
       return { ...state, records: updatedRecords };
+    case globalActionType.getAllAppointments:
+      return { ...state, appointments: action.payload };
+    case globalActionType.createAppointment:
+      return {
+        ...state,
+        appointments: [...state.appointments, { ...action.payload }],
+      };
+    case globalActionType.removerAppointment:
+      const updatedAppointments = state.appointments.filter(
+        (appointment) => appointment.id !== action.payload
+      );
+      return { ...state, appointments: updatedAppointments };
     default:
       return defaultGlobalState;
   }
