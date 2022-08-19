@@ -74,8 +74,8 @@ _Herramientas que utilizadas para crear tu proyecto_
 
 _Personas que ayudaron a levantar el proyecto desde sus inicios_
 
-* **Gabriel** - *Trabajo Frontend* 
-* **Nicolas** - *Backend* 
+* **Gabriel** - *Backend Developer* 
+* **Nicolas** - *Frontend Developer* 
 * **Luis** - *Testing* 
 
 También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
