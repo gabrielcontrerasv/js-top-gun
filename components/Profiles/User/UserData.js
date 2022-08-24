@@ -66,7 +66,7 @@ const UserData = ({ user, toggleModal }) => {
           </div>
           <div className="flex text-sm sm:text-lg lg:text- justify-between border-b-[1px] border-dark-green xl:text-2xl xl:font-light drop-shadow-lg shadow-black">
             <p className="font-semibold pb-2">Address:</p>
-            <p>{user?.adress}</p>
+            <p>{user?.address}</p>
           </div>
         </div>
       </div>

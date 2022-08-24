@@ -1,74 +1,65 @@
 import api from "../../axiosApi/api";
 import axios from "axios";
 
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(";");
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == " ") {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
+const getCookie = (name) => {
+  let c = document.cookie.match(
+    `(?:(?:^|.*; *)${name} *= *([^;]*).*$)|^.*$`
+  )[1];
+  if (c) return decodeURIComponent(c);
+};
 
-function getHeaders(token) {
-  return {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${getCookie(token)}`,
-    },
-  };
-}
+axios.interceptors.request.use(
+  (config) => {
+    config.headers.authorization = `Bearer ${getCookie("token")}`;
+    config.headers.common["Accept"] = "application/json";
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 export const fetchAll = async (data) => {
   try {
-    const response = await api.get(data, {}, getHeaders(getCookie("token")));
+    const response = await api.get(data);
     return response.data;
   } catch (error) {
-    console.error("An error occur during GET /users request", error);
+    console.error("An error occur during GET /users request", error.response);
   }
 };
 
 export const fetchById = async (path, id) => {
   try {
-    const response = await api.get(
-      `${path}/${id}`,
-      {},
-      getHeaders(getCookie("token"))
-    );
+    const response = await api.get(`${path}/${id}`);
     return response.data;
-  } catch (error) {}
+  } catch (error) {
+    console.error.apply(error.message);
+  }
 };
 
 export const createData = async (path, newData) => {
-  const response = await api.post(
-    `${path}`,
-    newData,
-    getHeaders(getCookie("token"))
-  );
-  return response.data;
+  try {
+    const response = await api.post(`${path}`, newData);
+    return response.data;
+  } catch (error) {
+    console.error(error, error.message);
+  }
 };
 
 export const updateData = async (path, newData) => {
-  const response = await api.put(
-    `${path}/${newData.id}`,
-    newData,
-    getHeaders(getCookie("token"))
-  );
-  return response.data;
+  try {
+    const response = await api.put(`${path}/${newData.id}`, newData);
+    return response.data;
+  } catch (error) {
+    console.error(error, error.message);
+  }
 };
 
 export const deleteDataById = async (path, id) => {
-  const response = api.delete(
-    `${path}/${id}`,
-    {},
-    getHeaders(getCookie("token"))
-  );
-  return response.data;
+  try {
+    const response = api.delete(`${path}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.log(error, error.message);
+  }
 };

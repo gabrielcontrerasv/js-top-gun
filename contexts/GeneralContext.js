@@ -65,7 +65,7 @@ const GeneralContextProvider = (props) => {
   };
 
   const addUserHandler = async (newUserData) => {
-    const response = await createData("/register", newUserData);
+    const response = await createData("/users", newUserData);
     dispatchGlobalAction({
       type: globalActionType.createUser,
       payload: response,

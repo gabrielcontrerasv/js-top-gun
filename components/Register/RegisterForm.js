@@ -55,7 +55,7 @@ const RegisterForm = () => {
             autoComplete="off"
             type="text"
             placeholder="Last Name"
-            {...register("lastname", {
+            {...register("lastName", {
               required: { value: true, message: "*Required field" },
             })}
           />
@@ -84,7 +84,7 @@ const RegisterForm = () => {
           sm:pl-4 pr-3 focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1"
             type="text"
             placeholder="Gender"
-            {...register("GenderId", {
+            {...register("gender", {
               required: {
                 value: true,
                 message: "*Required field",
@@ -133,9 +133,9 @@ const RegisterForm = () => {
           <input
             className="block w-full rounded-md py-2 pl-3 max-h-9 text-sm md:text-md bg-gray-200 placeholder:text-gray-600 placeholder:text-sm focus:outline-none focus:border-mid-green focus:ring-mid-green focus:ring-1 2xl:py-4  "
             autoComplete="off"
-            type="date"
-            placeholder="birthday"
-            {...register("birthday", {
+            type="text"
+            placeholder="age"
+            {...register("age", {
               required: { value: true, message: "*Required field" },
             })}
           />
@@ -149,7 +149,7 @@ const RegisterForm = () => {
             autoComplete="off"
             type="text"
             placeholder="Address"
-            {...register("adress", {
+            {...register("address", {
               required: { value: true, message: "*Required field" },
             })}
           />
@@ -177,7 +177,7 @@ const RegisterForm = () => {
             autoComplete="off"
             type="password"
             placeholder="Confirm Password"
-            {...register("passwordconfirm", {
+            {...register("confirmPassword", {
               required: { value: true, message: "*Required field" },
             })}
           />

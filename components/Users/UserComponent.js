@@ -12,7 +12,6 @@ const UserComponent = () => {
     useContext(GeneralContext);
 
   const { users, getAllUsersHandler } = usersCtx;
-  console.log(users);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(2);

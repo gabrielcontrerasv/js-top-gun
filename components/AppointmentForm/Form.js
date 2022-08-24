@@ -1,5 +1,6 @@
 import React from "react";
 import ErrorFormMsg from "../ErrorFormMsg/ErrorFormMsg";
+import { useRouter } from "next/router";
 // 3rd Party Library
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
@@ -8,6 +9,7 @@ import { feedbackAlert } from "../../helpers/alerts/alerts";
 // ---------- //
 
 const Form = () => {
+  const { push } = useRouter();
   const {
     handleSubmit,
     register,
@@ -20,6 +22,7 @@ const Form = () => {
   const onSubmitHandler = (values) => {
     addAppointmentHandler(values);
     feedbackAlert(values.service, "has been register successfully", "success");
+    push("/appointmentsList");
   };
 
   return (
